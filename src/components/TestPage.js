@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FileUpload } from 'primereact/fileupload';
 import { Toast } from 'primereact/toast';
 import axios from 'axios';
-import AppSets from '../service/AppSettings';
+import AppSets from '../service/AppSets';
 
 export default class EmptyPage extends Component {
     state = {

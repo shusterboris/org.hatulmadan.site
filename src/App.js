@@ -9,6 +9,8 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import './App.scss';
+import AppSets from './service/AppSets';
+import EmptyPage from './components/TestPage';
 
 const App = () => {
 
@@ -177,7 +179,7 @@ const App = () => {
     }, topbarColor, menuColor);
 
     const routers = [
-        {path: "/" , component: Login, exact: true},
+        {path: "/" , component: EmptyPage, exact: true},
         {path: "/login", component:Login},
 		{path: "/public/" },
     ];
@@ -185,14 +187,12 @@ const App = () => {
     const getAppMenu = () => {
         let menu = [];
         menu =  [
-            {label: 'О нас', icon: 'pi pi-th-large', to: '/help'},
-            {
-                label: 'Разное', icon: 'pi pi-list',
-                items: [
-                    {label: 'Коты', icon: 'pi pi-sitemap', to: '/help'},
-                    {label: 'Котики', icon: 'pi pi-users', to: '/help'},
-                ]
-            },];  
+            {label: 'Главная', icon: 'pi pi-th-large', to: '/help'},
+            {label: 'Курсы', icon: 'pi pi-th-large', to: '/help'},
+            {label: 'Новости', icon: 'pi pi-th-large', to: '/help'},
+            {label: 'Команда', icon: 'pi pi-th-large', to: '/help'},
+            {label: 'Проекты', icon: 'pi pi-th-large', to: '/help'},
+        ];  
         return menu;  
     }
 
