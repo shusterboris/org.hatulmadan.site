@@ -48,13 +48,16 @@ const AppTopbar = (props) => {
 				<div className="layout-menubutton-icon" />
 			</button>
 
-			<div className="layout-topbar-grid">
+			<div className="layout-topbar-grid layout-topbar-grid-column-fixed">
 				<div className="layout-topbar-grid-column ">
-					<button type="button" className="layout-logo p-link" onClick={() => { window.location = "/#" }}>
-						<img src="/assets/images/hatul-logo.png" alt="logotype"/>
-					</button>
+					{/* <button type="button" className=" layout-logo p-link" onClick={() => { window.location = "/#" }}>
+						 <img src="/assets/images/hatul_logo.jpg"  alt="logotype"/> 
+					</button> */}
+					<img src="/assets/images/hatul_logo.jpg" height="40px" alt="logotype"/> 
+					<div >
+				         חתול מדען
+				    </div>
 				</div>
-
 				<div className="layout-topbar-grid-column">
 					<AppMenu model={props.model} horizontal={props.horizontal} menuHoverActive={props.menuHoverActive} isMobile={props.isMobile}
 						onMenuItemClick={props.onMenuItemClick} onRootMenuItemClick={props.onRootMenuItemClick} onSidebarClick={props.onSidebarClick} />

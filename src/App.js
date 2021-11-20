@@ -10,20 +10,23 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import './App.scss';
 import AppSets from './service/AppSets';
-import EmptyPage from './components/TestPage';
-
+import EmptyPage from './components/MainPage';
+import CoursesPage from './components/CoursesPage';
+import NewsPage from './components/NewsPage';
+import ProjPage from './components/ProjPage';
+import TeamPage from './components/TeamPage';
 const App = () => {
 
     const [horizontal, setHorizontal] = useState(true);
     const [topbarSize, setTopbarSize] = useState('large');
-    const [topbarColor, setTopbarColor] = useState('layout-topbar-blue');
+    const [topbarColor, setTopbarColor] = useState('layout-topbar-faraway');
     const [menuColor, setMenuColor] = useState('layout-menu-light');
     const [menuActive, setMenuActive] = useState(false);
     const [menuHoverActive, setMenuHoverActive] = useState(false);
     const [topbarUserMenuActive, setTopbarUserMenuActive] = useState(false);
     const [compactMode, setCompactMode] = useState(false);
-    const [layoutColor, setLayoutColor] = useState('blue');
-    const [themeColor, setThemeColor] = useState('blue');
+    const [layoutColor, setLayoutColor] = useState('deeporange');
+    const [themeColor, setThemeColor] = useState('deeporange');
     const [inputStyle, setInputStyle] = useState('outlined');
     const [ripple, setRipple] = useState(true);
 
@@ -180,6 +183,11 @@ const App = () => {
 
     const routers = [
         {path: "/" , component: EmptyPage, exact: true},
+        {path: "/main" , component: EmptyPage, exact: true},
+        {path: "/courses" , component:CoursesPage,exact: true},
+        {path: "/news" , component:NewsPage,exact: true},
+        {path: "/projects" , component:ProjPage,exact: true},
+        {path: "/team" , component:TeamPage,exact: true},
         {path: "/login", component:Login},
 		{path: "/public/" },
     ];
@@ -187,11 +195,11 @@ const App = () => {
     const getAppMenu = () => {
         let menu = [];
         menu =  [
-            {label: 'Главная', icon: 'pi pi-th-large', to: '/help'},
-            {label: 'Курсы', icon: 'pi pi-th-large', to: '/help'},
-            {label: 'Новости', icon: 'pi pi-th-large', to: '/help'},
-            {label: 'Команда', icon: 'pi pi-th-large', to: '/help'},
-            {label: 'Проекты', icon: 'pi pi-th-large', to: '/help'},
+            {label: 'Главная', icon: 'pi pi-th-large', to: '/main'},
+            {label: 'Курсы', icon: 'pi pi-th-large', to: '/courses'},
+            {label: 'Новости', icon: 'pi pi-th-large', to: '/news'},
+            {label: 'Проекты', icon: 'pi pi-th-large', to: '/projects'},
+            {label: 'Команда', icon: 'pi pi-th-large', to: '/team'},
         ];  
         return menu;  
     }
@@ -208,7 +216,7 @@ const App = () => {
 
             </div>
 
-            <div className="layout-content">
+           <div className="layout-content">
                 {
                     routers.map((router, index) => {
                         if (router.exact) {
@@ -218,8 +226,9 @@ const App = () => {
                         return <Route key={`router${index}`} path={router.path} component={router.component} />
                     })
                 }
-            </div>
-
+            </div> 
+                    
+               
             <AppConfig topbarSize={topbarSize} onTopbarSizeChange={onTopbarSizeChange}
                 topbarColor={topbarColor} onTopbarThemeChange={onTopbarThemeChange}
                 horizontal={horizontal} onMenuToHorizontalChange={onMenuToHorizontalChange}
