@@ -9,7 +9,6 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import './App.scss';
-import AppSets from './service/AppSets';
 import EmptyPage from './components/MainPage';
 import CoursesPage from './components/CoursesPage';
 import NewsPage from './components/NewsPage';
