@@ -43,6 +43,7 @@ export default class MainPage extends Component {
                     <img src="assets/images/globalCat.jpg" width ="70%" alt="fignya"/>
             </div>
          </div>
+          
         </Panel>
        )     
     }

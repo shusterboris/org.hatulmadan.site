@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'primereact/card';
 import { Panel } from 'primereact/panel';
+import { Tag } from 'primereact/tag';
 export default class CoursesPage extends Component {
     state = {};
     constructor(props) {
@@ -24,6 +25,14 @@ export default class CoursesPage extends Component {
                        <p>Для детей 12-14 лет</p>
                     </Card>            
                 </div>
+                <div  className="p-col-6">
+                <Tag className="p-mr-2" severity="warning" value="Важно" rounded></Tag>
+                <div> Зачем учить детей программированию ?          </div>
+                <div> Чтобы привыкали          </div>
+                <Tag className="p-mr-2" severity="warning" value="Важно" rounded></Tag>
+                <div> Чем вы лучше?           </div>
+                <div> Потому         </div>
+            </div>
             </div>
             </Panel>)
     }
