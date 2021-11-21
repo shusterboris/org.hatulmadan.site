@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'primereact/card';
 import { Panel } from 'primereact/panel';
-import AppSets from '../service/AppSets';
+import '../hatul.css';
 
 export default class MainPage extends Component {
     state = {
@@ -21,18 +21,18 @@ export default class MainPage extends Component {
            
             <div className="p-col-7">
             {/* style={{backgroundColor:var(--blue-500)}} */}
-               <div  className="p-text-center"  >
-               <i className="pi pi-cog" style={{color:"deeporange"}}></i>
-                    <h3>Вас приветствует онлайн школа Хатуль мадан</h3>
+               <div  className=" p-card-title p-text-center"  >
+                    <i className="pi pi-cog"></i>
+                    <div>Вас приветствует онлайн школа Хатуль мадан</div>
                 </div> 
                 
-                <div  className="p-text-center" >
+                <div className="p-card-title p-orange p-text-center">
                     <i className="pi pi-cog"></i>
-                    <h3>Наша миссия - ввести взрослых и детей в мир высоких технологий. Рассказываем просто о сложном</h3>
-                    <i className="pi pi-cog"></i>
+                    <div>Наша миссия - ввести взрослых и детей в мир высоких технологий. Рассказываем просто о сложном</div>
                 </div>  
              
-                <div  className="p-text-center">
+                <div  className="p-text-center" >
+                    <i className="pi pi-cog"></i>
                    <h3> Мы предлагаем: </h3>
                    <h5>Детям: программирование на <b>Scratch</b>, программирование на <b>python</b> </h5> 
                    <h5>Взрослым: ручное и автоматическое  <b>тестирование</b>, тренинги по подготовке к <b>собеседованиям</b>,

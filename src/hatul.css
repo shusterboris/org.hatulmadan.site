@@ -1,0 +1,9 @@
+.p-card-title {
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 18pt;
+}
+
+.p-orange {
+  color: #f5815e;
+}
