@@ -14,6 +14,7 @@ import CoursesPage from './components/CoursesPage';
 import NewsPage from './components/NewsPage';
 import ProjPage from './components/ProjPage';
 import TeamPage from './components/TeamPage';
+import FAQPage from './components/FAQPage';
 const App = () => {
 
     const [horizontal, setHorizontal] = useState(true);
@@ -187,6 +188,7 @@ const App = () => {
         {path: "/news" , component:NewsPage,exact: true},
         {path: "/projects" , component:ProjPage,exact: true},
         {path: "/team" , component:TeamPage,exact: true},
+        {path: "/faq", component:FAQPage,exact: true},
         {path: "/login", component:Login},
 		{path: "/public/" },
     ];
@@ -196,6 +198,7 @@ const App = () => {
         menu =  [
             {label: 'Главная', icon: 'pi pi-th-large', to: '/main'},
             {label: 'Курсы', icon: 'pi pi-th-large', to: '/courses'},
+            {label: 'FAQ', icon: 'pi pi-th-large', to: '/faq'},
             {label: 'Новости', icon: 'pi pi-th-large', to: '/news'},
             {label: 'Проекты', icon: 'pi pi-th-large', to: '/projects'},
             {label: 'Команда', icon: 'pi pi-th-large', to: '/team'},
