@@ -1,9 +1,16 @@
 .p-card-title {
-  color: var(--primary-color);
+  color: #614200;;
   font-weight: 500;
   font-size: 18pt;
 }
-
 .p-orange {
-  color: #f5815e;
+  color: #614200;
+}
+.p-red {
+  color: #bd8600;
+  font-size: 1.5em;
+}
+.p-menu-custom {
+  color:white;
+  font-size: .8em;
 }

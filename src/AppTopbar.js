@@ -4,7 +4,7 @@ import AppMenu from './AppMenu';
 import { Ripple } from 'primereact/ripple';
 import { useHistory} from 'react-router-dom';
 import AppSets from './service/AppSets';
-
+import './hatul.css';
 const AppTopbar = (props) => {
 
 	let topbarMenuClassName = classNames('layout-profile-menu fadeInDown ', { 'layout-profile-menu-active': props.topbarUserMenuActive });
@@ -49,45 +49,25 @@ const AppTopbar = (props) => {
 			</button>
 
 			<div className="layout-topbar-grid layout-topbar-grid-column-fixed">
-				<div className="layout-topbar-grid-column ">
-					{/* <button type="button" className=" layout-logo p-link" onClick={() => { window.location = "/#" }}>
-						 <img src="/assets/images/hatul_logo.jpg"  alt="logotype"/> 
-					</button> */}
+				<div className="layout-topbar-grid-column layout-topbar-grid-column-fixed ">
 					<img src="/assets/images/hatul_logo.jpg" height="40px" alt="logotype"/> 
-					<div >
-				         חתול מדען
-				    </div>
 				</div>
+				<div className="layout-topbar-grid-column p-red layout-topbar-grid-column-fixed p-pl-6 p-pr-6">
+					 חתול מדען
+				
+					</div>	
 				<div className="layout-topbar-grid-column">
 					<AppMenu model={props.model} horizontal={props.horizontal} menuHoverActive={props.menuHoverActive} isMobile={props.isMobile}
 						onMenuItemClick={props.onMenuItemClick} onRootMenuItemClick={props.onRootMenuItemClick} onSidebarClick={props.onSidebarClick} />
 				</div>
-				<div className="layout-topbar-grid-column layout-topbar-grid-column-fixed">
-					"?"
+				<div className="layout-topbar-grid-column layout-topbar-grid-column-fixed p-menu-custom">
+				   <div><i className="pi pi-phone" ></i> +972 53-640-5871</div>
+				   <div><i className="pi pi-facebook" ></i> <a className="p-menu-custom" href="https://www.facebook.com/groups/Khatulmadan">facebook</a></div>
 				</div>
 
-				<div className="layout-topbar-grid-column layout-topbar-grid-column-fixed">
-					<button type="button" className="p-link profile-menu-button" onClick={props.onTopbarUserMenuButtonClick}>
-						<img src="assets/layout/images/avatar.png" alt="Profile" />
-					</button>
-					<ul className={topbarMenuClassName} onClick={props.onTopbarUserMenuClick}>
-
-						<li role="menuitem">
-							<button type="button" className="p-link p-ripple" onClick={(e)=>onItemClick(e,1)}>
-								<i className="pi pi-key"></i>
-								<span>{AppSets.getUser() ? "Смена пользователя" : "Вход в систему"}</span>
-                                <Ripple />
-							</button>
-						</li>
-						{AppSets.user &&
-							<li role="menuitem">
-								<button type="button" className="p-link p-ripple" onClick={(e)=>onItemClick(e,2)}>
-									<i className="pi pi-times"></i>
-									<span>Выход</span>
-									<Ripple />
-								</button>
-							</li>}
-					</ul>
+				<div className="layout-topbar-grid-column layout-topbar-grid-column-fixed p-menu-custom p-pl-3">
+					
+				<i className="pi pi-globe" ></i> RU	
 				</div>
 			</div>
 		</div>
