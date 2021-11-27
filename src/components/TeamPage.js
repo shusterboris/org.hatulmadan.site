@@ -16,7 +16,9 @@ export default class TeamPage extends Component {
       
     render() {
         const header1 = (
-            <img alt="Card" src="assets/images/o.jpg" width="260px" />
+            <div  style={{width:132, display:'block', marginRight:'auto', marginLeft:'auto'}}>
+                <img alt="Card" src="assets/images/o.jpg" />
+            </div>
         );
         const header2 = (
             <img alt="Card" src="assets/images/bs.jpg"  />
@@ -54,9 +56,9 @@ export default class TeamPage extends Component {
             <div className="p-col-4">
                  <img src="assets/images/teamCat.jpg" width ="70%" alt="fignya"/>
             </div>
-            <div className="p-col-3">
+            <div className="p-col-2">
             <Card title="Владимир Олевский" subTitle="Менеджер, администратор и организатор практических занятий" 
-             header={<img src="assets/images/o.jpg" width="10%"  alt="Card"/>}>
+                    header={header1}>
                     <p className="p-m-0" style={{lineHeight: '1.5'}}>специалист по QA</p>
             </Card>
             </div>    
