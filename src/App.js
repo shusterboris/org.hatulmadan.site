@@ -201,7 +201,7 @@ const App = () => {
             {label: 'FAQ', icon: 'pi pi-th-large', to: '/faq'},
             {label: 'Новости', icon: 'pi pi-th-large', to: '/news'},
             {label: 'Проекты', icon: 'pi pi-th-large', to: '/projects'},
-            {label: 'Команда', icon: 'pi pi-th-large', to: '/team'},
+            {label: 'О нас', icon: 'pi pi-th-large', to: '/team'},
         ];  
         return menu;  
     }
@@ -231,15 +231,7 @@ const App = () => {
             </div> 
                     
                
-            <AppConfig topbarSize={topbarSize} onTopbarSizeChange={onTopbarSizeChange}
-                topbarColor={topbarColor} onTopbarThemeChange={onTopbarThemeChange}
-                horizontal={horizontal} onMenuToHorizontalChange={onMenuToHorizontalChange}
-                menuColor={menuColor} onMenuThemeChange={onMenuThemeChange}
-                themeColor={themeColor} onThemeColorChange={onThemeColorChange}
-                layoutColor={layoutColor} onLayoutColorChange={onLayoutColorChange}
-                compactMode={compactMode} onCompactModeChange={onCompactModeChange}
-                rippleActive={ripple} onRippleChange={onRippleChange}
-                inputStyle={inputStyle} onInputStyleChange={onInputStyleChange} />
+            
 
             {menuActive && <div className="layout-mask" />}
         </div>

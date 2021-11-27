@@ -70,7 +70,7 @@ export default class CoursesPage extends Component {
                     subTitle="Для детей 10-12 лет" style={{ width: '25em' }}>
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                             Авторский курс. Интересные задачи, интересные факты. И скорая помощь по школьным заданиям.
-                            Занятия русском языке </p>
+                            Занятия на русском языке </p>
                         </Card> 
                 </div>
             </div>      

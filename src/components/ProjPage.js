@@ -67,10 +67,31 @@ export default class ProjPage extends Component {
         </div>
         <div  className="p-col-6">
           
-                <Card title="Клуб совместных покупок  " >
-                   <p>КМобильное приложение</p>
-                </Card>   
-                         
+                <Card title="Клуб совместных покупок" style={{ width: '40em' }}>
+                   <p>Содержит каталог товаров, доступных для заказа,
+                        список поставщиков и заказчиков. Состоит из мобильного приложения и Telegram-бота</p>
+                        <h5>Мобильное приложение</h5>
+                        <Tag className="p-mr-2" severity="info" value="функции" rounded></Tag>
+                        <ui>
+                            <li>Каталог товаров с функциями поиска</li>
+                            <li>Сбор заказов на товары</li>
+                            <li>Организация доставки товаров</li>
+                            <li>Отслеживание оплат от заказчиков</li>
+                        </ui>
+                        <Tag className="p-mr-2" severity="info" value="Технологии" rounded></Tag> Java, Android
+                        <h5>Telegram-бот для  сбора заказов</h5>
+                        <Tag className="p-mr-2" severity="info" value="Технологии" rounded></Tag> python
+                        <p> <b>backend:</b> Java, Spring Boot, MySQL</p>
+                </Card> 
+                </div>
+                <div  className="p-col-6">  
+                <Card title="Обучающие программы для детей" style={{ width: '40em' }}>
+                    <ui>
+                        <li>Популярные игры с графикой и звуком</li>
+                        <li>Тренажер слов. Могут использоваться разные словари разных языков, слова дополняются картинками и звуком</li>
+                        </ui>
+                    <Tag className="p-mr-2" severity="info" value="Технологии" rounded></Tag> python
+                    </Card>
             </div>
         </div>
        

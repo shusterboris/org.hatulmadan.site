@@ -1507,8 +1507,8 @@ body a:hover {
 
 .layout-top {
   padding-top: 15px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .layout-topbar:before, .layout-topbar:after {
@@ -19225,7 +19225,7 @@ body a:hover {
 }
 
 .layout-content {
-  padding: 0 100px;
+  padding: 0;
   flex: 1 1 0;
 }
 
