@@ -17,3 +17,9 @@
 .p-logo{
   color:rgb(252, 213, 25);
 }
+.p-team-img {
+  width: 132px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
