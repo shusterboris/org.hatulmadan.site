@@ -3,10 +3,6 @@ import { Card } from 'primereact/card';
 import { Panel } from 'primereact/panel';
 export default class CoursesPage extends Component {
     state = {};
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return ( <Panel>
             <div className="p-grid">

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { Route } from 'react-router-dom';
 import AppTopbar from './AppTopbar';
-import AppConfig from './AppConfig';
 import PrimeReact from 'primereact/api';
 import {Login} from './components/Login';
 import 'primereact/resources/primereact.min.css';
@@ -132,34 +131,6 @@ const App = () => {
 
     const isMobile = () => {
         return window.innerWidth <= 1024;
-    };
-
-    const onTopbarSizeChange = (size) => {
-        setTopbarSize(size);
-    };
-
-    const onTopbarThemeChange = (color) => {
-        setTopbarColor('layout-topbar-' + color);
-    };
-
-    const onMenuToHorizontalChange = (mode) => {
-        setHorizontal(mode);
-    };
-
-    const onMenuThemeChange = (color) => {
-        setMenuColor('layout-menu-' + color);
-    };
-
-    const onThemeColorChange = (color) => {
-        setThemeColor(color);
-    };
-
-    const onLayoutColorChange = (color) => {
-        setLayoutColor(color)
-    };
-
-    const onCompactModeChange = (mode) => {
-        setCompactMode(mode);
     };
 
     useEffect(() => {

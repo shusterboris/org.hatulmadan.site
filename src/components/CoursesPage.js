@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { Card } from 'primereact/card';
 import { Panel } from 'primereact/panel';
-import { Tag } from 'primereact/tag';
 export default class CoursesPage extends Component {
     state = {};
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return ( <Panel>

@@ -1,22 +1,15 @@
 import React, { useState, useRef }  from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import { useHistory} from 'react-router-dom';
 import {Toast} from 'primereact/toast';
 
 export const Login = (props) => {
-	const history = useHistory();
 	const [userName, setUserName] = useState('');
 	const [password, setPassword] = useState('');
 	const [newPassword, setNewPassword] = useState('');
 	const [newPassword2, setNewPassword2] = useState('');
 	const [changeMode, setChangeMode] = useState(false);	
 	const messages = useRef(null);
-
-
-    const showMessage = (msgParams) => {
-        messages.current.show(msgParams)
-    }
 
 	const goForward = () => {
 	}

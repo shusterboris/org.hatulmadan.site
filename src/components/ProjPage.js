@@ -8,12 +8,6 @@ export default class ProjPage extends Component {
          value1:'',value2:'',value3:'',
     }
 
-    constructor(props){
-        super(props);
-      
-    }
-
-      
     render() {
         return(
         <Panel>

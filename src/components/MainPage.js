@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
-import { Card } from 'primereact/card';
 import { Panel } from 'primereact/panel';
 import '../hatul.css';
 import { Tag } from 'primereact/tag';
-import { Divider } from 'primereact/divider';
-import { Chip } from 'primereact/chip';
 export default class MainPage extends Component {
     state = {
          value1:'',value2:'',value3:'',
     }
-
-    constructor(props){
-        super(props);
-      
-    }
-
        
     render() {
         return(

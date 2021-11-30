@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Card } from 'primereact/card';
 import { Panel } from 'primereact/panel';
 import { Tag } from 'primereact/tag';
 
@@ -7,12 +6,6 @@ export default class ProjPage extends Component {
     state = {
          value1:'',value2:'',value3:'',
     }
-
-    constructor(props){
-        super(props);
-      
-    }
-
       
     render() {
         return(

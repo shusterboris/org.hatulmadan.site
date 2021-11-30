@@ -1,13 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import AppMenu from './AppMenu';
-import { Ripple } from 'primereact/ripple';
 import { useHistory} from 'react-router-dom';
-import AppSets from './service/AppSets';
 import './hatul.css';
 const AppTopbar = (props) => {
 
-	let topbarMenuClassName = classNames('layout-profile-menu fadeInDown ', { 'layout-profile-menu-active': props.topbarUserMenuActive });
 	let menuButtonClassName = classNames('layout-menubutton ', { 'layout-menubutton-active': props.menuActive })
 	const history = useHistory();
 

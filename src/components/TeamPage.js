@@ -8,26 +8,7 @@ export default class TeamPage extends Component {
          value1:'',value2:'',value3:'',
     }
 
-    constructor(props){
-        super(props);
-      
-    }
-
-      
     render() {
-        const header1 = (
-            <div  style={{width:132, display:'block', marginRight:'auto', marginLeft:'auto'}}>
-                <img alt="Card" src="assets/images/o.jpg" />
-            </div>
-        );
-        const header2 = (
-            <div classname="p-team-img">
-            <img alt="Card" src="assets/images/bs.jpg"  />
-            </div>
-        );
-        const header3 = (
-            <img alt="Card" src="assets/images/is.jpg"  />
-        );
         return(
         <Panel>
               
@@ -71,32 +52,32 @@ export default class TeamPage extends Component {
                    
             </div>    
             <div className="p-col-4">
-            <img src="assets/images/bs.jpg" /> 
+            <img src="assets/images/bs.jpg" alt="Фото преподавателя. Борис Шустер"/> 
             <Card title="Борис Шустер" subTitle="Преподаватель программирования и основ IT" >
-                 <p className="p-m-0" style={{lineHeight: '1.5'}}>Программист с 30-летним опытом работы. Сертифицированный IBM специалист. Как ведущий разработчик принимал участие в крупных международных проектах</p>
+                 <p className="p-m-0" style={{lineHeight: '1.5'}}>Программист с 30-летним опытом работы. Сертифицированный IBM специалист. Как ведущий разработчик принимал участие в крупных международных проектах. Проекты в 6 странах. Любит, когда все работает, как следует. </p>
             </Card>
             </div>  
                
             <div className="p-col-4 p-pr-6 ">
-            <img src="assets/images/d.jpg" /> 
-           <Card title="Александр Данковский" subTitle="Преподаватель математикм" >
+            <img src="assets/images/d.jpg" alt="Фото преподавателя. Александр Данковский"/> 
+           <Card title="Александр Данковский" subTitle="Преподаватель математики" >
                  <p className="p-m-0" style={{lineHeight: '1.5'}}>Закончил Физико-технический факультет Харьковского университета. Много лет занимался экономической журналистикой. Также преподает детям физику, математику, а иногда даже химию и все это с эксурсом в историю. </p>
             </Card>
             </div> 
             <div className="p-col-4 p-pl-6 ">
-            <img src="assets/images/a.jpg" /> 
+            <img src="assets/images/a.jpg" alt="Фото преподавателя. Андрей Кудря"/> 
             <Card title="Андрей Кудря " subTitle="Преподаватель QA и английского языка" >
                  <p className="p-m-0" style={{lineHeight: '1.5'}}>Профессиональный преподаватель с многолетним опытом. Освоил профессию тестировщика и вас научит.  </p>
             </Card>
             </div>    
             <div className="p-col-4">
-            <img src="assets/images/гоша.jpg" /> 
+            <img src="assets/images/gosha.jpg" alt="Фото преподавателя. Георгий Вайнер"/> 
             <Card title="Георгий Вайнер" subTitle="Преподаватель программирования и технического иврита" >
                  <p className="p-m-0" style={{lineHeight: '1.5'}}> Студент информационного факультета  в Технионе.  </p>
             </Card>
             </div>    
             <div className="p-col-4 p-pr-6 ">
-            <img src="assets/images/is.jpg" /> 
+            <img src="assets/images/is.jpg" alt="Фото преподавателя. Инна Шустер"/> 
             <Card title="Инна Шустер" subTitle="Разработчик учебных программ">
                     <p className="p-m-0" style={{lineHeight: '1.5'}}>Программист с многолетним опытом работы в проектах разного масштаба. Сертифицированный IBM специалист. Консультант ВОЗ. Любимая роль в проектах - работать бритвой Оккама</p>
             </Card>
@@ -107,30 +88,30 @@ export default class TeamPage extends Component {
             </h3>   
             </div>  
             <div className="p-col-4 p-pl-6 ">
-            <img src="assets/images/js.jpg" /> 
+            <img src="assets/images/js.jpg" alt="Фото преподавателя. Евгений"/> 
             <Card title="Евгений Шустер" subTitle="Ведет индивидуальные уроки программирования">
                     <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                        В настоящее время совмещает службу в ЦАХАЛ и работу в стартапе как электронщик и программист</p>
+                        В настоящее время совмещает службу в ЦАХАЛ и работу в стартапе как электронщик и программист. Любит микроконтроллеры, С++ и все, что летает.</p>
             </Card>
             </div> 
             <div className="p-col-4 ">
-            <img src="assets/images/anya.jpg" /> 
-            <Card title="Аня Олевская" subTitle="Ведет индивидуальные уроки программирования">
-                    <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                        Ученица 6 класса. Верный помощник, когда взрослые все ушли на задание </p>
-            </Card>
-            </div> 
-            <div className="p-col-12 p-pl-6 ">
-            <h3  className="p-orange">
-                    Служба технической поддержки 
-            </h3>   
-            <img src="assets/images/k.jpg" width="10%"/> 
-            <Card title="Файерфокс" subTitle="Работает талисманом">
-                    <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                      Сделал блестящую карьеру: с помойки -в кота программистов  </p>
-            </Card>
+                <img src="assets/images/anya.jpg" alt="Фото преподавателя. Аня"/> 
+                <Card title="Аня Олевская" subTitle="Ведет индивидуальные уроки программирования">
+                        <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                            Ученица 6 класса. Верный помощник, когда взрослые все ушли на задание </p>
+                </Card>
+                </div> 
+                <div className="p-col-12 p-pl-6 ">
+                <h3  className="p-orange">
+                        Служба технической поддержки 
+                </h3>   
+                <img src="assets/images/firefoxcat.jpg" width="10%" alt="Кот Файрфокс. Наш талисман"/> 
+                <Card title="Файрфокс" subTitle="Работает талисманом">
+                        <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                        Карьера в IT! Прошел этапы: кот с помойки на цыганском поселке, участник волонтерского проекта, кот программистов  </p>
+                </Card>
 
-                </div>
+            </div>
         </div>
         </Panel>
        )     
