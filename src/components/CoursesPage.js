@@ -31,8 +31,8 @@ export default class CoursesPage extends Component {
                 <div className="p-col-4">
                     <Card title="QA для продвинутых" subTitle="Автоматическое тестирование " style={{ width: '25em' }}>
                     <p className="p-m-0"style={{lineHeight: '1.5'}} >
-                        Продолжительность курса - 6 мес. Язык обучения - русский
-                          Изучение  D(ocument)O(bject)M(Model). Написание тестов на JavaScript. Использование Selenium
+                        Продолжительность курса - 6 мес. Язык обучения - русский.
+                          Изучение  <b>DOM</b>(Document Object Model). Написание тестов на JavaScript. Использование Selenium
                             Практикум :  реальные задачи, фриланс - платформы, практика в различных стартапах...
                             </p>
                     </Card>

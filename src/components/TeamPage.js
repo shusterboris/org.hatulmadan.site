@@ -100,15 +100,26 @@ export default class TeamPage extends Component {
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                             Ученица 6 класса. Верный помощник, когда взрослые все ушли на задание </p>
                 </Card>
-                </div> 
-                <div className="p-col-12 p-pl-6 ">
+            </div>
+            <div className="p-col-4 ">
+                <img src="assets/images/vs.jpg" alt="Фото художника"/> 
+                <Card title="Василий Шушпанов" subTitle="Автор всех рисунков">
+                        <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                        Замечательный художник из Санкт-Петербурга. Он не только котов умеет рисовать, поверьте  </p>
+                </Card>
+            </div>
+            <div className="p-col-12 p-pl-6 ">                  
                 <h3  className="p-orange">
                         Служба технической поддержки 
                 </h3>   
                 <img src="assets/images/firefoxcat.jpg" width="10%" alt="Кот Файрфокс. Наш талисман"/> 
                 <Card title="Файрфокс" subTitle="Работает талисманом">
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                        Карьера в IT! Прошел этапы: кот с помойки на цыганском поселке, участник волонтерского проекта, кот программистов  </p>
+                        Успешная карьера в IT! 
+                        <ui>Прошел этапы: 
+                            <li>кот с помойки на цыганском поселке, </li> 
+                             <li>участник волонтерского проекта, </li> 
+                             <li>кот программистов </li> </ui> </p>
                 </Card>
 
             </div>

@@ -13,7 +13,7 @@ export default class MainPage extends Component {
                  
          <div className="p-grid p-align-top vertical-container"> 
                        <div className="p-col-5 p-pl-4 p-pt-6">
-                       <h3 className="p-orange">Вас приветствует школа Хатуль мадан. </h3>
+                       <h3 className="p-orange">Вас приветствует школа "Хатуль мадан". </h3>
                    <h5>Наша миссия - ввести взрослых и детей в мир высоких технологий. Рассказываем просто о сложном. </h5>
                 <h3 className="p-orange"> Мы предлагаем: </h3> 
                  <h5 >   <Tag className="p-mr-2" severity="warning" value="Детям:" rounded></Tag>  программирование на <b>python</b> , 

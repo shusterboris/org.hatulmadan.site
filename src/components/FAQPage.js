@@ -18,7 +18,8 @@ export default class ProjPage extends Component {
                     <div  className="p-text-center p-red"> FAQ</div>
                     <Tag className="p-mr-2" severity="warning" value="Как?" rounded></Tag>
                     <div className="p-text-bold"> Как проходят занятия? </div>
-                    <div className="p-text-justify"> Занятия проходят on-line, в удобное для всех время, обычно вечером. Дополнительно даются домашние задания. По домашним заданиям можно lополнительно консультироваться с преподпаптелями </div>
+                    <div className="p-text-justify"> Занятия проходят on-line, в удобное для всех время, обычно вечером. Дополнительно даются домашние задания. 
+                    По домашним заданиям можно дополнительно консультироваться с преподавателями </div>
                     <Tag className="p-mr-2" severity="warning" value="Зачем?" rounded></Tag>
                     <div  className="p-text-bold"> Зачем учить детей программированию ?         </div>
                     <div className="p-text-justify"> Изучение программирования помогает детям развивать масштабное мышление и творческие способности, воспитывает умение вникать в суть проблемы и решать ее, учит работать в команде, 
