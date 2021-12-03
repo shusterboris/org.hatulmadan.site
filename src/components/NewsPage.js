@@ -9,13 +9,15 @@ export default class CoursesPage extends Component {
                 <div className="p-col-3 p-pl-4">
                 <h3  className="p-orange">Новости, объявления, истории, отчеты о мероприятиях 
                 </h3>
-                 <img src="assets/images/red1.jpg" width ="40%" alt="fignya"/>
-                
+                <p> <img src="assets/images/red1.jpg" width ="40%" alt="fignya"/> </p>
+                 <p className="p-text-bold"> <a className="p-orange" href="#n1">Программа курса QA для начинающих</a></p>
+                 <p className="p-text-bold"> <a className="p-orange" href="#n2">День проектов на курсе Scratch</a></p>
+                 <p className="p-text-bold"> <a className="p-orange" href="#n3">Отзывы о курсе Иврит для IT</a></p>
                 </div>
               
                 <div className="p-col-9">
                     
-                    <Card title="Присоединяйтесь к курсу QA для начинающих" >
+                    <Card id="n1" title="Присоединяйтесь к курсу QA для начинающих" >
                        <div className="p-grid ">
                           <div className="p-col-6 ">
                             <h5>Программа курса</h5>
@@ -47,13 +49,20 @@ export default class CoursesPage extends Component {
                 </Card>   
                        
                
-                <Card title="День проектов на курсе Scratch" >
+                <Card id="n2" title="День проектов на курсе Scratch" >
                        <p>Идет "обратный урок", ребята по очереди выступают в роли преподавателя.</p> 
                            Саша Ткаченко делает доклад о своем проекте. 
                            <p>Вместе разобрались, нашли ошибки и все заработало</p>
-                           <img src="assets/images/lesson1.png" width ="60%" alt="fignya"/>    
+                           <img src="assets/images/n2/lesson1.png" width ="60%" alt="fignya"/>    
                     
                     </Card> 
+                    <Card id="n3" title="Отзывы о курсе Иврит для IT" >
+                    Прошло 5 занятий из 9 тренинга, уже видны результаты наших усилий.
+                   <p> <img src="assets/images/n3/part1.jpg" /> </p>
+                   <p> <img src="assets/images/n3/part2.jpg" /> </p>
+                   <p> <img src="assets/images/n3/part3.png" />  </p> 
+                   <p> Начинается набор на второй поток</p>
+                        </Card>    
                     </div>
             </div>
             </Panel>)

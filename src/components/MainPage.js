@@ -32,14 +32,17 @@ export default class MainPage extends Component {
             <div  className="p-col-3  p-pt-6 p-pr-4" >
                     <h3 className="p-text-center p-orange">  Объявления </h3>            
                     <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
-                    <div>Приглашаем на курс <b>"Технический иврит"</b></div>      
+                    <div>Приглашаем на курс  <a className="p-orange p-text-bold" href="/courses#c3">Иврит для IT"</a></div>      
                 
                     <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
-                    <div>Приглашаем на курс <b>"Программирование на python"</b> для детей 13-15 лет. 
+                    <div>Приглашаем на курс <a className="p-orange p-text-bold" href="/courses#c4">Программирование на python"</a> для детей 13-15 лет. 
                     </div>
                     
                     <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
-                    <div>Приглашаем на курс <b>"тестирование программного обеспечения (QA)</b>" </div>
+                    <div>Приглашаем на курс  <a className="p-orange p-text-bold" href="/courses#c1">
+                     QA для начинающих</a>
+                    
+                     </div>
             </div>
       
      </div>  
