@@ -106,8 +106,7 @@ export default class TeamPage extends Component {
                 <Card title="Василий Шушпанов" subTitle="Автор всех рисунков">
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                         Замечательный художник из Санкт-Петербурга. Он не только котов умеет рисовать, поверьте  </p>
-                        <p>www.facebook.com/BazilArts
-                            </p>
+                        <a href="https://www.facebook.com/BazilArts" style={{color:"blue"}}>Его страница в facebook</a>
                 </Card>
             </div>
             <div className="p-col-12 p-pl-6 ">                  

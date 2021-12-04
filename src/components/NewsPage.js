@@ -53,14 +53,14 @@ export default class CoursesPage extends Component {
                        <p>Идет "обратный урок", ребята по очереди выступают в роли преподавателя.</p> 
                            Саша Ткаченко делает доклад о своем проекте. 
                            <p>Вместе разобрались, нашли ошибки и все заработало</p>
-                           <img src="assets/images/n2/lesson1.png" width ="60%" alt="fignya"/>    
+                           <img src="assets/images/n2/lesson1.jpg" width ="60%" alt="Фото экрана проекта"/>    
                     
                     </Card> 
                     <Card id="n3" title="Отзывы о курсе Иврит для IT" >
                     Прошло 5 занятий из 9 тренинга, уже видны результаты наших усилий.
-                   <p> <img src="assets/images/n3/part1.jpg" /> </p>
-                   <p> <img src="assets/images/n3/part2.jpg" /> </p>
-                   <p> <img src="assets/images/n3/part3.png" />  </p> 
+                   <p> <img src="assets/images/n3/part1.jpg" alt="Картинка с отзывом"/> </p>
+                   <p> <img src="assets/images/n3/part2.jpg" alt="Картинка с отзывом"/> </p>
+                   <p> <img src="assets/images/n3/part3.jpg" alt="Картинка с отзывом"/>  </p> 
                    <p> Начинается набор на второй поток</p>
                         </Card>    
                     </div>
