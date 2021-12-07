@@ -168,9 +168,9 @@ const App = () => {
         let menu = [];
         menu =  [
             {label: 'Главная', icon: 'pi pi-th-large', to: '/main'},
+            {label: 'Новости', icon: 'pi pi-th-large', to: '/news'},
             {label: 'Курсы', icon: 'pi pi-th-large', to: '/courses'},
             {label: 'FAQ', icon: 'pi pi-th-large', to: '/faq'},
-            {label: 'Новости', icon: 'pi pi-th-large', to: '/news'},
             {label: 'Проекты', icon: 'pi pi-th-large', to: '/projects'},
             {label: 'О нас', icon: 'pi pi-th-large', to: '/team'},
         ];  

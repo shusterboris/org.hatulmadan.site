@@ -23,3 +23,7 @@
   margin-right: auto;
   margin-left: auto;
 }
+.p-mylink {
+  color: #614200;
+  text-decoration: underline;
+}

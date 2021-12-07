@@ -60,7 +60,7 @@ const AppTopbar = (props) => {
 					<AppMenu model={props.model} horizontal={props.horizontal} menuHoverActive={props.menuHoverActive} isMobile={props.isMobile}
 						onMenuItemClick={props.onMenuItemClick} onRootMenuItemClick={props.onRootMenuItemClick} onSidebarClick={props.onSidebarClick} />
 				</div>
-				<div className="layout-topbar-grid-column layout-topbar-grid-column-fixed p-menu-custom">
+				<div className="layout-topbar-grid-column layout-topbar-grid-column-fixed p-menu-custom p-pr-4">
 				   <div><i className="pi pi-phone" ></i> +972 53-640-5871</div>
 				   <div><i className="pi pi-facebook" ></i> <a className="p-menu-custom" href="https://www.facebook.com/groups/Khatulmadan">facebook</a></div>
 				</div>
