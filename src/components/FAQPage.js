@@ -11,9 +11,11 @@ export default class ProjPage extends Component {
         return(
         <Panel>
               
-        <div className="p-grid" >
-            
-        <div  className="p-col-8 p-pl-4">
+        <div className="p-grid p-pt-4">
+            <div className="p-col-4">
+                 <img src="assets/images/welcomeCat.jpg" width ="80%" alt="картинка с котом"/>
+            </div>   
+            <div  className="p-col-8 p-pl-4">
          
                     <div  className="p-text-center p-red"> FAQ</div>
                     <Tag className="p-mr-2" severity="warning" value="Как?" rounded></Tag>
@@ -77,9 +79,7 @@ export default class ProjPage extends Component {
                     <div id="f4" className="p-text-bold"> На какой уровень знаний учащихся рассчитаны курсы  QA ? </div>
                     <div> Достаточно быть уверенным пользователем компьютера </div>
             </div>
-            <div className="p-col-4">
-                 <img src="assets/images/welcomeCat.jpg" width ="80%" alt="картинка с котом"/>
-                </div>
+            
         </div>
        
         </Panel>

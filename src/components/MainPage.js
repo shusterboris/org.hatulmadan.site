@@ -10,47 +10,57 @@ export default class MainPage extends Component {
     render() {
         return(
         <Panel>     
-                 
-         <div className="p-grid p-align-top vertical-container"> 
-                       <div className="p-col-5 p-pl-4 p-pt-6">
-                       <h3 className="p-orange">Вас приветствует школа "Хатуль мадан". </h3>
-                   <h5>Наша миссия - ввести взрослых и детей в мир высоких технологий. Рассказываем просто о сложном. </h5>
-                <h3 className="p-orange"> Мы предлагаем: </h3> 
-                 <h5 >   <Tag className="p-mr-2" severity="warning" value="Детям:" rounded></Tag>  программирование на <a className="p-mylink" href="/courses#c4">python</a> , 
-                 а для самых маленьких на <a className="p-mylink" href="/courses#c5">scratch</a>,   
+        <div className="p-grid  "> 
+          <div className="p-col-3">
+                    <img src="assets/images/globalCat.jpg" width ="80%" alt="globalCat"/>
+                    <div className="p-orange  p-pt-3 p-pl-5">
+                       <h5 className="p-orange p-justify-center">Контакты: </h5>
+                        <p> <i className="pi pi-phone" ></i> +972 53-640-5871 </p>
+                        <p> <i className="pi pi-facebook" ></i> <a className="p-mylink"  href="https://www.facebook.com/groups/Khatulmadan" target="_blank">группа в facebook</a></p>
+                        <p>  <i className="pi pi-envelope" > </i>  <a  className="p-mylink" href="mailto:hatul.madan.metahnet@gmail.com">hatul.madan.metahnet@gmail.com </a></p>
+                   </div>
+          </div>
+           <div className="p-col-9 p-pt-6 p-pr-6">
+          
+                <h2 className="p-orange p-text-center" >Вас приветствует школа "Хатуль мадан"</h2>
+                  <h2 className="p-orange p-text-center">Наша миссия — ввести взрослых и детей в мир высоких технологий</h2> 
+                  <h2 className="p-orange p-text-center"> Рассказываем просто о сложном. </h2>
+                  {/* <p>&nbsp;</p> */}
+                 <div className="p-m-6">
+                 <h5 className="p-orange p-text-center  ">Мы предлагаем: </h5> 
+                 <h5 className="p-text-justify"><b>Детям:</b> программирование на <a className="p-mylink" href="/courses#c4">Python</a> , 
+                 а для самых маленьких  — на <a className="p-mylink" href="/courses#c5">Scratch</a>;   
                    создание игр разной степени сложности. Научим детей проводить время за компьютером с пользой.</h5>
-                 <h5 className="p-text-justify">  <Tag className="p-mr-2" severity="warning" value="Взрослым:" rounded></Tag> ручное и автоматическое  <a className="p-mylink" href="/courses#c1">тестирование</a>, тренинги по подготовке к <b>собеседованиям</b>,
-                 изучение языков <b>python, java</b>, технический английский и многое другое. 
+                 <h5 className="p-text-justify">  <b>Взрослым</b>: ручное и автоматическое  <a className="p-mylink" href="/courses#c1">тестирование</a>, тренинги по подготовке к собеседованиям,
+                 изучение языков Python, Java, технический английский и многое другое. 
                  Курсы для взрослых рассчитаны на занятых людей, которые хотят сменить сферу деятельности или повысить свою квалификацию. 
                  Поэтому занятия проводятся по вечерам,  в удобное для всех время. 
                  В ходе обучения предлагаем всем желающим работать с реальными проектами, которые ведет наша компания, получать практический опыт и решать реальные задачи.</h5>
                  <h5>Занятия проходят <b>онлайн</b>. Просто подключайтесь! Подробнее о занятиях можно посмотреть  <a className="p-mylink" href="/faq">тут</a>. </h5>
-            </div>
-            <div className="p-col-4">
-                    <img src="assets/images/globalCat.jpg" width ="80%" alt="globalCat"/>
-            </div>
-            <div  className="p-col-3  p-pt-6 p-pr-4" >
-                    <h3 className="p-text-center p-orange">  Объявления </h3>            
-                    <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
-                    <div>Приглашаем на курс  <a className="p-mylink" href="/courses#c3">Иврит для IT"</a></div>      
-                
-                    <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
-                    <div>Приглашаем на курс <a className="p-mylink" href="/courses#c4">Программирование на python"</a> для детей 13-15 лет. 
-                    </div>
-                    
-                    <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
-                    <div>Приглашаем на курс  <a className="p-mylink" href="/courses#c1">
-                     QA для начинающих</a>
+                  </div>
+                   <div className="p-grid p-m-6"> 
+                  <div className="p-col-7">
+                        <h5 className=" p-orange">  Объявления </h5>            
+                        <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
+                         Приглашаем на курс  <a className="p-mylink" href="/courses#c3">Иврит для IT"</a></p>      
+                        <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
+                        Приглашаем на курс <a className="p-mylink" href="/courses#c4">Программирование на python"</a> для детей 13-15 лет. 
+                        </p>
+                        <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
+                        Приглашаем на курс  <a className="p-mylink" href="/courses#c1">
+                        QA для начинающих</a>
+                        </p>
                      </div>
-                     <h5 className="p-text-center p-orange">  FAQ </h5> 
-                     <p><a className="p-mylink" href="/faq#f2">Зачем</a> учить детей программированию?</p>
-                     <p><a className="p-mylink" href="/faq#f3">Как</a> учить детей программированию?</p>
-                     <p><a className="p-mylink" href="/faq#f4">Какой</a> уровень знаний нужен для курса QA?</p>
-                     <p><a className="p-mylink" href="/faq#f6">Перспективы</a> трудоустройства после курса QA ?</p>
-                     
+                     <div className="p-col-5">
+                     <  h5 className=" p-orange">  FAQ </h5> 
+                        <p><a className="p-mylink" href="/faq#f2">Зачем</a> учить детей программированию?</p>
+                        <p><a className="p-mylink" href="/faq#f3">Как</a> учить детей программированию?</p>
+                        <p><a className="p-mylink" href="/faq#f4">Какой</a> уровень знаний нужен для курса QA?</p>
+                        <p><a className="p-mylink" href="/faq#f6">Перспективы</a> трудоустройства после курса QA ?</p>
+                     </div>
+                    </div> 
             </div>
-      
-     </div>  
+          </div>  
           </Panel>
        )     
     }

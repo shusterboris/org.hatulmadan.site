@@ -13,6 +13,7 @@ export default class CoursesPage extends Component {
                  <p > <a className="p-mylink p-text-bold" href="#n1">Программа курса QA для начинающих</a></p>
                  <p > <a className="p-mylink p-text-bold" href="#n2">Описание курса Программирование игр на Scratch</a></p>
                  <p> <a className="p-mylink p-text-bold" href="#n4">День проектов на курсе Scratch</a></p>
+                 <p> <a className="p-mylink p-text-bold" href="#n8">Пример с  курса английского для детей</a></p>
                  <p> <a className="p-mylink p-text-bold" href="#n6">  Наши планы </a></p>
                 <b className="p-orange"> А также следите за новостями в наших группах в facebook:
                 <a className="p-mylink" href="https://www.facebook.com/groups/Khatulmadan"  target="_blank"> Khatulmadan </a> и 
@@ -20,37 +21,10 @@ export default class CoursesPage extends Component {
                 </b>
                 </div>
               
-                <div className="p-col-9">
-                    
-                    <Card id="n1" title="Присоединяйтесь к курсу QA для начинающих" style={{ width: '65em' }}>
-                       <div className="p-grid ">
-                          <div className="p-col-6 ">
-                            <h5>Программа курса</h5>
-                            <ui> Основы IT: 
-                                    <li>Понятие об архитектуре приложений. FrontEnd и BackEnd.</li> 
-                                <li>Введение в  Web-технологии. </li>
-                                <li>HTML, CSS, JavaScript  </li>
-                                <li>Протоколы обмена данными между клиентом и сервером </li>
-                                <li>Базы данных. Представление о SQL и noSQL базах данных </li>
-                                <li>Запросы к БД. Язык SQL </li>
-                                <li> Основы программирования на JavaScript </li></ui>
-                                <ui>  Введение в тестирование ПО:
-                                <li>  Жизненный цикл разработки ПО </li>
-                                <li> Чек-листы  </li>
-                                <li>   Тест-кейсы  </li>
-                                <li>      Классы эквивалентности и граничные значения </li>
-                                <li>   Тест-анализ </li>
-                                <li>   Баг-трекинг  </li>
-                                <li>  Исследовательское тестирование </li>
-                                <li> Нефункциональное тестирование </li></ui>
-                                Практикум :  реальные задачи, фриланс - платформы, практика в различных проектах
-                           </div>
-                  
-                            <div className="p-col-6 ">  
-                                <img src="assets/images/n1.jpg" width ="50%" alt="fignya"/>  
-                            </div>  
-                         </div>
-                        
+            <div className="p-col-9">
+                <Card id="n1" title="Присоединяйтесь к курсу QA для начинающих" style={{ width: '65em' }}>
+                             <img src="assets/images/n1/n1.jpg" width ="80%" alt="adjile"/>  
+                 
                 </Card>   
                        
                 <Card id="n2" title="Описание курса Программирование игр на Scratch" style={{ width: '65em' }}>
@@ -93,16 +67,38 @@ export default class CoursesPage extends Component {
                            <img src="assets/images/n2/lesson1.jpg" width ="60%" alt="Фото экрана проекта"/>    
                     
                     </Card> 
-                    <Card id="n3" title="Отзывы о курсе Иврит для IT" style={{ width: '65em' }} >
-                    Прошло 5 занятий из 9 тренинга, уже видны результаты наших усилий.
+                    <Card id="n3" title="О курсе Иврит для IT" style={{ width: '65em' }} >
+                    <h5>Сочинение про робота Васю. Домашнее задание с использованием лексики с тренинга: </h5>
+                    <p>
+                    רובוט וואסיע עבד עם משימה שלו. בא מנהל שלו. הוא  היה מודאג. העור שלו היה לא ירוק אלו אפור. הזנב שלו דפק על ריצפה.  
+ מנהל. שלום, וואזיע 
+ וואסיע.  חשמל טוב, בוס. 
+מנהל. תודה. אמנם אני לא אוכל חשמל. אני לא רוצה לשבור עת התוכנית שלך אבל יש לי שאילתה מבחינה המקצוע שלך. 
+ וואסיע מה השאילתה? 
+ מנהל. אני חייב לעדכן וזאת נקודה חשובה שזה סוד גדול.  
+וואסיע . נו טוב .אני אעשה סיסמה בשביל המידע כזה. 
+מנהל. אומרים שיש לך ניסיון גדול בתחום כזה. יש רקע ורשת...  
+וואסיע. באיזה תחום? 
+מנהל. פעולות לוגיות. אתה רואה, אני חייב להחליט משהו, לענות כן או לא. אתה רובוט ובשבילך חשבון בינארי זה משהו פשוט. אני כול הזמן מתלבט. 
+                        </p>
+                        <h5>Отзывы о курсе после 5 занятий тренинга из 9 </h5>
                             <p> <img src="assets/images/n3/part1.jpg" alt="Картинка с отзывом"/> </p>
                             <p> <img src="assets/images/n3/part2.jpg" alt="Картинка с отзывом"/> </p>
                             <p> <img src="assets/images/n3/part3.jpg" alt="Картинка с отзывом"/>  </p> 
                                 <p> Начинается набор на второй поток</p>
                     </Card>    
-                    
+                    <Card id="n8" title="Урок английского" style={{ width: '65em' }} >
+                     <div className="p-grid">  
+                       <div className="p-col-6"> 
+                       <img src="assets/images/n8/text.jpg" width ="80%" alt="text"/> 
+                       </div>
+                       <div className="p-col-6"> 
+                       <img src="assets/images/n8/paint.jpg" width ="80%" alt="paint"/> 
+                       </div>
+                     </div>
+                     </Card>
                     <h3 className="p-orange">Наши планы</h3>
-                    <Card id="n6" title="Летим в космос" style={{ width: '65em' }}>
+                    <Card id="n6" title="Летим в космос" subtitle="физика, программирование" style={{ width: '65em' }}>
                     <p>Курс для детей 13-15 лет</p> 
                     <p>Мы хотим предложить совсем новый формат занятий. 
                             Совместить изучение программирования  с изучением математики и физики. 
