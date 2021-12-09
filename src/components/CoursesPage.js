@@ -17,8 +17,8 @@ export default class CoursesPage extends Component {
                    <p > <a className="p-mylink p-text-bold" href="#c2">QA для продвинутых</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c3">Иврит для IT</a></p>
                    <h5 className="p-orange">Для детей: </h5>
-                   <p > <a className="p-mylink p-text-bold" href="#c4">Программирование на python</a></p>
-                   <p > <a className="p-mylink p-text-bold" href="#c5">Программирование на scratch</a></p>
+                   <p > <a className="p-mylink p-text-bold" href="#c4">Программирование на Python</a></p>
+                   <p > <a className="p-mylink p-text-bold" href="#c5">Программирование на Scratch</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c6">Занимательная математика</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c7">Английский язык</a></p>
                 </div>
@@ -37,7 +37,7 @@ export default class CoursesPage extends Component {
                                 <li>Базы данных. Представление о SQL и noSQL базах данных </li>
                                 <li>Запросы к БД. Язык SQL </li>
                                 <li> Основы программирования на JavaScript </li></ui>
-                                <ui>  Jсновы ручного тестирования:
+                                <ui>  Основы ручного тестирования:
                                 <li>  Жизненный цикл разработки ПО </li>
                                 <li> Чек-листы  </li>
                                 <li>   Тест-кейсы  </li>
@@ -74,7 +74,7 @@ export default class CoursesPage extends Component {
                            Практикум:  реальные задачи, фриланс - платформы, практика в различных стартапах...
                             </p>
                           */}
-                    <Card id="c2" title="Автоматизация web-приложений на языке Java" subTitle="Тестирование программного обеспечения ">
+                    <Card id="c2" title="Автоматизация тестирования web-приложений на языке Java" subTitle="Тестирование программного обеспечения ">
                         <div className="p-m-0"style={{lineHeight: '1.5'}} >
                         <p>Язык обучения: русский, английский. Продолжительность курса - 6 мес</p>
                             <p>Курс предназначен для обучения 
@@ -107,7 +107,7 @@ export default class CoursesPage extends Component {
                            </p>
                            <p><a className="p-mylink" href="https://youtu.be/zFIuOEC96ME" target="_blank">Запись первого занятия </a> </p>
                     </Card>
-                     <Card id="c4" title="Программирование на python"  subTitle="Для детей 12-15 лет" >
+                     <Card id="c4" title="Программирование на Python"  subTitle="Для детей 12-15 лет" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                       Изучение языка и основ программирования.  Далее дети делают игры на библиотеке pygame. Есть группы на русском языке и на иврите
                       <ui> Программа курса: 
@@ -127,11 +127,11 @@ export default class CoursesPage extends Component {
 
                         </p>
                     </Card>
-                    <Card id="c5" title="Программирование на scratch" 
+                    <Card id="c5" title="Программирование на Scratch" 
                     subTitle="Для детей 7-10 лет" >
                         <p className="p-m-0 " style={{lineHeight: '1.5'}} >
                             Дети начинают с самых простых проектов и в ходе обучения делают все более и более сложные игры. 
-                            Сейчас учится одновременно несколько групп. Если ребенок раньше изучал scratch, то он сможет присоединиться к группе подходящего для себя  уровня.
+                            Сейчас учится одновременно несколько групп. Если ребенок раньше изучал Scratch, то он сможет присоединиться к группе подходящего для себя  уровня.
                          Есть группы на русском языке и на иврите</p>
                          <p>Для занятий ученику необходимо хорошо владеть компьютером: уметь пользоваться браузером, открывать новые вкладки, 
                            хорошо знать раскладку клавиатуры, печатать, уверенно держать мышку в руках.
@@ -158,7 +158,7 @@ export default class CoursesPage extends Component {
                         </ui>
                        </p>
                         <p>
-                            После окончания курса (примерно год), дети постарше могут попробовать изучение python. Им это дается намного легче чем новичкам.
+                            После окончания курса (примерно год), дети постарше могут попробовать изучение Python. Им это дается намного легче чем новичкам.
                         </p>
                          <p className="p-text-bold"> <a className="p-mylink" href="/news#n2">подробнее</a>
                            </p>

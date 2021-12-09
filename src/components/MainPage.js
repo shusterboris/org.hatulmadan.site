@@ -22,12 +22,11 @@ export default class MainPage extends Component {
           </div>
            <div className="p-col-9 p-pt-6 p-pr-6">
           
-                <h2 className="p-orange p-text-center" >Вас приветствует школа "Хатуль мадан"</h2>
-                  <h2 className="p-orange p-text-center">Наша миссия — ввести взрослых и детей в мир высоких технологий</h2> 
-                  <h2 className="p-orange p-text-center"> Рассказываем просто о сложном. </h2>
-                  {/* <p>&nbsp;</p> */}
-                 <div className="p-m-6">
-                 <h5 className="p-orange p-text-center  ">Мы предлагаем: </h5> 
+                <h2 className="p-orange p-text-center" style={{margin: '0.5em 0 0.5rem 0'}} >Вас приветствует школа "Хатуль мадан"</h2>
+                  <h2 className="p-orange p-text-center" style={{margin: '0.5rem 0 0.5rem 0'}}>Наша миссия — ввести взрослых и детей в мир высоких технологий</h2> 
+                  <h2 className="p-orange p-text-center" style={{margin: '0.5rem 0 0.5rem 0'}}> Рассказываем просто о сложном. </h2>
+                 <div className="p-m-6" style={{margin: '1.5rem 0 0 0'}}>
+                 <h5 className="p-orange p-text-center" >Мы предлагаем: </h5> 
                  <h5 className="p-text-justify"><b>Детям:</b> программирование на <a className="p-mylink" href="/courses#c4">Python</a> , 
                  а для самых маленьких  — на <a className="p-mylink" href="/courses#c5">Scratch</a>;   
                    создание игр разной степени сложности. Научим детей проводить время за компьютером с пользой.</h5>

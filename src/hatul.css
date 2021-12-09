@@ -1,5 +1,5 @@
 .p-card-title {
-  color: #614200;;
+  color: #614200;
   font-weight: 500;
   font-size: 18pt;
 }
@@ -11,11 +11,11 @@
   font-size: 1.5em;
 }
 .p-menu-custom {
-  color:white;
-  font-size: .8em;
+  color: white;
+  font-size: 0.8em;
 }
-.p-logo{
-  color:rgb(252, 213, 25);
+.p-logo {
+  color: rgb(252, 213, 25);
 }
 .p-team-img {
   width: 132px;
@@ -23,6 +23,7 @@
   margin-right: auto;
   margin-left: auto;
 }
+
 .p-mylink {
   color: #614200;
   text-decoration: underline;

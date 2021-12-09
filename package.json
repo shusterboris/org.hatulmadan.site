@@ -1,6 +1,6 @@
 {
     "name": "hatulamadan-home",
-    "version": "0.1",
+    "version": "0.9",
     "homepage": ".",
     "private": true,
     "dependencies": {
