@@ -23,7 +23,8 @@ export default class CoursesPage extends Component {
               
             <div className="p-col-9">
                 <Card id="n1" title="Присоединяйтесь к курсу QA для начинающих" style={{ width: '65em' }}>
-                             <img src="assets/images/n1/n1.jpg" width ="80%" alt="adjile"/>  
+                             
+                             <img src="assets/images/n1/n1.jpg" width ="50%" alt="adjile"/>  
                  
                 </Card>   
                        
