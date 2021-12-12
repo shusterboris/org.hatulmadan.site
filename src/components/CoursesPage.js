@@ -21,8 +21,9 @@ export default class CoursesPage extends Component {
                    <p > <a className="p-mylink p-text-bold" href="#c5">Программирование на Scratch</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c6">Занимательная математика</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c7">Английский язык</a></p>
+                   <h5 className="p-orange">Также есть  индивидуальные занятия для взрослых и детей разной степени подготовленности </h5>
                 </div>
-                <div className="p-col-8 p-pl-3">
+                <div className="p-col-8">
                     <Card id="c1" title="QA для начинающих" subTitle="Тестирование программного обеспечения " >
                     <div className="p-m-0" style={{lineHeight: '1.5'}}>
                         <p>Продолжительность курса - 12 мес. Язык обучения - русский.
@@ -48,7 +49,7 @@ export default class CoursesPage extends Component {
                                 <li> Нефункциональное тестирование </li>
                                 <li> Изучение работы с Postman.</li></ui>
                                 <h5>Часть 2</h5>
-                                <p> Язык программирования JavaScript,  <b>DOM</b>(Document Object Model), основы автоматизации тестирования с использованием Selenium 
+                                <p> Язык программирования JavaScript,  <b>DOM</b> (Document Object Model), основы автоматизации тестирования с использованием Selenium 
                                 </p>
                                 Основа нашего курса - практика. Уже с первых занятий мы начинаем разбирать реальные задачи с собеседований, 
                     квалификационных тестов и т.д. участвовать в реальных проектах. 
@@ -60,21 +61,7 @@ export default class CoursesPage extends Component {
                            <p><a className="p-mylink" href="https://youtu.be/8YugjIeIeu4" target="_blank">Запись первого занятия </a></p>
                     </div>
                    </Card>
-               
-                    {/* <Card id="c2" title="QA для продвинутых" subTitle="Автоматическое тестирование " >
-                    <p className="p-m-0"style={{lineHeight: '1.5'}} >
-                    Язык обучения - русский. Продолжительность курса - 6 мес. </p> 
-                         <p> <ui>Программа
-                          <li>Изучение программирования на JavaScript.</li>
-                          <li>Изучение  <b>DOM</b>(Document Object Model). </li>
-                          <li>Написание тестов на JavaScript. </li>
-                          <li>Использование Selenium.</li>
-                          <li>Основы методологий разработки ПО.</li>
-                            </ui>
-                           Практикум:  реальные задачи, фриланс - платформы, практика в различных стартапах...
-                            </p>
-                          */}
-                    <Card id="c2" title="Автоматизация тестирования web-приложений на языке Java" subTitle="Тестирование программного обеспечения ">
+                 <Card id="c2" title="Автоматизация тестирования web-приложений на языке Java" subTitle="Тестирование программного обеспечения ">
                         <div className="p-m-0"style={{lineHeight: '1.5'}} >
                         <p>Язык обучения: русский, английский. Продолжительность курса - 6 мес</p>
                             <p>Курс предназначен для обучения 
@@ -107,7 +94,12 @@ export default class CoursesPage extends Component {
                            </p>
                            <p><a className="p-mylink" href="https://youtu.be/zFIuOEC96ME" target="_blank">Запись первого занятия </a> </p>
                     </Card>
-                     <Card id="c4" title="Программирование на Python"  subTitle="Для детей 12-15 лет" >
+                {/* </div>
+                <div className="p-col-4 p-text-center">
+                 <img src="assets/images/red1.jpg" width ="50%" alt="картинка с котом"/> 
+                </div>
+                <div className="p-col-8">
+                */}      <Card id="c4" title="Программирование на Python"  subTitle="Для детей 12-15 лет" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                       Изучение языка и основ программирования.  Далее дети делают игры на библиотеке pygame. Есть группы на русском языке и на иврите
                       <ui> Программа курса: 
@@ -124,7 +116,7 @@ export default class CoursesPage extends Component {
                            <li>работа с индивидуальными проектами</li>
                            <li>написание telegram-бота и другие интересные программы</li>
                         </ui>
-
+                        <p > <a className="p-mylink" href="/news#n9">Почему мы выбрали Python</a></p>
                         </p>
                     </Card>
                     <Card id="c5" title="Программирование на Scratch" 
@@ -178,6 +170,7 @@ export default class CoursesPage extends Component {
                            </p>
                    </Card> 
                    </div>
+             
             </div>      
             </Panel>)
     }

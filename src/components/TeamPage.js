@@ -99,7 +99,7 @@ export default class TeamPage extends Component {
                  <p className="p-m-0" style={{lineHeight: '1.5'}}>
                  <div className="p-grid">
                     <div className="p-col-5 ">
-                        <img src="assets/images/a.jpg" alt="Фото преподавателя. Андрей Кудря"/> 
+                        <img src="assets/images/andrey.jpg" alt="Фото преподавателя. Андрей Кудря"/> 
                     </div>
                     <div className="p-col-7 ">
                        Профессиональный преподаватель с многолетним опытом. 
