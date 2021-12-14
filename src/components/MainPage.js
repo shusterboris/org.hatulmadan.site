@@ -48,13 +48,17 @@ export default class MainPage extends Component {
                         Приглашаем на курс  <a className="p-mylink" href="/courses#c1">
                         QA для начинающих</a>
                         </p>
+                        <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
+                        Приглашаем на курс  <a className="p-mylink" href="/courses#c8">
+                        Технический английский</a>
+                        </p>
                      </div>
                      <div className="p-col-5">
                      <  h5 className=" p-orange">  FAQ </h5> 
                         <p><a className="p-mylink" href="/faq#f2">Зачем</a> учить детей программированию?</p>
                         <p><a className="p-mylink" href="/faq#f3">Как</a> учить детей программированию?</p>
                         <p><a className="p-mylink" href="/faq#f4">Какой</a> уровень знаний нужен для курса QA?</p>
-                        <p><a className="p-mylink" href="/faq#f6">Перспективы</a> трудоустройства после курса QA ?</p>
+                        <p><a className="p-mylink" href="/faq#f6">Перспективы</a> трудоустройства после курса QA?</p>
                      </div>
                     </div> 
             </div>
