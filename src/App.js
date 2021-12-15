@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactGA from 'react-ga'
 import classNames from 'classnames';
 import { Route } from 'react-router-dom';
 import AppTopbar from './AppTopbar';
@@ -14,6 +15,11 @@ import NewsPage from './components/NewsPage';
 import ProjPage from './components/ProjPage';
 import TeamPage from './components/TeamPage';
 import FAQPage from './components/FAQPage';
+import RouteChangeTracker from './components/RouteChangeTracker';
+
+const TRACKING_ID = "G-1TMTRGQK4S"; 
+ReactGA.initialize(TRACKING_ID);
+
 const App = () => {
 
     const [horizontal, setHorizontal] = useState(true);
@@ -201,8 +207,7 @@ const App = () => {
                 }
             </div> 
                     
-               
-            
+            <RouteChangeTracker/>
 
             {menuActive && <div className="layout-mask" />}
         </div>

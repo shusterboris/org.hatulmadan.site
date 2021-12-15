@@ -37,184 +37,178 @@ export default class TeamPage extends Component {
                 
             </div>
             
-            
             <div className="p-col-12 p-pl-6 ">
-            <h3  className="p-orange">
+                <h3  className="p-orange">
                     Наша команда 
                 </h3>           
             </div>
-            <div className="p-col-4 p-pl-6 ">
-              <Card title="Владимир Олевский" subTitle="Менеджер, руководитель практических занятий" >
-                <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                    <div className="p-grid">
-                        <div className="p-col-5 ">
-                              <img alt="Card" src="assets/images/o.jpg" />
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6">
+                <Card title="Владимир Олевский" subTitle="Менеджер, руководитель практических занятий" >
+                    <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                        <div className="p-d-flex p-flex-row">
+                            <div className='p-ml-2'>
+                                <img alt="Фото преподавателя. В.Олевский" src="assets/images/o.jpg" />
+                            </div>
+                            <div className='p-ml-5 p-text-justify'>
+                                Закончил Физический Факультет Новосибирского
+                                Государственного Университета.  Много лет занимался развитием различных интернет-проектов. 
+                                В последние годы стал специалистом в QA. 
+                            </div>
                         </div>
-                        <div className="p-col-7 ">
-                                  Закончил Физический Факультет  Новосибирского
-                               Государственного Университета.  Много лет занимался развитием различных интернет-проектов. 
-                               В последние годы стал специалистом в QA. 
-                        </div>
-                    </div>
-                </p>
-              </Card>
+                    </p>
+                </Card>
                      
             </div>    
-            <div className="p-col-4">
-           
-            <Card title="Борис Шустер" subTitle="Преподаватель программирования и основ IT" >
-                <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                 <div className="p-grid">
-                    <div className="p-col-5 ">
-                    <img src="assets/images/bs.jpg" alt="Фото преподавателя. Борис Шустер"/> 
-                    </div> 
-                    <div className="p-col-7 ">
-                     Программист с 30-летним опытом работы. Сертифицированный IBM специалист. 
-                     Как ведущий разработчик принимал участие в крупных международных проектах в 6 странах. 
-                     Любит, когда все работает, как следует.
-                     </div>
-                 </div>
-                  </p>
-            </Card>
+
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6">           
+                <Card title="Борис Шустер" subTitle="Преподаватель программирования и основ IT" >
+                    <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                        <div className="p-d-flex p-flex-row">
+                            <div className="p-ml-2">
+                                <img src="assets/images/bs.jpg" alt="Фото преподавателя. Борис Шустер"/> 
+                            </div> 
+                            <div className="p-ml-5 p-text-justify">
+                                Программист с 30-летним опытом работы. Сертифицированный IBM специалист. 
+                                Как ведущий разработчик принимал участие в крупных международных проектах в 6 странах. 
+                                Любит, когда все работает, как следует.
+                            </div>
+                        </div>
+                    </p>
+                </Card>
             </div>  
                
-            <div className="p-col-4 p-pr-6 ">
-          <Card title="Александр Данковский" subTitle="Преподаватель математики" >
-                <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                 <div className="p-grid">
-                    <div className="p-col-5 ">
-                        <img src="assets/images/d.jpg" alt="Фото преподавателя. Александр Данковский"/> 
-                    </div>
-                    <div className="p-col-7 ">
-                     Закончил Физико-технический факультет Харьковского университета. 
-                     Много лет занимался экономической журналистикой. 
-                     Также преподает детям физику, математику, а иногда даже химию и все это с эксурсом в историю.
-                     </div>
-                </div> 
-               </p>
-            </Card>
-            </div> 
-            <div className="p-col-4 p-pl-6 ">
-           <Card title="Андрей Кудря " subTitle="Преподаватель QA и программирования" >
-                 <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                 <div className="p-grid">
-                    <div className="p-col-5 ">
-                        <img src="assets/images/andrey.jpg" alt="Фото преподавателя. Андрей Кудря"/> 
-                    </div>
-                    <div className="p-col-7 ">
-                       Профессиональный преподаватель с многолетним опытом. 
-                        Умеет учить детей и взрослых.
-                        Освоил профессию тестировщика и вас научит. 
-                    </div>
-                 </div>
-                </p>
-            </Card>
-            </div>    
-            <div className="p-col-4">
-            <Card title="Георгий Вайнер" subTitle="Преподаватель программирования и технического иврита" >
-                 <p className="p-m-0" style={{lineHeight: '1.5'}}> 
-                 <div className="p-grid">
-                    <div className="p-col-5 ">
-                     <img src="assets/images/gosha.jpg" alt="Фото преподавателя. Георгий Вайнер"/> 
-                     </div>
-                    <div className="p-col-7 ">
-                        Студент информационного факультета  в Технионе. Имеет практический опыт работы в Израильском хайтеке
-                 </div>
-                </div >
-              </p>
-            </Card>
-            </div>    
-            <div className="p-col-4 p-pr-6 ">
-            <Card title="Инна Шустер" subTitle="Разработчик учебных программ">
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6 ">
+                <Card title="Александр Данковский" subTitle="Преподаватель математики" >
                     <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                    <div className="p-grid">
-                        <div className="p-col-5 ">
-                        <img src="assets/images/is.jpg" alt="Фото преподавателя. Инна Шустер"/> 
+                        <div className="p-d-flex p-flex-row">
+                            <div className="p-ml-2">
+                                <img src="assets/images/d.jpg" alt="Фото преподавателя. Александр Данковский"/> 
+                            </div>
+                            <div className="p-ml-2 p-text-justify">
+                                Закончил Физико-технический факультет Харьковского университета. 
+                                Много лет занимался экономической журналистикой. 
+                                Также преподает детям физику, математику, а иногда даже химию и все это с эксурсом в историю.
+                            </div>
+                        </div> 
+                    </p>
+                </Card>
+            </div> 
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6">
+                <Card title="Андрей Кудря " subTitle="Преподаватель QA и программирования" >
+                    <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                        <div className="p-d-flex p-flex-row">
+                            <div className="p-ml-2">
+                                <img src="assets/images/andrey.jpg" alt="Фото преподавателя. Андрей Кудря"/> 
+                            </div>
+                            <div className="p-ml-5 p-text-justify">
+                                Профессиональный преподаватель с многолетним опытом. 
+                                Умеет учить детей и взрослых.
+                                Освоил профессию тестировщика и вас научит. 
+                            </div>
                         </div>
-                    <div className="p-col-7 ">  
-                        Программист с многолетним опытом работы в проектах разного масштаба. 
-                        Сертифицированный IBM специалист. Консультант ВОЗ. 
-                        Любимая роль в проектах - работать бритвой Оккама
+                    </p>
+                </Card>
+            </div>    
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6">
+                <Card title="Георгий Вайнер" subTitle="Преподаватель программирования и технического иврита" >
+                    <p className="p-m-0" style={{lineHeight: '1.5'}}> 
+                        <div className="p-d-flex p-flex-row">
+                            <div className="p-ml-2">
+                                <img src="assets/images/gosha.jpg" alt="Фото преподавателя. Георгий Вайнер"/> 
+                            </div>
+                            <div className="p-ml-5 p-text-justify">
+                                Студент информационного факультета  в Технионе. Имеет практический опыт работы в Израильском хайтеке
+                            </div>
+                        </div >
+                    </p>
+                </Card>
+            </div>    
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6">
+                <Card title="Инна Шустер" subTitle="Разработчик учебных программ">
+                    <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                    <div className="p-d-flex p-flex-row">
+                        <div className="p-ml-2">
+                            <img src="assets/images/is.jpg" alt="Фото преподавателя. Инна Шустер"/> 
                         </div>
-                </div >
-            </p>
-            </Card>
+                        <div className="p-ml-5 p-text-justify">  
+                            Программист с многолетним опытом работы в проектах разного масштаба. 
+                            Сертифицированный IBM специалист. Консультант ВОЗ. 
+                            Любимая роль в проектах - работать бритвой Оккама
+                        </div>
+                    </div >
+                    </p>
+                </Card>
             </div> 
             <div className="p-col-12 p-pl-6 ">
             <h3  className="p-orange">
-                    Кадровый резерв 
+                Кадровый резерв 
             </h3>   
             </div>  
-            <div className="p-col-4 p-pl-6 ">
-            
-            <Card title="Евгений Шустер" subTitle="Ведет индивидуальные уроки программирования">
-               <p className="p-m-0" style={{lineHeight: '1.5'}}>
-               <div className="p-grid">
-                    <div className="p-col-5 ">
-                    <img src="assets/images/js.jpg" alt="Фото преподавателя. Евгений"/>
-                    </div>
-                    <div className="p-col-7 ">
-                    В настоящее время совмещает службу в ЦАХАЛ и работу в стартапе как электронщик и программист. 
-                        Любит микроконтроллеры, С++ и все, что летает.       
-                    </div>
-                </div >
-              </p>
-            </Card>
-            </div> 
-            <div className="p-col-4 ">
-                <Card title="Аня Олевская" subTitle="Ведет индивидуальные уроки программирования">
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6 ">
+                <Card title="Евгений Шустер" subTitle="Ведет индивидуальные уроки программирования">
                     <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                    <div className="p-grid">
-                        <div className="p-col-5 ">
-                          <img src="assets/images/anya.jpg" alt="Фото преподавателя. Аня"/> 
-                          </div>
-                        <div className="p-col-7 ">
-                            Ученица 6 класса. Верный помощник, когда взрослые все ушли на задание 
-                        </div>
-                    </div >
-                </p>
+                        <div className="p-d-flex p-flex-row">
+                            <div className="p-ml-2">
+                                <img src="assets/images/js.jpg" alt="Фото преподавателя. Евгений"/>
+                            </div>
+                            <div className="p-ml-5 p-text-justify">
+                                В настоящее время совмещает службу в ЦАХАЛ и работу в стартапе как электронщик и программист. 
+                                Любит микроконтроллеры, С++ и все, что летает.       
+                            </div>
+                        </div >
+                    </p>
+                </Card>
+            </div> 
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6">
+                <Card title="Аня Олевская" subTitle="Ведет индивидуальные уроки Scratch">
+                    <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                        <div className="p-d-flex p-flex-row">
+                            <div className="p-ml-2">
+                                <img src="assets/images/anya.jpg" alt="Фото преподавателя. Аня"/> 
+                            </div>
+                            <div className="p-ml-5 p-text-justify">
+                                Ученица 6 класса. Верный помощник, когда взрослые все ушли на задание 
+                            </div>
+                        </div >
+                    </p>
                 </Card>
             </div>
-            <div className="p-col-4 ">
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6">
                  <Card title="Василий Шушпанов" subTitle="Автор всех рисунков">
-                 <div className="p-m-0" style={{lineHeight: '1.5'}}>
-                    <div className="p-grid">
-                        <div className="p-col-5 ">
-                            <img src="assets/images/vs.jpg" alt="Фото художника"/>
-                        </div>
-                        <div className="p-col-7 ">
-                        Замечательный художник из Санкт-Петербурга. Он не только котов умеет рисовать, поверьте 
-                        <p><a href="https://www.facebook.com/BazilArts" className="p-mylink" target="_blank" >Его страница в facebook</a>
-                        </p>
-                        </div>
-                    </div >
-                   </div>
-                        
+                    <div className="p-m-0" style={{lineHeight: '1.5'}}>
+                        <div className="p-d-flex p-flex-row">
+                            <div className="p-ml-2">
+                                <img src="assets/images/vs.jpg" alt="Фото художника"/>
+                            </div>
+                            <div className="p-ml-5 p-text-justify">
+                                Замечательный художник из Санкт-Петербурга. Он не только котов умеет рисовать, поверьте 
+                                <p><a href="https://www.facebook.com/BazilArts" className="p-mylink" target="_blank" >Его страница в facebook</a></p>
+                            </div>
+                        </div >
+                    </div>                        
                 </Card>
             </div>
-            <div className="p-col-4 p-pl-6 ">                  
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6">                  
                 <h3  className="p-orange">
                         Служба технической поддержки 
                 </h3>   
-            
                 <Card title="Файрфокс" subTitle="Работает талисманом">
-                        <div className="p-m-0" style={{lineHeight: '1.5'}}>
-                        <div className="p-grid">
-                         <div className="p-col-7 ">
-                           <img src="assets/images/k.jpg"  alt="Кот Файрфокс."/>
-                           </div>
-                        <div className="p-col-5 ">
-                        Успешная карьера в IT!  
-                        <p><ui> Прошел этапы: 
-                            <li>кот с помойки на цыганском поселке, </li> 
-                             <li>участник волонтерского проекта, </li> 
-                             <li>кот программистов </li> </ui>
-                             </p>
-                         </div>
-                    </div >
-                       </div>
+                    <div className="p-m-0" style={{lineHeight: '1.5'}}>
+                        <div className="p-d-flex p-flex-row">
+                            <div className="p-ml-2">
+                                <img src="assets/images/k.jpg"  alt="Кот Файрфокс."/>
+                            </div>
+                        <div className="p-ml-5 p-text-justify">
+                            Успешная карьера в IT!  
+                            <p><ui> Прошел этапы: 
+                                <li>кот с помойки на цыганском поселке, </li> 
+                                <li>участник волонтерского проекта, </li> 
+                                <li>кот программистов </li> 
+                            </ui></p>
+                        </div>
+                        </div >
+                    </div>
                 </Card>
-
             </div>
         </div>
         </Panel>
