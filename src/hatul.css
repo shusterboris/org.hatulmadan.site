@@ -18,7 +18,7 @@
   color: rgb(252, 213, 25);
 }
 .p-team-img {
-  width: 132px;
+  width: 264px;
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -27,4 +27,28 @@
 .p-mylink {
   color: #614200;
   text-decoration: underline;
+}
+
+.p-page-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.p-team-card-text {
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+    Arial, "Lucida Grande", sans-serif;
+}
+
+@media screen and (min-width: 501px) {
+  .p-team-card-text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .p-team-card-text {
+    font-size: 1vw;
+  }
 }

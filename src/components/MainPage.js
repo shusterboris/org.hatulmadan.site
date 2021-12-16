@@ -11,8 +11,9 @@ export default class MainPage extends Component {
          const isMobile = window.innerWidth <= 1024
          return(<Panel>     
             <div className="p-d-flex p-flex-column p-flex-md-row">
-               <div style={{width:'20%'}}>
-                  <img src="assets/images/globalCat.jpg" width='70%' alt="globalCat"/>
+               <div p-d-flex p-flex-row p-flex-md-column>
+                  <img src="assets/images/globalCat.jpg" alt="Рисунок. Кот на глобусе" 
+                     className='p-page-img'/>
                   <div className="p-orange p-pt-3 p-mx-3">
                      <h5 className="p-orange p-justify-center">Контакты: </h5>
                      <div className='p-mb-3'> 
@@ -22,7 +23,7 @@ export default class MainPage extends Component {
                      <p> <i className="pi pi-facebook" ></i> <a className="p-mylink"  href="https://www.facebook.com/groups/Khatulmadan" target="_blank">Facebook</a></p>
                      <div className="p-text-nowrap p-text-truncate" style={{color:'#614200'}}> 
                         <i className="pi pi-envelope" > </i>  
-                        <a className="p-mylink" href="mailto:hatul.madan.metahnet@gmail.com"> {!isMobile ? 'hatul.madan.metahnet@gmail.com' : ''} </a>
+                        <a className="p-mylink" href="mailto:hatul.madan.metahnet@gmail.com"> {!isMobile ? 'hatul.madan.metahnet@gmail.com' : 'Эл. почта'} </a>
                      </div>
                   </div>
                </div>
