@@ -9,9 +9,9 @@ export default class CoursesPage extends Component {
             <div  className="p-text-center p-orange p-pt-3 " >
                 <h3>Список курсов </h3>
             </div>
-            <div className="p-grid p-pl-3 p-pr-6">
-                <div className="p-col-4">
-                  <p> <img src="assets/images/mainCat.jpg"  width ="90%" alt="maincat"/></p>
+            <div  className="p-d-flex p-flex-column p-flex-md-row">
+                <div className="p-px-3">
+                  <p> <img src="assets/images/mainCat.jpg"  className='p-page-img' alt="картинка с котом-учителем"/></p>
                   <h5 className="p-orange">Для взрослых: </h5>
                    <p > <a className="p-mylink p-text-bold" href="#c1">Тестирование программного обеспечения</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c2">QA для продвинутых</a></p>
@@ -24,7 +24,7 @@ export default class CoursesPage extends Component {
                    <p > <a className="p-mylink p-text-bold" href="#c7">Английский язык</a></p>
                    <h5 className="p-orange">Также есть  индивидуальные занятия для взрослых и детей разной степени подготовленности </h5>
                 </div>
-                <div className="p-col-8">
+                <div className="p-pl-3 p-pr-6">
                     <Card id="c1" title="QA для начинающих" subTitle="Тестирование программного обеспечения " >
                     <div className="p-m-0" style={{lineHeight: '1.5'}}>
                         <p>Продолжительность курса - 12 мес. Язык обучения - русский.

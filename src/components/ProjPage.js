@@ -12,11 +12,11 @@ export default class ProjPage extends Component {
         return(
         <Panel>
               
-        <div className="p-grid p-pl-4 p-pr-4" >
-            <div className="p-col-3 p-justify-center p-pt-3">
-                <img src="assets/images/projects.jpg" width ="80%" alt="projects"/>
+        <div className="p-d-flex p-flex-column p-flex-md-row" >
+            <div className="p-justify-center p-pt-3">
+                <img src="assets/images/projects.jpg" className='p-page-img' alt="projects"/>
             </div>
-            <div className="p-col-9">
+            <div className="p-pl-4 p-pr-4">
                   <h3 className="p-orange p-pt-3 p-pl-3" >Наши проекты</h3>
               <Card title="Управление деятельностью спортклуба" subTitle="Веб-приложение" >
                 <div>

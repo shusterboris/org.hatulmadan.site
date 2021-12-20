@@ -11,16 +11,17 @@ export default class ProjPage extends Component {
         return(
         <Panel>
               
-        <div className="p-grid p-pt-4">
-            <div className="p-col-4">
-                 <img src="assets/images/welcomeCat.jpg" width ="80%" alt="картинка с котом"/>
+        <div className="p-d-flex p-flex-column p-flex-md-row ">
+            <div >
+                 <img src="assets/images/welcomeCat.jpg" className='p-page-img' alt="картинка с котом"/>
             </div>   
-            <div  className="p-col-8 p-pl-4">
+            <div  className="p-pt-4 p-pl-4">
          
                     <div  className="p-text-center p-red"> FAQ</div>
                     <Tag className="p-mr-2" severity="warning" value="Как?" rounded></Tag>
                     <div id="f1" className="p-text-bold"> Как проходят занятия? </div>
-                    <div className="p-text-justify" style={{ width: '55em' }}> <p>Занятия проходят on-line, в удобное для всех время, обычно вечером. 
+                    <div className="p-m-0 p-text-justify" style={{lineHeight: '1.5'}}> 
+                    <p>Занятия проходят on-line, в удобное для всех время, обычно вечером. 
                         Группы не более 10 человек, обычно 5-6, поэтому каждому ученику обеспечен индивидуальный подход. </p> <p>Продолжительность занятий для взрослых - полтора часа. Для детей - 1 час.
                         </p><p>После занятия учащимся всегда высылается видеозапись урока и дополнительные материалы: презентации, тексты программ и т.д.
                         Предусмотрены  домашние задания. 
@@ -29,7 +30,8 @@ export default class ProjPage extends Component {
                      </div>
                      <Tag className="p-mr-2" severity="warning" value="Зачем?" rounded></Tag>
                     <div id="f2" className="p-text-bold"> Зачем учить детей программированию ?  </div>
-                    <div className="p-text-justify" style={{ width: '55em' }}> <p>Мир сейчас стал информационным. 
+                    <div className="p-m-0 p-text-justify" style={{lineHeight: '1.5'}}> 
+                      <p>Мир сейчас стал информационным. 
                         Раньше родители рассказывали детям о повадках зайцев, лисичек, волков и медведей. 
                         Потом наступил век пара и электричества. Мир стал состоять из заводов, шахт, паровозов и пароходов. 
                         Современного ребенка уже окружают не зайцы, и не паровозы. 
@@ -39,7 +41,8 @@ export default class ProjPage extends Component {
                     </div>
                    <Tag className="p-mr-2" severity="warning" value="Как?" rounded></Tag>
                     <div  id="f3" className="p-text-bold"> Как учить детей программированию ?         </div>
-                    <div className="p-text-justify" style={{ width: '55em' }}>  <p>Мы предлагаем начинать обучение детей с языка Scratch. 
+                    <div className="p-m-0 p-text-justify" style={{lineHeight: '1.5'}}>  
+                    <p>Мы предлагаем начинать обучение детей с языка Scratch. 
                         Это язык программирования для детей, разработанный в Media Lab при Массачусетском технологическом институте. Он базируется на цветных блоках, 
                         напоминающих «Лего», и каждый блок представляет собой кодовую команду. Используя блочные «сцепления», дети пишут код и создают анимацию, игры, рассказы и многое другое. 
                          А кроме того, они могут рисовать персонажей для своих проектов или записывать звуки, которые потом будут использовать.
@@ -50,15 +53,17 @@ export default class ProjPage extends Component {
                     </div>
                     <Tag className="p-mr-2" severity="warning" value="Диплом?" rounded></Tag>
                         <div id="f5"  className="p-text-bold">  Даете ли вы диплом об окончании курсов QA?</div>
-                        <div className="p-text-justify" style={{ width: '55em' }}>  <p> Да. Это - диплом нашей школы программирования "Хатуль Мадан". 
+                        <div className="p-m-0 p-text-justify" style={{lineHeight: '1.5'}}> 
+                         <p> Да. Это - диплом нашей школы программирования "Хатуль Мадан". 
                             Но, нужно понимать, что работодателя в первую очередь интересуют ваши знания и практические навыки, а также реальный опыт. 
                             Сам по себе диплом на собеседованиях спрашивают крайне редко, и его значение при трудоустройстве невелико.
-                        </p> <p>На протяжении курса все желающие смогут получить практику в реальных проектах и стартапах,  в том числе и в израильских. 
-                                </p>
+                         </p> 
+                         <p>На протяжении курса все желающие смогут получить практику в реальных проектах и стартапах,  в том числе и в израильских. 
+                         </p>
                     </div>
                     <Tag className="p-mr-2" severity="warning" value="Перспективы?" rounded></Tag>
                         <div id="f6"  className="p-text-bold"> Перспективы трудоустройства после курса QA?</div>
-                        <div className="p-text-justify" style={{ width: '55em' }}>  
+                        <div className="p-m-0 p-text-justify" style={{lineHeight: '1.5'}}>  
                         <p> Профессия "Manual tester"(специалист в области QA) находится в списке самых востребованных на сегодня согласно исследованиям рынка труда в Израиле. 
                             Исследование проведено платформой The Marker </p>
                                 <p>Эта специальность иногда считается одной из самых простых на рынке хай-тека, 
@@ -73,11 +78,11 @@ export default class ProjPage extends Component {
                                 
                                 </div> 
                     <Tag className="p-mr-2" severity="warning" value="Язык?" rounded></Tag>
-                    <div className="p-text-bold" style={{ width: '55em' }}> На каком языке ведется преподавание?  </div>
-                    <div> На русском языке и иврите. Техническая терминология дается на английском языке </div>
+                    <div className="p-text-bold" > На каком языке ведется преподавание?  </div>
+                    <div className="p-m-0 p-text-justify" style={{lineHeight: '1.5'}}> На русском языке и иврите. Техническая терминология дается на английском языке </div>
                     <Tag className="p-mr-2" severity="warning" value="Кому?" rounded></Tag>
                     <div id="f4" className="p-text-bold"> На какой уровень знаний учащихся рассчитаны курсы  QA ? </div>
-                    <div> Достаточно быть уверенным пользователем компьютера </div>
+                    <div className="p-m-0 p-text-justify" style={{lineHeight: '1.5'}}> Достаточно быть уверенным пользователем компьютера </div>
             </div>
             
         </div>

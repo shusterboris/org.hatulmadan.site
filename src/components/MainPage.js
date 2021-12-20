@@ -12,8 +12,8 @@ export default class MainPage extends Component {
          return(<Panel>     
             <div className="p-d-flex p-flex-column p-flex-md-row">
                <div p-d-flex p-flex-row p-flex-md-column>
-                  <img src="assets/images/globalCat.jpg" alt="Рисунок. Кот на глобусе" 
-                     className='p-page-img'/>
+                     <img src="assets/images/globalCat.jpg" alt="Кот на глобусе" className='p-page-img' />
+                  
                   <div className="p-orange p-pt-3 p-mx-3">
                      <h5 className="p-orange p-justify-center">Контакты: </h5>
                      <div className='p-mb-3'> 
@@ -27,13 +27,13 @@ export default class MainPage extends Component {
                      </div>
                   </div>
                </div>
-               <div>
-                  <h2 className="p-orange p-text-center" style={{margin: '0.5em 0 0.5rem 0'}} >Вас приветствует школа "Хатуль мадан"</h2>
-                  <h2 className="p-orange p-text-center" style={{margin: '0.5rem 0 0.5rem 0'}}>Наша миссия — ввести взрослых и детей в мир высоких технологий</h2> 
-                  <h2 className="p-orange p-text-center" style={{margin: '0.5rem 0 0.5rem 0'}}> Рассказываем просто о сложном. </h2>
-                  <div >
+               <div className="p-mr-5 p-pt-6">
+                  <h2 className="p-orange p-text-center" style={{margin: '0.5em 0 0.5rem 0', lineHeight: '1.5'}} >Вас приветствует школа "Хатуль мадан".</h2>
+                  <h2 className="p-orange p-text-center" style={{margin: '0.5rem 0 0.5rem 0',lineHeight: '1.5'}}>Наша миссия — ввести взрослых и детей в мир высоких технологий.</h2> 
+                  <h2 className="p-orange p-text-center" style={{margin: '0.5rem 0 0.5rem 0',lineHeight: '1.5'}}> Рассказываем просто о сложном. </h2>
+                  <div className="p-pt-6">
                      <h5 className="p-orange p-text-center" >Мы предлагаем: </h5> 
-                     <h5 className="p-text-justify"><b>Детям:</b> программирование на <a className="p-mylink" href="/courses#c4">Python</a> , 
+                     <h5 className="p-text-justify"><b>Детям:</b> программирование на <a className="p-mylink" href="/courses#c4">Python</a>, 
                      а для самых маленьких  — на <a className="p-mylink" href="/courses#c5">Scratch</a> игр разной степени сложности; хитрые задачи "Занимательной математики"; путешествия в пространстве и времени с "Необыкновенным английским".  Научим детей проводить время за компьютером с пользой.</h5>
                      <h5 className="p-text-justify">  <b>Взрослым</b>: ручное и автоматическое  <a className="p-mylink" href="/courses#c1">тестирование</a>, тренинги по подготовке к собеседованиям,
                      изучение языков Python, Java, технический английский и многое другое. 
@@ -44,12 +44,12 @@ export default class MainPage extends Component {
                   </div>
             
                   <div className="p-d-flex p-flex-column p-flex-md-row">
-                     <div className='p-mr-5' style={{width:'50%'}}>
+                     <div className='p-pt-3 p-pr-2' >
                         <h5 className=" p-orange">  Объявления </h5>            
                         <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
                               Приглашаем на курс  <a className="p-mylink" href="/courses#c3">Иврит для IT"</a></p>      
                         <p> <Tag className="p-mr-2 " severity="new" value="Сейчас!" rounded></Tag>
-                           Приглашаем на курс <a className="p-mylink" href="/courses#c4">Программирование на python"</a> для детей 13-15 лет. 
+                           Приглашаем на курс <a className="p-mylink" href="/courses#c4">Программирование на Python"</a> для детей. 
                         </p>
                         <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
                            Приглашаем на курс  <a className="p-mylink" href="/courses#c1">
@@ -60,8 +60,8 @@ export default class MainPage extends Component {
                            Технический английский</a>
                         </p>
                      </div>
-                  <div>
-                     <h5 className=" p-orange">  FAQ </h5> 
+                     <div className='p-pt-3'>
+                     <h5 className=" p-orange ">  FAQ </h5> 
                      <p><a className="p-mylink" href="/faq#f2">Зачем</a> учить детей программированию?</p>
                      <p><a className="p-mylink" href="/faq#f3">Как</a> учить детей программированию?</p>
                      <p><a className="p-mylink" href="/faq#f4">Какой</a> уровень знаний нужен для курса QA?</p>
