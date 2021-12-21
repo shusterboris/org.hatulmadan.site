@@ -17,14 +17,24 @@
 .p-logo {
   color: rgb(252, 213, 25);
 }
-.p-mob-img {
-  width: 264px;
-  /* width: 350px;  */
+.p-news-img {
+  margin-right: 1em;
+  margin-left: 1em; 
+  /*  width: 350px;  
   display: block;
-  margin-right: auto;
-  margin-left: auto;
+ */
+} 
+@media screen and (min-width: 501px) {
+  .p-news-img {
+    width: 300px;
+  }
 }
 
+@media screen and (max-width: 500px) {
+  .p-news-img {
+    width: 200px; 
+  }
+}
 .p-mylink {
   color: #614200;
   text-decoration: underline;
