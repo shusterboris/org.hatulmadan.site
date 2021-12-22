@@ -47,14 +47,12 @@ const AppTopbar = (props) => {
 
 			<div className="layout-topbar-grid layout-topbar-grid-column-fixed ">
 				<div className="layout-topbar-grid-column layout-topbar-grid-column">
-				
-					<img src="/assets/images/hatul_logo.jpg" height="40px" alt="logotype"/> 
-				
-				{/* <div className="layout-topbar-grid-column p-logo layout-topbar-grid-column-fixed p-pl-2 p-pr-6"> */}
-				 <div className=" p-logo "> 
-					 חתול מדען
-				
-					</div>
+					<div className='p-displayLogo'>
+						<img src="/assets/images/hatul_logo.jpg" height="40px" alt="logotype"/> 
+						<div className=" p-logo "> 
+							חתול מדען
+						</div></div>
+					
 				</div>	
 				<div className="layout-topbar-grid-column">
 					<AppMenu model={props.model} horizontal={props.horizontal} menuHoverActive={props.menuHoverActive} isMobile={props.isMobile}
