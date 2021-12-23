@@ -62,9 +62,11 @@ export default class CoursesPage extends Component {
                            <p><a className="p-mylink" href="https://youtu.be/8YugjIeIeu4" target="_blank">Запись первого занятия </a></p>
                     </div>
                    </Card>
-                 <Card id="c2" title="Автоматизация тестирования web-приложений на языке Java" subTitle="Тестирование программного обеспечения ">
+                   <img src="assets/images/hatul_gold.png" width= "10%" />
+                  
+                    <Card id="c2" title="Автоматизация тестирования web-приложений на языке Java" subTitle="Тестирование программного обеспечения ">
                         <div className="p-m-0"style={{lineHeight: '1.5'}} >
-                        <p>Язык обучения: русский, английский. Продолжительность курса - 6 мес</p>
+                        <p>Язык обучения: русский, английский. Продолжительность курса - 2 мес</p>
                             <p>Курс предназначен для обучения 
                                 написанию автоматизированных тестов для web-приложений на языке Java.
                             Мы начнем с самых азов автоматизации и закончим построением полноценной системы автотестов, которую вы впоследствии, сможете использовать в своих проектах. 
@@ -82,8 +84,8 @@ export default class CoursesPage extends Component {
                                 Наша цель - дать вам необходимые знания, чтобы вы могли начать автоматизировать процесс тестирования ваших веб-приложений через пользовательский интерфейс с нуля.
                                 Требуемый уровень подготовки - понимание принципов программирования, на уровне школьной программы. Все базовые конструкции языка Java, необходимые для построения нашей системы автотестов, будут разобраны на курсе. Но, данный курс не является общим курсом обучения программированию на Java. Здесь сделан акцент именно на ознакомлении с основными шаблонами и подходами, используемыми при построении автотестов.
                         </div>
-                    </Card> 
-              
+                  </Card> 
+                    <img src="assets/images/hatul_green.png" width= "10%" />
                   <Card id="c3" title="Иврит для IT"  subTitle="Подготовка к собеседованиям" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                           Продолжительность тренинга 9-10 занятий (2 месяца).
@@ -95,6 +97,8 @@ export default class CoursesPage extends Component {
                            </p>
                            <p><a className="p-mylink" href="https://youtu.be/zFIuOEC96ME" target="_blank">Запись первого занятия </a> </p>
                     </Card>
+                    <img src="assets/images/hatul_pink.png" width= "10%" />
+                  
                     <Card id="c8" title="Технический английский"  subTitle="Для IT - индустрии" >
                         <div className="p-m-0" style={{lineHeight: '1.5'}}>
                         Продолжтельность курса 4-5 месяца.
@@ -111,7 +115,9 @@ export default class CoursesPage extends Component {
                  <img src="assets/images/red1.jpg" width ="50%" alt="картинка с котом"/> 
                 </div>
                 <div className="p-col-8">
-                */}      <Card id="c4" title="Программирование на Python"  subTitle="Для детей 12-15 лет" >
+                */}    <img src="assets/images/hatul_purple.png" width= "10%" />
+                    
+                  <Card id="c4" title="Программирование на Python"  subTitle="Для детей 12-15 лет" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                       Изучение языка и основ программирования.  Далее дети делают игры на библиотеке pygame. Есть группы на русском языке и на иврите
                       <ui> Программа курса: 
@@ -131,6 +137,8 @@ export default class CoursesPage extends Component {
                         <p > <a className="p-mylink" href="/news#n9">Почему мы выбрали Python</a></p>
                         </p>
                     </Card>
+                    <img src="assets/images/hatul_gold.png" width= "10%" />
+                  
                     <Card id="c5" title="Программирование на Scratch" 
                     subTitle="Для детей 7-10 лет" >
                         <p className="p-m-0 " style={{lineHeight: '1.5'}} >
@@ -168,6 +176,8 @@ export default class CoursesPage extends Component {
                            </p>
                            <p><a className="p-mylink" href="https://scratch.mit.edu/projects/410988460" target="_blank">Пример проекта </a> </p>
                         </Card> 
+                        <img src="assets/images/hatul_green.png" width= "10%" />
+                  
                     <Card id="c6" title="Занимательная математика" 
                     subTitle="Для детей 10-12 лет" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
@@ -175,6 +185,8 @@ export default class CoursesPage extends Component {
                              скорая помощь по школьным заданиям всех стран и континентов.
                             Занятия на русском языке </p>
                         </Card> 
+                        <img src="assets/images/hatul_pink.png" width= "10%" />
+                  
                    <Card id="c7" title="Английский язык" 
                      subTitle="Для детей 10-12 лет" >
                         Загадки, детективные истории, спасенные принцессы. Авторский курс. Учение без мучения и зубрежки.
