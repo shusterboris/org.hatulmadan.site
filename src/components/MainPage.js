@@ -25,6 +25,9 @@ export default class MainPage extends Component {
                         <i className="pi pi-envelope" > </i>  
                         <a className="p-mylink" href="mailto:hatul.madan.metahnet@gmail.com"> {!isMobile ? 'hatul.madan.metahnet@gmail.com' : 'Эл. почта'} </a>
                      </div>
+                     <div className="p-text-nowrap p-text-truncate" style={{color:'#614200'}}> 
+                     <i className="pi pi-telegram" > </i> 
+                     <a className="p-mylink" href="https://t.me/+OqITQiK6MvIwNjJk" target="_blank" rel="noreferrer"> мы в Telegram</a></div>
                   </div>
                </div>
                <div className="p-mr-5 p-pt-6">

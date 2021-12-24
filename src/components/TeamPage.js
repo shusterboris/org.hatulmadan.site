@@ -42,6 +42,10 @@ export default class TeamPage extends Component {
                         <i className="pi pi-envelope" > </i>  
                         <a className="p-mylink" href="mailto:hatul.madan.metahnet@gmail.com"> {!isMobile ? 'hatul.madan.metahnet@gmail.com' : 'Эл. почта'} </a>
                     </div>
+                    <div className="p-text-nowrap p-text-truncate" style={{color:'#614200'}}> 
+                     <i className="pi pi-telegram" > </i> 
+                     <a className="p-mylink" href="https://t.me/+OqITQiK6MvIwNjJk" target="_blank" rel="noreferrer"> мы в Telegram</a></div>
+            
                 </div>                
             </div>
         </div>    
@@ -105,9 +109,8 @@ export default class TeamPage extends Component {
                                 <img src="assets/images/andrey.jpg" alt="Фото преподавателя. Андрей Кудря"/> 
                             </div>
                             <div className="p-mx-2 p-text-justify">
-                                Преподаватель с многолетним опытом. 
-                                Умеет учить детей и взрослых.
-                                Освоил профессию тестировщика и вас научит. 
+                            Преподаватель с огромным опытом и инженер QA.  Более 8 лет участия в технических проектах.
+                             25-летний опыт преподавания и репетиторства по английскому языку 
                             </div>
                         </div>
                     </p>
