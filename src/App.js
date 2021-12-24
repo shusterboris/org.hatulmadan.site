@@ -22,18 +22,15 @@ ReactGA.initialize(TRACKING_ID);
 
 const App = () => {
 
-    const [horizontal, setHorizontal] = useState(true);
-    const [topbarSize, setTopbarSize] = useState('large');
-    const [topbarColor, setTopbarColor] = useState('layout-topbar-faraway');
-    const [menuColor, setMenuColor] = useState('layout-menu-light');
+    const [horizontal] = useState(true);
+    const [topbarSize] = useState('large');
+    const [topbarColor] = useState('layout-topbar-faraway');
+    const [menuColor] = useState('layout-menu-light');
     const [menuActive, setMenuActive] = useState(false);
     const [menuHoverActive, setMenuHoverActive] = useState(false);
     const [topbarUserMenuActive, setTopbarUserMenuActive] = useState(false);
-    const [compactMode, setCompactMode] = useState(false);
-    const [layoutColor, setLayoutColor] = useState('deeporange');
-    const [themeColor, setThemeColor] = useState('deeporange');
-    const [inputStyle, setInputStyle] = useState('outlined');
-    const [ripple, setRipple] = useState(true);
+    const [inputStyle] = useState('outlined');
+    const [ripple] = useState(true);
 
     PrimeReact.ripple = true;
 
@@ -56,15 +53,6 @@ const App = () => {
 
         userMenuClick = false;
         menuClick = false;
-    };
-
-    const onInputStyleChange = (inputStyle) => {
-        setInputStyle(inputStyle);
-    };
-
-    const onRippleChange = (e) => {
-        PrimeReact.ripple = e.value;
-        setRipple(e.value);
     };
 
     const onMenuButtonClick = (event) => {

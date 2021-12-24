@@ -20,7 +20,7 @@ export default class MainPage extends Component {
                         <i className="pi pi-phone" ></i> 
                         <a className="p-mylink" href='tel:+972536405871'>+972 53-640-5871 </a> 
                      </div>
-                     <p> <i className="pi pi-facebook" ></i> <a className="p-mylink"  href="https://www.facebook.com/groups/Khatulmadan" target="_blank">Facebook</a></p>
+                     <p> <i className="pi pi-facebook" ></i> <a className="p-mylink"  href="https://www.facebook.com/groups/Khatulmadan" target="_blank" rel="noreferrer">Facebook</a></p>
                      <div className="p-text-nowrap p-text-truncate" style={{color:'#614200'}}> 
                         <i className="pi pi-envelope" > </i>  
                         <a className="p-mylink" href="mailto:hatul.madan.metahnet@gmail.com"> {!isMobile ? 'hatul.madan.metahnet@gmail.com' : 'Эл. почта'} </a>

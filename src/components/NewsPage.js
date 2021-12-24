@@ -17,8 +17,8 @@ export default class CoursesPage extends Component {
                  <p> <a className="p-mylink p-text-bold" href="#n9">Почему мы выбрали Python</a></p>
                  <p> <a className="p-mylink p-text-bold" href="#n6">  Наши планы </a></p>
                 <p className="p-orange"> А также следите за новостями в наших группах в facebook:
-                <ui><li><a className="p-mylink" href="https://www.facebook.com/groups/Khatulmadan"  target="_blank"> Khatulmadan </a> </li>
-                <li><a className="p-mylink" href="https://www.facebook.com/groups/RusITIsrael"  target="_blank"> RusITIsrael </a></li></ui>
+                <ui><li><a className="p-mylink" href="https://www.facebook.com/groups/Khatulmadan"  target="_blank" rel='noreferrer'> Khatulmadan </a> </li>
+                <li><a className="p-mylink" href="https://www.facebook.com/groups/RusITIsrael"  target="_blank" rel='noreferrer'> RusITIsrael </a></li></ui>
                 </p>
             </div>
               
@@ -32,7 +32,7 @@ export default class CoursesPage extends Component {
                         "Спасибо, Шону было очень было интересно....".
                     После окончания занятия дети не спешили расходиться и еще 15 минут задавали вопросы преподавателю. Да, так бывает 🙂
                     Занятия будут происходить по понедельникам в 17.30. Еще не поздно присоединиться к группе 🙂, ждем всех желающих!
-                    Запись вчерашнего занятия по <a className="p-mylink" href="https://youtu.be/5eRSXNnZNKw"  target="_blank"> ссылке </a> 
+                    Запись вчерашнего занятия по <a className="p-mylink" href="https://youtu.be/5eRSXNnZNKw"  target="_blank" rel="noreferrer"> ссылке </a> 
                     </div>
                 </Card>   
                 <Card id="n1" title="Открытый урок для курса QA" >

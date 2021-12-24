@@ -57,12 +57,12 @@ export default class CoursesPage extends Component {
                     По окончанию курса те, кто будет все это делать, выйдут реальными тестировщиками с приличным опытом .
                     После 3-4 месяцев занятий можно начинать работать фрилансером-тестировщиком. Покажем и расскажем как, введем "за руку" желающих в мир QA
                                                                           
-                           <p className="p-text-bold"> <a className="p-mylink" href="/news#n1">подробнее</a>
+                           <p className="p-text-bold"> <a className="p-mylink" href="/news#n1" rel="noreferrer">подробнее</a>
                            </p>
-                           <p><a className="p-mylink" href="https://youtu.be/8YugjIeIeu4" target="_blank">Запись первого занятия </a></p>
+                           <p><a className="p-mylink" href="https://youtu.be/8YugjIeIeu4" target="_blank" rel="noreferrer">Запись первого занятия </a></p>
                     </div>
                    </Card>
-                   <img src="assets/images/hatul_gold.png" width= "10%" />
+                   <img src="assets/images/hatul_gold.png" width= "10%" alt="logo with gold cat"/>
                   
                     <Card id="c2" title="Автоматизация тестирования web-приложений на языке Java" subTitle="Тестирование программного обеспечения ">
                         <div className="p-m-0"style={{lineHeight: '1.5'}} >
@@ -85,7 +85,7 @@ export default class CoursesPage extends Component {
                                 Требуемый уровень подготовки - понимание принципов программирования, на уровне школьной программы. Все базовые конструкции языка Java, необходимые для построения нашей системы автотестов, будут разобраны на курсе. Но, данный курс не является общим курсом обучения программированию на Java. Здесь сделан акцент именно на ознакомлении с основными шаблонами и подходами, используемыми при построении автотестов.
                         </div>
                   </Card> 
-                    <img src="assets/images/hatul_green.png" width= "10%" />
+                    <img src="assets/images/hatul_green.png" width= "10%" alt = "логотип - зеленый кот"/>
                   <Card id="c3" title="Иврит для IT"  subTitle="Подготовка к собеседованиям" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                           Продолжительность тренинга 9-10 занятий (2 месяца).
@@ -95,9 +95,9 @@ export default class CoursesPage extends Component {
                         </p>
                         <p className="p-text-bold"> <a className="p-mylink" href="/news#n3">подробнее</a>
                            </p>
-                           <p><a className="p-mylink" href="https://youtu.be/zFIuOEC96ME" target="_blank">Запись первого занятия </a> </p>
+                           <p><a className="p-mylink" href="https://youtu.be/zFIuOEC96ME" target="_blank" rel="noreferrer">Запись первого занятия </a> </p>
                     </Card>
-                    <img src="assets/images/hatul_pink.png" width= "10%" />
+                    <img src="assets/images/hatul_pink.png" width= "10%" alt="логотип - пурпурный кот"/>
                   
                     <Card id="c8" title="Технический английский"  subTitle="Для IT - индустрии" >
                         <div className="p-m-0" style={{lineHeight: '1.5'}}>
@@ -115,7 +115,7 @@ export default class CoursesPage extends Component {
                  <img src="assets/images/red1.jpg" width ="50%" alt="картинка с котом"/> 
                 </div>
                 <div className="p-col-8">
-                */}    <img src="assets/images/hatul_purple.png" width= "10%" />
+                */}    <img src="assets/images/hatul_purple.png" width= "10%" alt="логотип с котом"/>
                     
                   <Card id="c4" title="Программирование на Python"  subTitle="Для детей 12-15 лет" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
@@ -137,7 +137,7 @@ export default class CoursesPage extends Component {
                         <p > <a className="p-mylink" href="/news#n9">Почему мы выбрали Python</a></p>
                         </p>
                     </Card>
-                    <img src="assets/images/hatul_gold.png" width= "10%" />
+                    <img src="assets/images/hatul_gold.png" width= "10%" alt="логотип с котом"/>
                   
                     <Card id="c5" title="Программирование на Scratch" 
                     subTitle="Для детей 7-10 лет" >
@@ -174,9 +174,9 @@ export default class CoursesPage extends Component {
                         </p>
                          <p className="p-text-bold"> <a className="p-mylink" href="/news#n2">подробнее</a>
                            </p>
-                           <p><a className="p-mylink" href="https://scratch.mit.edu/projects/410988460" target="_blank">Пример проекта </a> </p>
+                           <p><a className="p-mylink" href="https://scratch.mit.edu/projects/410988460" target="_blank" rel="noreferrer">Пример проекта </a> </p>
                         </Card> 
-                        <img src="assets/images/hatul_green.png" width= "10%" />
+                        <img src="assets/images/hatul_green.png" width= "10%" alt="логотип с котом"/>
                   
                     <Card id="c6" title="Занимательная математика" 
                     subTitle="Для детей 10-12 лет" >
@@ -185,7 +185,7 @@ export default class CoursesPage extends Component {
                              скорая помощь по школьным заданиям всех стран и континентов.
                             Занятия на русском языке </p>
                         </Card> 
-                        <img src="assets/images/hatul_pink.png" width= "10%" />
+                        <img src="assets/images/hatul_pink.png" width= "10%" alt="логотип с котом"/>
                   
                    <Card id="c7" title="Английский язык" 
                      subTitle="Для детей 10-12 лет" >

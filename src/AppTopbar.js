@@ -1,43 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import AppMenu from './AppMenu';
-import { useHistory} from 'react-router-dom';
 import './hatul.css';
 const AppTopbar = (props) => {
 
 	let menuButtonClassName = classNames('layout-menubutton ', { 'layout-menubutton-active': props.menuActive })
-	const history = useHistory();
-
-	const getInk = (el) => {
-        for (let i = 0; i < el.children.length; i++) {
-            if (typeof el.children[i].className === 'string' && el.children[i].className.indexOf('p-ink') !== -1) {
-                return el.children[i];
-            }
-        }
-        return null;
-	}
-	
-	const removeClass = (element, className) => {
-        if (element.classList)
-            element.classList.remove(className);
-        else
-            element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-    }
-
-	const onItemClick = (event, itemNo) => {
-		const ink = getInk(event.currentTarget);
-		if (ink) {
-			removeClass(ink, 'p-ink-active');
-		}
-		processTopbarMenuClick(itemNo);
-	}
-
-	const processTopbarMenuClick = (itemNo) =>{
-		if (itemNo === 2){
-			window.sessionStorage.clear();
-		}
-		history.push("/login")
-	}
 
 	return (
 		<div className="layout-topbar">

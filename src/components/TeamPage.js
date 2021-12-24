@@ -36,7 +36,7 @@ export default class TeamPage extends Component {
                         <a className="p-mylink" href='tel:+972536405871'>+972 53-640-5871 </a> 
                     </div>
                     <div className='p-mb-3'>    
-                        <i className="pi pi-facebook" ></i> <a className="p-mylink"  href="https://www.facebook.com/groups/Khatulmadan" target="_blank">Facebook</a>
+                        <i className="pi pi-facebook" ></i> <a className="p-mylink"  href="https://www.facebook.com/groups/Khatulmadan" target="_blank" rel="noreferrer">Facebook</a>
                     </div>
                     <div className="p-text-nowrap p-text-truncate" style={{color:'#614200'}}> 
                         <i className="pi pi-envelope" > </i>  
@@ -186,7 +186,7 @@ export default class TeamPage extends Component {
                             </div>
                             <div className="p-mx-2 p-text-justify">
                                 Замечательный художник из Санкт-Петербурга. Он не только котов умеет рисовать, поверьте 
-                                <p><a href="https://www.facebook.com/BazilArts" className="p-mylink" target="_blank" >Его страница в facebook</a></p>
+                                <p><a href="https://www.facebook.com/BazilArts" className="p-mylink" target="_blank" rel="noreferrer">Его страница в facebook</a></p>
                             </div>
                         </div >
                     </div>                        
