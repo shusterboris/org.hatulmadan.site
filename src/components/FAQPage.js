@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Panel } from 'primereact/panel';
 import { Tag } from 'primereact/tag';
 import '../hatul.css';
+import Contacts from './Contacts.js';
 export default class ProjPage extends Component {
     state = {
          value1:'',value2:'',value3:'',
@@ -15,21 +16,7 @@ export default class ProjPage extends Component {
         <div className="p-d-flex p-flex-column p-flex-md-row ">
             <div >
                  <img src="assets/images/welcomeCat.jpg" className='p-page-img' alt="картинка с котом"/>
-                 <div className="p-orange p-pt-3 p-mx-3">
-                     <h5 className="p-orange p-justify-center">Контакты: </h5>
-                     <div className='p-mb-3'> 
-                        <i className="pi pi-phone" ></i> 
-                        <a className="p-mylink" href='tel:+972536405871'>+972 53-640-5871 </a> 
-                     </div>
-                     <p> <i className="pi pi-facebook" ></i> <a className="p-mylink"  href="https://www.facebook.com/groups/Khatulmadan" target="_blank" rel="noreferrer">Facebook</a></p>
-                     <div className="p-text-nowrap p-text-truncate" style={{color:'#614200'}}> 
-                        <i className="pi pi-envelope" > </i>  
-                        <a className="p-mylink" href="mailto:hatul.madan.metahnet@gmail.com"> {!isMobile ? 'hatul.madan.metahnet@gmail.com' : 'Эл. почта'} </a>
-                     </div>
-                     <div className="p-text-nowrap p-text-truncate" style={{color:'#614200'}}> 
-                     <i className="pi pi-telegram" > </i> 
-                     <a className="p-mylink" href="https://t.me/+OqITQiK6MvIwNjJk" target="_blank" rel="noreferrer"> мы в Telegram</a></div>
-                  </div>
+                 <Contacts/>
             </div>   
             <div  className="p-pt-4 p-pl-4">
          
