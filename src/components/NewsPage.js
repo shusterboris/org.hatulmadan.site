@@ -12,7 +12,8 @@ export default class CoursesPage extends Component {
         <div className="p-d-flex p-flex-column p-flex-md-row ">
             <div className="p-pl-4">
                 <p> <img src="assets/images/mechHatul.jpeg"  className="p-page-img" alt="картинка с котом"/> </p>
-                <p > <a className="p-mylink p-text-bold" href="#n10">Первый урок курса Пайтон</a></p>
+                <p > <a className="p-mylink p-text-bold" href="#n11">Первый урок курса технического английского</a></p>
+                 <p > <a className="p-mylink p-text-bold" href="#n10">Первый урок курса Пайтон</a></p>
                  <p > <a className="p-mylink p-text-bold" href="#n1">Открытый урок для курса QA</a></p>
                  <p > <a className="p-mylink p-text-bold" href="#n2">Как устроен Scratch</a></p>
                  <p> <a className="p-mylink p-text-bold" href="#n4">День проектов на курсе Scratch</a></p>
@@ -25,8 +26,19 @@ export default class CoursesPage extends Component {
                 </p>
                 <Contacts/>
             </div>
-              
+            
             <div className="p-px-3 ">
+                <Card id="n11" title="Первый урок курса технического английского">  
+                <div className="p-m-0" style={{lineHeight: '1.5'}}>
+                    Говорят, что при изучении нового иностранного языка из памяти вытесняется тот, который помнишь хуже всего. 
+                    Многие столкнулись с тем, что за первые годы жизни в Израиле английский язык забыли а иврит не выучили. 
+                    Поэтому те, кто решился броситься в эту холодную воду - большие молодцы. Прямо на первом уроке  получили заряд грамматики и технической лексики. 
+                    Да еще и вдогонку домашнее задание.
+                    <p><img src="assets/images/n11/n11.jpg"  className="p-news-img" alt="adjile"/> </p>
+                    Запись  занятия по <a className="p-mylink" href="https://youtu.be/MbMydYOWX3g"  target="_blank" rel="noreferrer"> ссылке </a>. 
+                    Посмотрите, может надумаете не в эту группу так в следующую?
+                    </div>
+                </Card>      
                 <Card id="n10" title="Первый урок курса Пайтон" >
                     <div className="p-m-0" style={{lineHeight: '1.5'}}>
                     Прошло первое занятие курса для детей 12-15 лет.
