@@ -1,5 +1,9 @@
 Сайт Хатуль Мадан
-Версия 1.1.3 2021-12-21
+Версия 1.1.4 2021-12-26
+
+1. Главная - косметические изменения
+
+Версия 1.1.3 2021-12-25
 
 1. Удаление устаревших зависимостей (babel/polifill, chart.js), переход на новый react-scripts (npm i postcss-flexbugs-fixes postcss-preset-env postcss-normalize)
 2. Добавление margin в контактах
