@@ -27,6 +27,12 @@ export default class CoursesPage extends Component {
                    <Contacts/>
                 </div>
                 <div className="p-pl-3 p-pr-6">
+                    <div className=" p-pr-6" ><h5 className="p-orange " ><p>Список курсов для взрослых построен таким образом, чтобы можно было выбрать курс согласно своему уровню знаний, 
+                    а также брать дополнительные тренинги при наличии желания и возможностей.</p> <p>Для тех, кто прослушал основные курсы, на тренинги предоставляется скидка. </p><p>Список курсов и тренингов постоянно обновляется.</p>
+                    </h5>
+                    <p> <img src="assets/images/courses1.jpg"  className='p-page-img' alt="схема курсов"/></p>
+                     </div> 
+             
                     <Card id="c1" title="QA для начинающих" subTitle="Тестирование программного обеспечения " >
                     <div className="p-m-0" style={{lineHeight: '1.5'}}>
                         <p>Продолжительность курса - 12 мес. Язык обучения - русский.
@@ -123,34 +129,13 @@ export default class CoursesPage extends Component {
                         <li>Урок 10. Придаточное предложение. “Если” предложения. Direct/Reported speech (Прямая/докладная речь). Present Perfect (Настоящее совершенное)</li></ui>
                         </div>
                       </Card>         
-                {/* </div>
-                <div className="p-col-4 p-text-center">
-                 <img src="assets/images/red1.jpg" width ="50%" alt="картинка с котом"/> 
-                </div>
-                <div className="p-col-8">
-                */}    <img src="assets/images/hatul_purple.png" width= "10%" alt="логотип с котом"/>
-                    
-                  <Card id="c4" title="Программирование на Python"  subTitle="Для детей 12-15 лет" >
-                        <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                      Изучение языка и основ программирования.  Далее дети делают игры на библиотеке pygame. Есть группы на русском языке и на иврите
-                      <ui> Программа курса: 
-                           <li>переменные </li>
-                           <li>арифметические и логические операции</li>
-                           <li>условные операторы и циклы</li>
-                           <li>структуры данных</li>
-                           <li>функции</li>
-                           <li>классы</li>
-                           <li>основы объектно-ориентироованного программирования</li>
-                           <li>понятие о библиотеках и модулях</li>
-                           <li>принципы работы библиотеки pygame</li>
-                           <li>понятие о событиях и коллизиях</li>
-                           <li>работа с индивидуальными проектами</li>
-                           <li>написание telegram-бота и другие интересные программы</li>
-                        </ui>
-                        <p > <a className="p-mylink" href="/news#n9">Почему мы выбрали Python</a></p>
-                        </p>
-                    </Card>
-                    <img src="assets/images/hatul_gold.png" width= "10%" alt="логотип с котом"/>
+               
+                <div className=" p-pr-6" ><h5 className="p-orange " ><p>Список курсов для детей построен таким образом, 
+                    чтобы дети могли начать с простого визуального языка scretch, рассчитанного на самых маленьких, и постепенно перейти к настоящему программированию. 
+                    </p> <p>Ученики могут взять разные дополнительные курсы. Постоянным ученикам в нашей школе есть скидки и подарки</p><p>Список курсов и тренингов постоянно обновляется.</p>
+                    </h5>
+                    <p> <img src="assets/images/courses2.jpg"  className='p-page-img' alt="схема курсов"/></p>
+                     </div>     
                   
                     <Card id="c5" title="Программирование на Scratch" 
                     subTitle="Для детей 7-10 лет" >
@@ -189,6 +174,27 @@ export default class CoursesPage extends Component {
                            </p>
                            <p><a className="p-mylink" href="https://scratch.mit.edu/projects/410988460" target="_blank" rel="noreferrer">Пример проекта </a> </p>
                         </Card> 
+                        <img src="assets/images/hatul_gold.png" width= "10%" alt="логотип с котом"/>
+                        <Card id="c4" title="Программирование на Python"  subTitle="Для детей 12-15 лет" >
+                        <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                      Изучение языка и основ программирования.  Далее дети делают игры на библиотеке pygame. Есть группы на русском языке и на иврите
+                      <ui> Программа курса: 
+                           <li>переменные </li>
+                           <li>арифметические и логические операции</li>
+                           <li>условные операторы и циклы</li>
+                           <li>структуры данных</li>
+                           <li>функции</li>
+                           <li>классы</li>
+                           <li>основы объектно-ориентироованного программирования</li>
+                           <li>понятие о библиотеках и модулях</li>
+                           <li>принципы работы библиотеки pygame</li>
+                           <li>понятие о событиях и коллизиях</li>
+                           <li>работа с индивидуальными проектами</li>
+                           <li>написание telegram-бота и другие интересные программы</li>
+                        </ui>
+                        <p > <a className="p-mylink" href="/news#n9">Почему мы выбрали Python</a></p>
+                        </p>
+                    </Card>
                         <img src="assets/images/hatul_green.png" width= "10%" alt="логотип с котом"/>
                   
                     <Card id="c6" title="Занимательная математика" 
