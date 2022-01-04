@@ -83,6 +83,7 @@ export default class CoursesPage extends Component {
                                 <li>  Исследовательское тестирование </li>
                                 <li> Нефункциональное тестирование </li>
                                 <li> Изучение работы с Postman.</li></ui>
+                                <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                                 <h5>Часть 2</h5>
                                 <p> Язык программирования JavaScript,  <b>DOM</b> (Document Object Model), основы автоматизации тестирования с использованием Selenium 
                                 </p>
