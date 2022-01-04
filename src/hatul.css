@@ -39,7 +39,10 @@
   color: #614200;
   text-decoration: underline;
 }
-
+.p-addlink {
+  color: #0f0f0f;
+  font-size: 0.8em;
+}
 .p-page-img {
   display: block;
   margin-left: auto;
