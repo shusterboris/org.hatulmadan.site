@@ -6,7 +6,7 @@ import Contacts from './Contacts.js';
 export default class CoursesPage extends Component {
     state = {};
     course1='Тестирование ПО';
-    course2='Автоматическое тестирование' ; 
+    course2='Автоматизированное тестирование' ; 
     course3='Иврит для IT';
     course4='Технический английский';
     course5='Программирование на Scratch';
@@ -242,7 +242,7 @@ export default class CoursesPage extends Component {
                         </p>
                         <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                     </Card>
-                    <img src="assets/images/hatul_purple.png" width= "10%" alt="логотип с котом"/>
+                    <img src="assets/images/hatul_purple .png" width= "10%" alt="логотип с котом"/>
                         <Card id="c9" title={this.course9}  subTitle="Для взрослых и детей от 14 лет" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                       Изучение языка JavaSctipt и основ программирования.  Обучение на русском языке 
