@@ -12,6 +12,7 @@ export default class CoursesPage extends Component {
         <div className="p-d-flex p-flex-column p-flex-md-row ">
             <div className="p-pl-4">
                 <p> <img src="assets/images/mechHatul.jpeg"  className="p-page-img" alt="картинка с котом"/> </p>
+                <p > <a className="p-mylink p-text-bold" href="#n12">Первый урок занимательной математики</a></p>
                 <p > <a className="p-mylink p-text-bold" href="#n11">Первый урок курса технического английского</a></p>
                  <p > <a className="p-mylink p-text-bold" href="#n10">Первый урок курса Пайтон</a></p>
                  <p > <a className="p-mylink p-text-bold" href="#n1">Открытый урок для курса QA</a></p>
@@ -28,6 +29,16 @@ export default class CoursesPage extends Component {
             </div>
             
             <div className="p-px-3 ">
+            <Card id="n11" title="Первый урок занимательной математики">  
+                <div className="p-m-0" style={{lineHeight: '1.5'}}>
+                    <p>Зачем нужна в жизни математика? Подготовиться к тестам, сдать их и забыть математику как страшный сон? </p>
+                    <p> Александр на своем курсе расскажет что математика совсем не для этого. А для чего? Приходите и узнаете.</p>
+                    <p><img src="assets/images/n12/m1.png"  className="p-news-img" alt="математика1"/> </p>
+                    <p><img src="assets/images/n12/m2.png"  className="p-news-img" alt="математика2"/> </p>
+                    Запись  занятия по <a className="p-mylink" href="https://www.youtube.com/watch?v=E38wAtHDfrU"  target="_blank" rel="noreferrer"> ссылке </a>. 
+                    Присоединяйтесь, еще успеете!
+                    </div>
+                </Card>     
                 <Card id="n11" title="Первый урок курса технического английского">  
                 <div className="p-m-0" style={{lineHeight: '1.5'}}>
                     Говорят, что при изучении нового иностранного языка из памяти вытесняется тот, который помнишь хуже всего. 

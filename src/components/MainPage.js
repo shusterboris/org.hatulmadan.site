@@ -40,16 +40,13 @@ export default class MainPage extends Component {
                         <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
                               Приглашаем на курс  <a className="p-mylink" href="/courses#c3">Иврит для IT"</a></p>      
                         <p> <Tag className="p-mr-2 " severity="new" value="Сейчас!" rounded></Tag>
-                           Приглашаем на курс <a className="p-mylink" href="/courses#c4">Программирование на Python"</a> для детей. 
+                           Приглашаем на курс <a className="p-mylink" href="/courses#c6">Занимательная математика</a> 
                         </p>
                         <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
                            Приглашаем на курс  <a className="p-mylink" href="/courses#c1">
                            QA для начинающих</a>
                         </p>
-                        <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
-                           Приглашаем на курс  <a className="p-mylink" href="/courses#c8">
-                           Технический английский</a>
-                        </p>
+                        
                      </div>
                      <div className='p-pt-3'>
                      <h5 className=" p-orange ">  FAQ </h5> 
@@ -57,6 +54,7 @@ export default class MainPage extends Component {
                      <p><a className="p-mylink" href="/faq#f3">Как</a> учить детей программированию?</p>
                      <p><a className="p-mylink" href="/faq#f4">Какой</a> уровень знаний нужен для курса QA?</p>
                      <p><a className="p-mylink" href="/faq#f6">Перспективы</a> трудоустройства после курса QA?</p>
+                     <p><a className="p-mylink" href="/faq#f7">Войти в IT</a> легенды и мифы</p>
                   </div>
                </div>                            
             </div>  
