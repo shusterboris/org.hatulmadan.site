@@ -14,19 +14,21 @@ export default class CoursesPage extends Component {
     course7='Занимательная математика';
     course8='Английский язык';
     course9='JavaSctipt и основы Web-разработки';
+    course10='Введение в автоматизацию';
     
     menu =  [
              {label: this.course1,  url: '/courses#c1'},
              {label: this.course2,  url: '/courses#c2'},
              {label: this.course3,  url: '/courses#c3'},
              {label: this.course4,  url: '/courses#c8'},
+             {label: this.course9,  url: '/courses#c9'}
         ];  
     menuAdd =  [
             {label: this.course5,  url: '/courses#c5'},
             {label: this.course6,  url: '/courses#c4'},
             {label: this.course7,  url: '/courses#c6'},
-            {label: this.course8,  url: '/courses#c7'},
-            {label: this.course9,  url: '/courses#c9'},
+            {label: this.course8,  url: '/courses#c7'}
+           
        ];    
     openImg(e){
         //const posx=e.nativeEvent.offsetX;
@@ -43,6 +45,7 @@ export default class CoursesPage extends Component {
                    <p > <a className="p-mylink p-text-bold" href="#c2">{this.course2}</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c3">{this.course3}</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c8">{this.course4}</a></p>
+                   <p > <a className="p-mylink p-text-bold" href="#c9">{this.course9}</a></p>
                    <h5> <a className="p-orange p-mylink" href="#c01">Курсы для детей:</a> </h5>
                   
                    <p className="p-orange">Также есть  индивидуальные занятия для взрослых и детей разной степени подготовленности </p>
@@ -85,7 +88,7 @@ export default class CoursesPage extends Component {
                                 <li> Изучение работы с Postman.</li></ui>
                                 <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                                 <h5>Часть 2</h5>
-                                <p> Язык программирования JavaScript,  <b>DOM</b> (Document Object Model), основы автоматизации тестирования с использованием Selenium 
+                                <p> Язык программирования JavaScript,  <b>DOM</b> (Document Object Model), основы автоматизации тестирования 
                                 </p>
                                 Основа нашего курса - практика. Уже с первых занятий мы начинаем разбирать реальные задачи с собеседований, 
                         квалификационных тестов и т.д. участвовать в реальных проектах. 
@@ -121,7 +124,22 @@ export default class CoursesPage extends Component {
                                 </ui></p>
                                 Наша цель - дать вам необходимые знания, чтобы вы могли начать автоматизировать процесс тестирования ваших веб-приложений через пользовательский интерфейс с нуля.
                                 Требуемый уровень подготовки - понимание принципов программирования, на уровне школьной программы. Все базовые конструкции языка Java, необходимые для построения нашей системы автотестов, будут разобраны на курсе. Но, данный курс не является общим курсом обучения программированию на Java. Здесь сделан акцент именно на ознакомлении с основными шаблонами и подходами, используемыми при построении автотестов.
+                        
+                        <p><a className="p-mylink" href="https://www.youtube.com/watch?v=a72NS5lUj_M" target="_blank" rel="noreferrer">Запись вводного ролика </a></p>
                         </div>
+                        https://www.youtube.com/watch?v=a72NS5lUj_M
+                        <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
+                  </Card> 
+               
+                  <Card id="c10" title={this.course10} subTitle="Программирование" >
+                      <div className="p-m-0" style={{lineHeight: '1.5'}}>
+                        <p>Продолжительность курса - 6 мес. Язык обучения - русский. </p>
+                        Курс предназначен для желающих изучить автоматизацию тестирования, но незнакомых с программированием.
+                        <b>Схема курса:</b>
+                        <p> <img src="assets/images/courses3.jpg"  className='p-page-img'  alt="схема курса"/></p>
+  <p>В составе курса изучается Java. По желанию группы вместо Java может быть один из указанных языков.</p>
+<p>Изучение DOM(Document Object Model)  может преподаваться отдельным курсом продолжительностью 2 месяца.</p>
+</div>
                         <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                   </Card> 
                     <img src="assets/images/hatul_green.png" width= "10%" alt = "логотип - зеленый кот"/>
@@ -171,7 +189,7 @@ export default class CoursesPage extends Component {
                    <p > <a className="p-mylink p-text-bold" href="#c4">{this.course6}</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c6">{this.course7}</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c7">{this.course8}</a></p>
-                   <p > <a className="p-mylink p-text-bold" href="#c9">{this.course9}</a></p>
+                  
                 </div>
                 <div className="p-col-12 p-lg-8 p-md-6 p-px-3">       
                     <div id="c01" className=" p-pr-6" ><h5 className="p-orange " ><p>Список курсов для детей построен таким образом, 
@@ -242,23 +260,24 @@ export default class CoursesPage extends Component {
                         </p>
                         <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                     </Card>
-                    <img src="assets/images/hatul_purple .png" width= "10%" alt="логотип с котом"/>
-                        <Card id="c9" title={this.course9}  subTitle="Для взрослых и детей от 14 лет" >
+                    <img src="assets/images/hatul_purple.png" width= "10%" alt="логотип с котом"/>
+                        <Card id="c9" title={this.course9}  subTitle="Для взрослых и детей от 16 лет" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
                       Изучение языка JavaSctipt и основ программирования.  Обучение на русском языке 
-                      <ui> Программа курса: 
-                           <li>переменные </li>
-                           <li>арифметические и логические операции</li>
-                           <li>условные операторы и циклы</li>
-                           <li>структуры данных</li>
-                           <li>функции</li>
-                           <li>классы</li>
-                           <li>основы объектно-ориентироованного программирования</li>
-                           <li>понятие о библиотеках и модулях</li>
-                           <li>понятие о событиях </li>
-                           <li>Основы Web: HTML, CSS</li>
-                           <li>Document Object Module и основы Web разработки</li>
-                           <li>знакомство с React и создание простых сайтов</li>
+                      <ui> <li>Программа курса: </li>
+                      <li>Введение в веб-разработку: клиент-сервер, cостав веб-страницы, HTML CSS JavaSript</li>
+<li>Среда разработки Visual Studio Code</li>
+<li>Изучение javaScript:</li>
+<ui>
+<li>Основы языка:  	переменные, арифметические и логические операции,условные операторы, циклы, структуры данных,функции, 
+    классы и объекты</li>
+    <li>Управление событиями</li>
+    <li>Обмен данными с сервером</li>
+</ui>
+<li>DOM-модель</li>
+<li>REACT </li>
+<li>Работа над личными проектами</li>
+<li>Git. Методологии разработки. Agile</li>
                         </ui>
                        
                         </p>

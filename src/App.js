@@ -15,6 +15,7 @@ import NewsPage from './components/NewsPage';
 import ProjPage from './components/ProjPage';
 import TeamPage from './components/TeamPage';
 import FAQPage from './components/FAQPage';
+import TestPage from './components/TestPage';
 import RouteChangeTracker from './components/RouteChangeTracker';
 
 const TRACKING_ID = "G-1TMTRGQK4S"; 
@@ -154,6 +155,7 @@ const App = () => {
         {path: "/projects" , component:ProjPage,exact: true},
         {path: "/team" , component:TeamPage,exact: true},
         {path: "/faq", component:FAQPage,exact: true},
+        {path: "/test", component:TestPage,exact: true},
         {path: "/login", component:Login},
 		{path: "/public/" },
     ];

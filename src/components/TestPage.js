@@ -1,71 +1,76 @@
 import React, { Component } from 'react';
-import { FileUpload } from 'primereact/fileupload';
-import { Toast } from 'primereact/toast';
+import { Checkbox } from 'primereact/checkbox';
+import { InputText } from 'primereact/inputtext';
 import axios from 'axios';
-import AppSets from '../service/AppSets';
 
-export default class EmptyPage extends Component {
+export default class TestPage extends Component {
+    
     state = {
-        orgUnitName: '', value1:'',value2:'',value3:'',
+        
+        myAnsw:"",
+        /*  
+       q1:{ "question":"questionA",
+           "answers":[
+			{"value":"a1", "res":"true"},
+           {"value":"a2", "res":"false"},
+		   {"value":"a3", "res":"false"}
+		   ] 
+    }*/
     }
 
     constructor(props){
-        super(props);
-        this.uploadHandler = this.uploadHandler.bind(this);
+        super(props);    
+        this.answ=["бред","бред сивой кобылы","а так можно было","бинго"];
+        this.quest="Как вы относитесь к этому?";
+        this.myAnsw=props.myAnsw;
+        this.onItemChange=this.onItemChange.bind(this)
     }
-
-    uploadHandler(files){
-        const file = files.files.shift();
-        const fileReader = new FileReader();
-        fileReader.onload = (e) => {
-            this.uploadEmployeePhoto(e.target.result, this);
-        };
-        fileReader.readAsDataURL(file);
+    /* componentDidMount() {
+      
+        -+
+            return axios.get('assets/data/quiz.json')
+                .then(res => res.data.data);
+        
+    } */
+    onItemChange(selected){
+        this.setState({myAnsw: selected} );    
+       
     }
-
-    uploadFile(file){
-        const subject = "Отправка файла";
-        axios.post(AppSets.host + '/files/image/save', file, {headers: { 'Content-Type': 'image/png', timeout: AppSets.timeout }})
-            .then(
-                this.toast.show({severity:'info', summary:'Отправлено'}))
-            .catch(err => {
-                let errMsg = "";
-                if (err.response== null || err.toString().includes(': Network')){
-                    errMsg = subject+'Сервер не отвечает. Возможно проблемы с подключением к сети...'
-                }else if (err.toString().includes('status code 400')){
-                    errMsg = 'Неправильный запрос к системе(400). Обратитесь в техническую поддержку';
-                }else if (err.toString().includes('status code 405')){
-                    errMsg = 'Неправильный запрос к системе(405). Обратитесь в техническую поддержку';
-                }else if (err.toString().includes('status code 500')){
-                    errMsg = 'Сервер не может обработать запрос(500). Обратитесь в техническую поддержку';
-                }else if (err.toString().includes('status code 403')){
-                    errMsg = 'Недостаточно прав. Обратитесь в IT-службу компании';
-                }else{
-                    console.log(err.response.data);
-                    errMsg = subject+'. Непредусмотренная ошибка';
-                }
-                if (this.toast){
-                    this.toast.show({ severity: 'error', summary: errMsg});
-                }else{
-                    console.error(errMsg);
-                    if (err.response){
-                        console.error(err.response.data)
-                    }else{
-                        console.error(err.toString());
-                    }
-                }
-            })
-    }
-    
-    render() {
+   render() {
+   const listItems = this.answ.map((str) => <SingeLine str={str} itemChange={this.onItemChange}/>  );
+   
         return( <div className='card'>  
-            <Toast ref={(el) => { this.toast = el; }}></Toast> 
-            <FileUpload mode="basic" name="document" 
-                customUpload={true}
-                uploadHandler={this.uploadHandler}
-                accept="image/*" 
-                maxFileSize={1024000} 
-                auto chooseLabel="Browse" />
+                <div className="p-orange">{this.quest}</div>
+                { listItems}
+                {this.state.myAnsw}
+           
         </div>)     
     }
+}
+class SingeLine extends React.Component{
+    state = {
+        a1:false,
+    }    
+    constructor(props){
+        super(props);
+        this.str=props.str;
+        this.a1=props.a1;
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({a1: e.checked} );
+        this.props.itemChange(this.str);
+      }
+    render() {
+        return(
+            <div>
+            <div className="p-inputgroup">
+                 {/* <Checkbox inputId="cb1" checked={this.state.a1} onChange={(e) => this.setState({a1: e.checked} )} /> */}
+                  <Checkbox inputId="cb1" checked={this.state.a1} onChange={this.handleChange} />
+                 <label htmlFor="cb1" className="p-checkbox-label">{this.str}</label>
+             </div>
+             </div>
+       
+   ) }
 }

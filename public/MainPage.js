@@ -38,7 +38,7 @@ export default class MainPage extends Component {
                      <div className='p-pt-3 p-pr-2' >
                         <h5 className=" p-orange">  Объявления </h5>            
                         <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
-                              Приглашаем на курс  <a className="p-mylink" href="/courses#c8">Технический английский"</a></p>      
+                              Приглашаем на курс  <a className="p-mylink" href="/courses#c3">Иврит для IT"</a></p>      
                         <p> <Tag className="p-mr-2 " severity="new" value="Сейчас!" rounded></Tag>
                            Приглашаем на курс <a className="p-mylink" href="/courses#c2">Автоматизированное тестирование</a> 
                         </p>

@@ -1,0 +1,23 @@
+{
+{"question":"questionA",
+"answers":[
+			{"value":"a1", "res":"true"},
+           {"value":"a2", "res":"false"},
+		   {"value":"a3", "res":"false"}
+		   ]
+},
+{"question":"questionB",
+"answers":[
+			{"value":"b1", "res":"true"},
+           {"value":"b2", "res":"false"},
+		   {"value":"b3", "res":"false"}
+		   ]
+},
+{"question":"questionC",
+"answers":[
+			{"value":"c1", "res":"true"},
+           {"value":"c2", "res":"false"},
+		   {"value":"c3", "res":"false"}
+		   ]
+}
+}

@@ -131,6 +131,23 @@ export default class TeamPage extends Component {
                     </p>
                 </Card>
             </div> 
+            <div className="p-col-12 p-lg-4 p-md-6 p-pl-6">
+                <Card title="Марина Абрашкина" subTitle="Преподаватель автоматизированного тестирования">
+                    <p className="p-m-0" style={{lineHeight: '1.5'}}>
+                    <div className="p-d-flex p-flex-column p-flex-sm-row">
+                        <div className="p-ml-2">
+                            <img src="assets/images/marina.jpg" alt="Фото преподавателя. Марина"/> 
+                        </div>
+                        <div className="p-mx-2 p-text-justify">  
+                        QA специалист и аналитик с большим практическим опытом. 
+                        Специализируется на ручном и автоматизированном тестировании более 20 лет. 
+                        Большой опыт наставничества в проектах и обучения QA инженеров. 
+                        Любит изучать новые инструменты, оптимизировать работу и избавляться от рутины.
+                        </div>
+                    </div >
+                    </p>
+                </Card>
+            </div> 
             <div className="p-col-12 p-pl-6 ">
             <h3  className="p-orange">
                 Кадровый резерв 
