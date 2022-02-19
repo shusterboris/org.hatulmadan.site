@@ -17,6 +17,7 @@ import TeamPage from './components/TeamPage';
 import FAQPage from './components/FAQPage';
 import TestPage from './components/TestPage';
 import RouteChangeTracker from './components/RouteChangeTracker';
+import { Survey } from './components/QTestPage';
 
 const TRACKING_ID = "G-1TMTRGQK4S"; 
 ReactGA.initialize(TRACKING_ID);
@@ -157,6 +158,7 @@ const App = () => {
         {path: "/faq", component:FAQPage,exact: true},
         {path: "/test", component:TestPage,exact: true},
         {path: "/login", component:Login},
+        {path: "/survey", component:Survey},
 		{path: "/public/" },
     ];
 
