@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactGA from 'react-ga'
 import classNames from 'classnames';
-import { Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import AppTopbar from './AppTopbar';
 import PrimeReact from 'primereact/api';
 import {Login} from './components/Login';
@@ -17,7 +17,8 @@ import TeamPage from './components/TeamPage';
 import FAQPage from './components/FAQPage';
 import TestPage from './components/TestPage';
 import RouteChangeTracker from './components/RouteChangeTracker';
-import { Survey } from './components/QTestPage';
+import { Survey } from './components/survey/Survey';
+import useToken from './useToken'
 
 const TRACKING_ID = "G-1TMTRGQK4S"; 
 ReactGA.initialize(TRACKING_ID);
@@ -33,6 +34,7 @@ const App = () => {
     const [topbarUserMenuActive, setTopbarUserMenuActive] = useState(false);
     const [inputStyle] = useState('outlined');
     const [ripple] = useState(true);
+    const {token, setToken} = useToken();
 
     PrimeReact.ripple = true;
 
@@ -150,15 +152,16 @@ const App = () => {
 
     const routers = [
         {path: "/" , component: EmptyPage, exact: true},
+        {path: "/login/:targetPage", component: Login},        
+        {path: "/login", component: Login},
         {path: "/main" , component: EmptyPage, exact: true},
-        {path: "/courses" , component:CoursesPage,exact: true},
-        {path: "/news" , component:NewsPage,exact: true},
-        {path: "/projects" , component:ProjPage,exact: true},
-        {path: "/team" , component:TeamPage,exact: true},
-        {path: "/faq", component:FAQPage,exact: true},
-        {path: "/test", component:TestPage,exact: true},
-        {path: "/login", component:Login},
-        {path: "/survey", component:Survey},
+        {path: "/courses" , component: CoursesPage,exact: true},
+        {path: "/news" , component: NewsPage,exact: true},
+        {path: "/projects" , component: ProjPage,exact: true},
+        {path: "/team" , component: TeamPage,exact: true},
+        {path: "/faq", component: FAQPage,exact: true},
+        {path: "/test", component: TestPage,exact: true},
+        {path: "/survey", component: Survey, auth: true},
 		{path: "/public/" },
     ];
 
@@ -184,16 +187,17 @@ const App = () => {
                     onRootMenuItemClick={onRootMenuItemClick} onMenuItemClick={onMenuItemClick} isMobile={isMobile} />
 
                 <div className="layout-topbar-separator" />
-
             </div>
 
-           <div className="layout-content">
-                {
+            <div className="layout-content">                
+                {   
                     routers.map((router, index) => {
+                        if (router.auth && !token){
+                            return <Route key={`router${index}`} path={router.path} component={Login}/>
+                        }
                         if (router.exact) {
                             return <Route key={`router${index}`} path={router.path} exact component={router.component} />
                         }
-
                         return <Route key={`router${index}`} path={router.path} component={router.component} />
                     })
                 }
