@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactGA from 'react-ga'
 import classNames from 'classnames';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import AppTopbar from './AppTopbar';
 import PrimeReact from 'primereact/api';
 import {Login} from './components/Login';
@@ -184,7 +184,7 @@ const App = () => {
                 <AppTopbar topbarUserMenuActive={topbarUserMenuActive} menuActive={menuActive} menuHoverActive={menuHoverActive}
                     onMenuButtonClick={onMenuButtonClick} onTopbarUserMenuButtonClick={onTopbarUserMenuButtonClick}
                     onTopbarUserMenuClick={onTopbarUserMenuClick} model={getAppMenu()} horizontal={horizontal} onSidebarClick={onSidebarClick}
-                    onRootMenuItemClick={onRootMenuItemClick} onMenuItemClick={onMenuItemClick} isMobile={isMobile} />
+                    onRootMenuItemClick={onRootMenuItemClick} onMenuItemClick={onMenuItemClick} isMobile={isMobile} token={token}/>
 
                 <div className="layout-topbar-separator" />
             </div>

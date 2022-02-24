@@ -6,33 +6,50 @@ import { ProgressSpinner } from 'primereact/progressspinner';
 import useToken from '../useToken';
 import { useForm, Controller } from 'react-hook-form';
 import classNames from 'classnames';
+import {apiUrl, timeout, processError} from '../axInst';
+import axios from 'axios';
 
 export const Login = (props) => {
 	//login, reg, pasw
-	const [mode, setMode] = useState("log");	
+	const [mode, setMode] = useState("login");	
 	const messages = useRef(null);
-	const { token, setToken} = useToken()
-	const {formState: { errors }, handleSubmit, control, reset, watch } = useForm();
+	const {token, setToken} = useToken(props.token)
+	const {formState: { errors }, handleSubmit, control } = useForm();
 	const [showMessage, setShowMessage] = useState(false);
-	const [formData, setFormData] = useState({userName:'', password:''});
+	const [formData, setFormData] = useState({userName:'', password:'', newPassword1:'', newPassword2:''});
 	const [pleaseWait, setPleaseWait] = useState(false)
 	let btnRegTitle, btnChPaswTitle, btnRegTooltip, btnChPaswTooltip, newPswdTooltip, newPswd2Tooltip, btnRegIsVisible, btnChPaswIsVisible
-	const newPassword1 = watch("newPassword1");
-	const newPassword2 = watch("newPassword2");
+
+	const logIn = (data) => {
+		const body = {"username": data.userName, "password": data.password, "newPassword": data.newPassword1};
+		const reqPath = {'login' : 'auth', 'reg': 'register', 'pasw': 'auth'}
+		const header = {headers: {'Content-Type': 'application/json'}}
+
+		axios.post(apiUrl+reqPath[mode], body, header, {timeout: timeout})
+		.then((response)=>{
+			setToken({"gwttoken":"Bearer " + response.data.jwttoken})
+			if (window.location.pathname !== '/login'){
+				window.location.assign(window.location.pathname)
+			}else{
+				 window.location.assign("/")
+			}
+		})
+		.catch((err)=>{
+			let errMsg = processError(err)
+			messages.current.show({severity:'error', summary:'Ошибка', detail:errMsg})			
+		})
+		.finally(
+			setPleaseWait(false)
+		)
+	}
 
 	
-	const tryLogIn = (data) => {
-		setPleaseWait(false)
-		setToken({'gwttoken':'123'})
-		//window.location.assign(window.location.pathname)
-	}
 
 	const onSubmit = ( data ) =>{
 		setPleaseWait(true)
 		setFormData(data)	
 		setShowMessage(true)
-		reset()
-		tryLogIn(data)
+		logIn(data, mode)
 	}
 
 	const getFormErrorMessage = (name) => {
@@ -75,7 +92,7 @@ export const Login = (props) => {
 	
 	changeDisplayMode('login')
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} >
+		<form  onSubmit={handleSubmit(onSubmit) }>
 		<div className="login-body">
 			<div className="login-panel ui-fluid" style={{height: '500px'}}>
 				<Toast ref = {messages} position = {"top-left"} life='10000'/>
@@ -109,7 +126,7 @@ export const Login = (props) => {
 							<div className="p-float-label">
 								<Controller name = 'password' control={control}
 									rules={{										
-										pattern: { value: /^[A-ז0-9-]*$/, message: 'Введены недопустимые символы' },
+										pattern: { value: /^[!A-ז0-9-]*$/, message: 'Введены недопустимые символы' },
 										required: 'Не введен пароль. Введите его!'
 									}}
 									render = {({ field, fieldState }) => (
@@ -126,38 +143,37 @@ export const Login = (props) => {
 							{btnRegIsVisible && 
 							<Button className='p-link' style={{textDecoration:'underline'}} type="button"
 								tooltip={btnRegTooltip}
-								onClick={()=> mode !== 'log' ? setMode('log') : setMode('reg')}>
+								onClick={()=> mode !== 'login' ? setMode('login') : setMode('reg')}>
 								{btnRegTitle}
 							</Button>}
 							{btnChPaswIsVisible &&
 							<Button className='p-link' style={{textDecoration:'underline'}} type="button"
 								tooltip={btnChPaswTooltip}
-								onClick={()=> mode !== 'pasw' ? setMode('pasw') : setMode('log')}>
+								onClick={()=> mode !== 'pasw' ? setMode('pasw') : setMode('login')}>
 								{btnChPaswTitle}
 							</Button>}
 						</div>
-						{(mode !== 'log') && <div className='p-col-12 p-py-3'>
+						{(mode !== 'login') && <div className='p-col-12 p-py-3'>
 							<Controller name='newPassword1' control = { control}
 								rules={{										
-									required: "Введите пароль",
+
 									pattern: { value: /^[A-ז0-9-]*$/, message: 'Введены недопустимые символы' }
 								}}
 								render={({ field, fieldState }) => (
-									<InputText id={field.name}  type="password" style={{width:'100%'}} 
+									<InputText id={field.name}  maxLength={25} {...field} type="password" style={{width:'100%'}} 
 										className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}
 										keyfilter = {/^[A-ז0-9-]*$/}
 										placeholder={ newPswdTooltip}/>
 							)}/>
-						</div>}
-						{(mode !== 'log') && <div className='p-col-12 p-py-0'>
 							{getFormErrorMessage('newPassword1')}
+						</div>}
+						{(mode !== 'login') && <div className='p-col-12 p-py-0'>
 							<Controller name='newPassword2' control = { control}
 								rules={{										
-									required: "Введите пароль",
 									pattern: { value: /^[A-ז0-9-]*$/, message: 'Введены недопустимые символы' }
 								}}
 								render={({ field, fieldState }) => (
-									<InputText id={field.name}  type="password" style={{width:'100%'}}
+									<InputText id={field.name} maxLength={25} {...field} type="password" style={{width:'100%'}}
 										className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}
 										keyfilter = {/^[A-ז0-9-]*$/}
 										placeholder={ newPswd2Tooltip}/>

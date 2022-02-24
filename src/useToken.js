@@ -14,8 +14,14 @@ export default function useToken(){
         setToken(userToken.gwttoken);
       };
 
+      const clearToken = () =>{
+        setToken(null)
+        sessionStorage.removeItem('token')
+      }
+
       return {
         setToken: saveToken,
+        clearToken: clearToken,
         token
       }
 }
