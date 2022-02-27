@@ -28,8 +28,9 @@ export const Login = (props) => {
 		axios.post(apiUrl+reqPath[mode], body, header, {timeout: timeout})
 		.then((response)=>{
 			setToken({"gwttoken":"Bearer " + response.data.jwttoken})
-			if (window.location.pathname !== '/login'){
-				window.location.assign(window.location.pathname)
+			if (window.location.pathname === '/login'){
+				// window.location.assign(window.location.pathname)
+				window.location.assign("/survey")
 			}else{
 				 window.location.assign("/")
 			}
