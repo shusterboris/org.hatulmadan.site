@@ -1,11 +1,11 @@
 import axios from "axios";
 
-export const apiUrl = 'http://localhost:8080/';
+export const apiUrl = 'https://q.hatulmadan.net/';
 export const timeout = 2000;
 export const axinst = axios.create({
     baseURL: apiUrl,
     timeout: timeout,
-    headers: {'X-Custom-Header': 'foobar'}
+    headers: {'Content-Type': 'application/json'}
   });
 
 export const processError = (err) => {
