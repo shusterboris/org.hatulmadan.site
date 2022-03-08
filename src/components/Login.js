@@ -1,4 +1,4 @@
-import React, { useState, useRef }  from 'react';
+import React, { useState, useRef, useEffect }  from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import {Toast} from 'primereact/toast';
@@ -14,11 +14,12 @@ export const Login = (props) => {
 	const [mode, setMode] = useState("login");	
 	const messages = useRef(null);
 	const {token, setToken} = useToken(props.token)
-	const {formState: { errors }, handleSubmit, control } = useForm();
+	const {formState: { errors }, handleSubmit, control, watch } = useForm();
 	const [showMessage, setShowMessage] = useState(false);
 	const [formData, setFormData] = useState({userName:'', password:'', newPassword1:'', newPassword2:''});
 	const [pleaseWait, setPleaseWait] = useState(false)
 	let btnRegTitle, btnChPaswTitle, btnRegTooltip, btnChPaswTooltip, newPswdTooltip, newPswd2Tooltip, btnRegIsVisible, btnChPaswIsVisible
+	const watchFields = watch(["password", "userName"])
 
 	const logIn = (data) => {
 		const body = {"username": data.userName, "password": data.password, "newPassword": data.newPassword1};
@@ -44,8 +45,6 @@ export const Login = (props) => {
 		)
 	}
 
-	
-
 	const onSubmit = ( data ) =>{
 		setPleaseWait(true)
 		setFormData(data)	
@@ -56,7 +55,6 @@ export const Login = (props) => {
 	const getFormErrorMessage = (name) => {
 		return errors[name] && <small className="p-error">{errors[name].message}</small>
 	};
-
 
 	const changeDisplayMode = () => {
 		//меняет надписи и подсказки кнопок регистрации и смены пароля, в зависимости от текущего состояния
@@ -87,11 +85,11 @@ export const Login = (props) => {
 			newPswdTooltip = 'Повторите пароль'
 			newPswd2Tooltip = 'Повторите новый пароль'
 			btnRegIsVisible = true
-			btnChPaswIsVisible = true
+			btnChPaswIsVisible = false
 		}
 	}
-	
-	changeDisplayMode('login')
+
+	changeDisplayMode(mode)
 	return (
 		<form  onSubmit={handleSubmit(onSubmit) }>
 		<div className="login-body">
@@ -109,12 +107,13 @@ export const Login = (props) => {
 							<div className="p-float-label">
 								<Controller name='userName' control={control}
 									rules={{ 
-										required: 'Имя пользователя должно быть заполнено',
-										pattern: { value: /^[A-ז0-9-]*$/, message: 'Введены недопустимые символы' },										
+										required: 'Имя пользователя должно быть заполнено',	
+										maxLength: 25
 									}}
 									render={({ field, fieldState }) => (
 										<InputText id={field.name} maxLength={25} {...field} autoFocus 
 											style={{ width: '100%' }}
+											keyfilter={/^[^<>!{}\\\/]+$/}
 											className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}/>
                         				)}>
 								</Controller>
@@ -127,11 +126,12 @@ export const Login = (props) => {
 							<div className="p-float-label">
 								<Controller name = 'password' control={control}
 									rules={{										
-										pattern: { value: /^[!A-ז0-9-]*$/, message: 'Введены недопустимые символы' },
-										required: 'Не введен пароль. Введите его!'
+										required: 'Не введен пароль. Введите его!', 
+										maxLength: 25
 									}}
 									render = {({ field, fieldState }) => (
 										<InputText id={field.name} maxLength={25} {...field} type="password"
+											keyfilter={/^[^<>{}\\\/]+$/}
 											className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}
 											style={{ width: '100%' }}
 										/>)}>
@@ -147,7 +147,7 @@ export const Login = (props) => {
 								onClick={()=> mode !== 'login' ? setMode('login') : setMode('reg')}>
 								{btnRegTitle}
 							</Button>}
-							{btnChPaswIsVisible &&
+							{((watchFields[0] && watchFields[1]) || window.sessionStorage.getItem("gwttoken"))  &&
 							<Button className='p-link' style={{textDecoration:'underline'}} type="button"
 								tooltip={btnChPaswTooltip}
 								onClick={()=> mode !== 'pasw' ? setMode('pasw') : setMode('login')}>
