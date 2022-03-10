@@ -11,11 +11,10 @@ import { ProgressSpinner } from 'primereact/progressspinner';
 
 export const Survey = (props) => {
     const [selectedQuiz, setSelectedQuiz] = useState(null);
-    const [qId, setQId] = useState(null);
-    
+   const headers = {headers: {'Authorization': token}}
      const {isLoading, data, error} = useFetch('http://localhost:8080/survey/list');
     // теперь из этого надо сделать выбор и открыть окно с вопросами
-    
+    let qId=0;
     const line=(name, dbid) => {
         return( 
         <p>{name}</p>
@@ -25,18 +24,12 @@ export const Survey = (props) => {
     let quizesAll=[];
     const callQuiz=(name)=>{
         setSelectedQuiz(name);
-        let qId=0;
         quizesAll.forEach(element => {
-            if (element.name===name){
-                setQId(element.id);
-            }
+        if (element.name===name){
+            qId=element.id;
+        }
         });
 
-        return(
-        
-            <Quiz id={qId}/>
-            
-        )
     }
     const lines=(quizesFull) => {
         quizesAll=quizesFull;
