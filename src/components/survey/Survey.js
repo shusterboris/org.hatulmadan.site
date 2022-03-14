@@ -1,46 +1,66 @@
 import React from 'react';
 import { useState } from 'react';
-import useFetch from 'react-fetch-hook';
+import { useEffect } from 'react';
 import { Panel } from 'primereact/panel';
 import {ListBox} from 'primereact/listbox';
 import {Quiz} from './Quiz';
 import '../../hatul.css';
-
+import { axinst } from '../../axInst';
+import { apiUrl } from '../../axInst';
 import { ProgressSpinner } from 'primereact/progressspinner';
-
-
 export const Survey = (props) => {
-    const [selectedQuiz, setSelectedQuiz] = useState(null);
-   const headers = {headers: {'Authorization': token}}
-     const {isLoading, data, error} = useFetch('http://localhost:8080/survey/list');
     // теперь из этого надо сделать выбор и открыть окно с вопросами
-    let qId=0;
-    const line=(name, dbid) => {
-        return( 
-        <p>{name}</p>
-       )  
-    }
+    
+    const [isLoading, setIsLoading] = useState(true);
+    const [data, setData] = useState();
+    const [selQuiz,setSelQuiz]=useState(null);
+    const[qId,setQId]=useState(null);
+    useEffect(() => {
+        getSurveyList()
+    },[])
 
+    const showData = (d) => {
+        return <p>{ JSON.stringify(d, null, 2) } </p>
+    }
+    const showError = (err) => {
+        return (<div>{JSON.stringify(err, null, 2)}</div>)
+    }
+    const getSurveyList = () => {
+        //axinst.get("http://localhost:8080/survey/list")
+        axinst.get(apiUrl+"survey/list")
+        .then((response) =>{            
+            setData(response.data)
+        })
+        .catch((error) =>{
+            showError(error)
+        })
+        .finally(setIsLoading(false))
+    }
     let quizesAll=[];
+
     const callQuiz=(name)=>{
-        setSelectedQuiz(name);
+        setSelQuiz(name);
         quizesAll.forEach(element => {
         if (element.name===name){
-            qId=element.id;
+            setQId(element.id);
         }
         });
 
     }
     const lines=(quizesFull) => {
+        if (!quizesFull){
+            return null
+        }
         quizesAll=quizesFull;
-        let quizes=[];
+       let quizes=[];
         quizesFull.forEach(element => {
             quizes.push(element.name);
         });
 
         return( 
           <div>
-          <ListBox  value={selectedQuiz} options={quizes} onChange={(e) => callQuiz(e.value)} />
+
+          <ListBox  value={selQuiz} options={quizes} onChange={(e) => callQuiz(e.value)} />
           {qId&&<Quiz id={qId}/>}
           </div>
         )  
@@ -55,11 +75,10 @@ export const Survey = (props) => {
                Спасибо за регистрацию на нашем сайте!  </h2>
                <p className="p-orange p-text-center">В скором времени все кто зарегистрировался, смогут принять участие в опросах и тестах.</p>
                <p className="p-orange p-text-center">Участники курсов получат много дополнительных материалов</p>
-                     {isLoading && <ProgressSpinner/>}
-                     <p>{error && error.status }</p>
-                     {data && lines(data)}
-                                    {/*   <p>{data && data.map((str) => str.name) }</p>    
-                                         <p>{data && data.map((str) => line(str.name, str.id))}</p> */}
+                {isLoading ? <ProgressSpinner/> : lines(data)}
+                {qId&&<Quiz id={qId}/>}
+             {/*   <p>{data && data.map((str) => str.name) }</p>    
+               <p>{data && data.map((str) => line(str.name, str.id))}</p> */}
                      
            </div>
             </div>

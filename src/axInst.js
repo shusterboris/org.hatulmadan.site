@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const token = JSON.parse(sessionStorage.getItem('token'))
-export const apiUrl = 'https://q.hatulmadan.net/';
-//export const apiUrl = 'http://localhost:8080/';
+//export const apiUrl = 'https://q.hatulmadan.net/';
+export const apiUrl = 'http://localhost:8080/';
 export const timeout = 2000;
 export const axHeaders = {headers: {'Authorization': token?.gwttoken, 'Content-Type': 'application/json'}}
 export const axinst = axios.create({
