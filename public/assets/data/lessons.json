@@ -1,0 +1,32 @@
+[
+{"id":1,"start":"2022-03-13 20:15:00","group":"QA-8", "number": 2, "comment":"Говорили про то, это, это самое и другое, в том числе разное",
+"materials":[
+			{"comment":"", "youtubeLink":"https://www.youtube.com/watch?v=BZFt1rznDxs", "fileLink":""},
+			{"comment":"", "youtubeLink":"", "fileLink":"x1.ppt"},
+			{"comment":"Пример", "youtubeLink":"", "fileLink":"sample1.js"},
+			{"comment":"Главная страница", "youtubeLink":"", "fileLink":"index.html"}						
+		   ]
+},
+{"id":2,"start":"2022-03-12 19:15:00","group":"QA-8", "number": 2, "comment":"Семен такую речь задвинул, что зажурчал Весь паровоз могучими слезами",
+	"materials":[
+				{"comment":"Семен такую речь задвинул, что зажурчал Весь паровоз могучими слезами", "youtubeLink":"https://www.youtube.com/watch?v=BZFt1rznDxs", "fileLink":""},
+				{"comment":"Презентация", "youtubeLink":"", "fileLink":"x2.ppt"},
+				{"comment":"Пример", "youtubeLink":"", "fileLink":"example.js"}						
+			   ]
+	},
+{"id":3,"start":"2022-03-10 18:00:00","group":"QA-8", "number": 2, "comment":"У Бени всегда есть пара слов",
+	"materials":[
+				{"comment":"У Бени всегда есть пара слов", "youtubeLink":"https://www.youtube.com/watch?v=BZFt1rznDxs", "fileLink":""},
+				{"comment":"Презентация", "youtubeLink":"", "fileLink":"x3.ppt"}
+				]
+	},
+{"id":4,"start":"2022-03-03 20:15:00","group":"QA-8", "number": 2, "comment":"Синяя изоляция, как средство костылизации гидротехнических сооружений",
+	"materials":[
+				{"comment":"", "youtubeLink":"https://www.youtube.com/watch?v=BZFt1rznDxs", "fileLink":""},
+				{"comment":"", "youtubeLink":"", "fileLink":"x4.ppt"},
+				{"comment":"Пример 1", "youtubeLink":"", "fileLink":"ex1.png"},
+				{"comment":"Базовая модель", "youtubeLink":"", "fileLink":"ex2.png"},					
+				{"comment":"Продвинутая", "youtubeLink":"", "fileLink":"ex3.png"}						
+				]
+	}					
+]

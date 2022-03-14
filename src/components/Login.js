@@ -20,6 +20,12 @@ export const Login = (props) => {
 	const [pleaseWait, setPleaseWait] = useState(false)
 	let btnRegTitle, btnChPaswTitle, btnRegTooltip, btnChPaswTooltip, newPswdTooltip, newPswd2Tooltip, btnRegIsVisible, btnChPaswIsVisible
 	const watchFields = watch(["password", "userName"])
+	const inputUser = useRef(null);
+
+	//при изменении mode (логин, регистрация, смена пароля) - убирает фокус с соответствующей кнопки на поле usename
+	useEffect(()=>{
+		inputUser.current.focus()
+	}, [mode])
 
 	const logIn = (data) => {
 		const body = {"username": data.userName, "password": data.password, "newPassword": data.newPassword1};
@@ -111,7 +117,8 @@ export const Login = (props) => {
 										maxLength: 25
 									}}
 									render={({ field, fieldState }) => (
-										<InputText id={field.name} maxLength={25} {...field} autoFocus 
+										<InputText id={field.name} maxLength={25} {...field} autoFocus={true} 
+											ref={inputUser}
 											style={{ width: '100%' }}
 											keyfilter={/^[^<>!{}\\\/]+$/}
 											className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}/>

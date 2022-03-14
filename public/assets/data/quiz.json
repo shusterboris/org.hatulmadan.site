@@ -1,4 +1,4 @@
-{
+[
 {"question":"questionA",
 "answers":[
 			{"value":"a1", "res":"true"},
@@ -20,4 +20,4 @@
 		   {"value":"c3", "res":"false"}
 		   ]
 }
-}
+]
