@@ -14,7 +14,7 @@ export const Login = (props) => {
 	const [mode, setMode] = useState("login");	
 	const messages = useRef(null);
 	const {token, setToken} = useToken(props.token)
-	const {formState: { errors }, handleSubmit, control, watch } = useForm();
+	const {formState: { errors }, handleSubmit, control, watch, setError } = useForm();
 	const [showMessage, setShowMessage] = useState(false);
 	const [formData, setFormData] = useState({userName:'', password:'', newPassword1:'', newPassword2:''});
 	const [pleaseWait, setPleaseWait] = useState(false)
@@ -51,7 +51,26 @@ export const Login = (props) => {
 		)
 	}
 
+	const isNewPasswordsValid = (data) => {
+		let errMsg = ""
+		if (mode === 'reg' || mode === 'pasw'){
+			if (!(data.newPassword1 && data.newPassword2)){
+				errMsg = "Новые пароли должны быть введены в обоих полях"
+			}else if (data.newPassword1 !== data.newPassword2){
+				errMsg = "Новые пароли должны быть одинаковыми"
+			}
+		}
+		if (errMsg){
+			setError("newPassword1", {type:"manual", message:errMsg})	
+			setError("newPassword2", {type:"manual", message:errMsg})
+			return false
+		}
+		return true
+	}
+
 	const onSubmit = ( data ) =>{
+		if (!isNewPasswordsValid(data))
+			{ return }
 		setPleaseWait(true)
 		setFormData(data)	
 		setShowMessage(true)
