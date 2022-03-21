@@ -14,12 +14,18 @@ export const Login = (props) => {
 	const [mode, setMode] = useState("login");	
 	const messages = useRef(null);
 	const {token, setToken} = useToken(props.token)
-	const {formState: { errors }, handleSubmit, control, watch } = useForm();
+	const {formState: { errors }, handleSubmit, control, watch, setError } = useForm();
 	const [showMessage, setShowMessage] = useState(false);
 	const [formData, setFormData] = useState({userName:'', password:'', newPassword1:'', newPassword2:''});
 	const [pleaseWait, setPleaseWait] = useState(false)
 	let btnRegTitle, btnChPaswTitle, btnRegTooltip, btnChPaswTooltip, newPswdTooltip, newPswd2Tooltip, btnRegIsVisible, btnChPaswIsVisible
 	const watchFields = watch(["password", "userName"])
+	const inputUser = useRef(null);
+
+	//при изменении mode (логин, регистрация, смена пароля) - убирает фокус с соответствующей кнопки на поле usename
+	useEffect(()=>{
+		inputUser.current.focus()
+	}, [mode])
 
 	const logIn = (data) => {
 		const body = {"username": data.userName, "password": data.password, "newPassword": data.newPassword1};
@@ -45,7 +51,26 @@ export const Login = (props) => {
 		)
 	}
 
+	const isNewPasswordsValid = (data) => {
+		let errMsg = ""
+		if (mode === 'reg' || mode === 'pasw'){
+			if (!(data.newPassword1 && data.newPassword2)){
+				errMsg = "Новые пароли должны быть введены в обоих полях"
+			}else if (data.newPassword1 !== data.newPassword2){
+				errMsg = "Новые пароли должны быть одинаковыми"
+			}
+		}
+		if (errMsg){
+			setError("newPassword1", {type:"manual", message:errMsg})	
+			setError("newPassword2", {type:"manual", message:errMsg})
+			return false
+		}
+		return true
+	}
+
 	const onSubmit = ( data ) =>{
+		if (!isNewPasswordsValid(data))
+			{ return }
 		setPleaseWait(true)
 		setFormData(data)	
 		setShowMessage(true)
@@ -111,7 +136,8 @@ export const Login = (props) => {
 										maxLength: 25
 									}}
 									render={({ field, fieldState }) => (
-										<InputText id={field.name} maxLength={25} {...field} autoFocus 
+										<InputText id={field.name} maxLength={25} {...field} autoFocus={true} 
+											ref={inputUser}
 											style={{ width: '100%' }}
 											keyfilter={/^[^<>!{}\\\/]+$/}
 											className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}/>
