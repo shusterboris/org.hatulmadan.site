@@ -12,6 +12,7 @@ export default class CoursesPage extends Component {
         <div className="p-d-flex p-flex-column p-flex-md-row ">
             <div className="p-pl-4">
                 <p> <img src="assets/images/mechHatul.jpeg"  className="p-page-img" alt="картинка с котом"/> </p>
+                <p > <a className="p-mylink p-text-bold" href="#n13">Приглашаем на бесплатный вводный курс по WEB-разработке</a></p>
                 <p > <a className="p-mylink p-text-bold" href="#n12">Первый урок занимательной математики</a></p>
                 <p > <a className="p-mylink p-text-bold" href="#n11">Первый урок курса технического английского</a></p>
                  <p > <a className="p-mylink p-text-bold" href="#n10">Первый урок курса Пайтон</a></p>
@@ -29,7 +30,18 @@ export default class CoursesPage extends Component {
             </div>
             
             <div className="p-px-3 ">
-            <Card id="n11" title="Первый урок занимательной математики">  
+            <Card id="n13" title="Введение в WEB-разработку">  
+            <div className="p-m-0" style={{lineHeight: '1.5'}}>
+            Самое правильное приложение должно быть таким, как на этой картинке. 
+            <p><img src="assets/images/webcourse.jpg"  className="p-news-img" alt="adjile"/> </p>
+            <p>Но в реальной жизни все обстоит немного сложнее. 
+            Как это все работает, с чего начать, как учиться дальше - в нашем курсе мы постараемся ответить на эти и другие вопросы.
+            Продолжительность курса - 1 месяц, одно занятие в неделю. </p><p> Дадим новичкам обзор технологий, которые сейчас используются.</p><p>
+            <ui>В программе: <li>введение в HTML, CSS, JavaScript</li> <li>знакомство с современной средой разработки Visual Studio Code</li> 
+            <li>рассказ об одном из основных современных фреймворков React</li></ui>Приходите. А если вы потом захотите учиться  дальше - добро пожаловать на наши курсы.
+            </p></div>
+            </Card>  
+            <Card id="n12" title="Первый урок занимательной математики">  
                 <div className="p-m-0" style={{lineHeight: '1.5'}}>
                     <p>Зачем нужна в жизни математика? Подготовиться к тестам, сдать их и забыть математику как страшный сон? </p>
                     <p> Александр на своем курсе расскажет что математика совсем не для этого. А для чего? Приходите и узнаете.</p>

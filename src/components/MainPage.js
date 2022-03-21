@@ -40,7 +40,7 @@ export default class MainPage extends Component {
                         <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
                               Приглашаем на курс  <a className="p-mylink" href="/courses#c8">Технический английский"</a></p>      
                         <p> <Tag className="p-mr-2 " severity="new" value="Сейчас!" rounded></Tag>
-                           Приглашаем на курс <a className="p-mylink" href="/courses#c2">Автоматизированное тестирование</a> 
+                           Приглашаем на курс <a className="p-mylink" href="/news#n13">Бесплатный вводный курс по WEB-разработке</a> 
                         </p>
                         <p> <Tag className="p-mr-2" severity="new" value="Сейчас!" rounded></Tag>
                            Приглашаем на курс  <a className="p-mylink" href="/courses#c1">
