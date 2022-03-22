@@ -53,9 +53,9 @@ export const Lessons = (props) => {
     
     const renderGridItem = (lesson) => {
         const cardHeader = () =>{
-            return(<div className="p-d-flex p-jc-between">
+            return(<div className="p-d-flex p-jc-between p-mr-5">
                 <span className="p-card-title p-m-2" style={{'fontSize': '1.25em'}}>{lesson.start}</span>
-                <i className="pi pi-cog p-m-2" style={{color:'var(--primary-color)'}}
+                <i className="pi pi-cog p-m-2" style={{color:'var(--primary-color)'}} tooltip="Нажмите, чтобы изменить"
                     onClick={()=>openLesson(lesson)}></i>
             </div> 
         )}
@@ -91,10 +91,10 @@ export const Lessons = (props) => {
             </div>
     }
 
-    const showHeader = () =>{
+    const cardsViewHeader = () =>{
         return <div className="p-d-flex p-jc-between">
             <span className="">Материалы занятий</span>
-            <Button className="p-button-rounded" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить запись о занятии"
+            <Button className="p-button-rounded" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить запись о занятии" tooltipOptions={{position: 'left'}}
                     onClick={()=>props.history.push({pathname: '/lesson', state: {id:1}})}
             />
         </div>
@@ -110,7 +110,7 @@ export const Lessons = (props) => {
         setLoading(false);
     }
 
-    const header = showHeader()
+    const header = cardsViewHeader()
     return(
     <div>
         <div className="dataview-demo">

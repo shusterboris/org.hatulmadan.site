@@ -19,8 +19,8 @@ import TestPage from './components/TestPage';
 import RouteChangeTracker from './components/RouteChangeTracker';
 import { Survey } from './components/survey/Survey';
 import useToken from './useToken'
-import { Lessons } from './components/Lessons';
-import { Lesson } from './components/Lesson';
+import { Lessons } from './components/Lessons/Lessons';
+import { Lesson } from './components/Lessons/Lesson';
 
 const TRACKING_ID = "G-1TMTRGQK4S"; 
 ReactGA.initialize(TRACKING_ID);
