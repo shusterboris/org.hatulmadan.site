@@ -121,7 +121,9 @@ export const Login = (props) => {
 			<div className="login-panel ui-fluid" style={{height: '500px'}}>
 				<Toast ref = {messages} position = {"top-left"} life='10000'/>
 				<div className="login-panel-header">
-					{pleaseWait && <div className="p-col-12"> <ProgressSpinner style={{width: '65px', height: '65px'}}/> </div>}
+					{pleaseWait ? 
+					<img src="/assets/images/foxic_strong.png" width={176} alt="logotype"/>	:
+					<div className="p-col-12"> <ProgressSpinner style={{width: '176px', height: '176px'}}/> </div>}
 				</div>
 				<div className="login-panel-content" style={{minWidth: '20em'}}>
 					<div className="p-grid">

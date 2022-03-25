@@ -9,7 +9,7 @@
 },
 {"id":2,"start":"2022-03-12 19:15:00","group":"QA-8", "number": 2, "comment":"Семен такую речь задвинул, что зажурчал Весь паровоз могучими слезами",
 	"materials":[
-				{"comment":"Семен такую речь задвинул, что зажурчал Весь паровоз могучими слезами", "youtubeLink":"https://www.youtube.com/watch?v=BZFt1rznDxs", "fileLink":""},
+				{"comment":"Семен такую речь задвинул, что зажурчал Весь паровоз горючими слезами", "youtubeLink":"https://www.youtube.com/watch?v=BZFt1rznDxs", "fileLink":""},
 				{"comment":"Презентация", "youtubeLink":"", "fileLink":"x2.ppt"},
 				{"comment":"Пример", "youtubeLink":"", "fileLink":"example.js"}						
 			   ]

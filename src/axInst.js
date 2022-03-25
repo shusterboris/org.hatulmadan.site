@@ -14,7 +14,7 @@ export const axinst = axios.create({
 export const processError = (err) => {
   let errMsg = ""
   if (!err.response){
-    errMsg = "Сервер не отвечает. Возможно проблемы с Интернет. Повторите позже. Если проблема не исчезнет, обратитесь в техническую поддержку"
+    return "Сервер не отвечает. Возможно проблемы с Интернет. Повторите позже. Если проблема не исчезнет, обратитесь в техническую поддержку"
   }else{
     let status = err.response.status
     let msg = err.response.data
