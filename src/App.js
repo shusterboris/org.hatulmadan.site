@@ -21,7 +21,7 @@ import { Survey } from './components/survey/Survey';
 import useToken from './useToken'
 import { Lessons } from './components/Lessons/Lessons';
 import { Lesson } from './components/Lessons/Lesson';
-
+import {Quiz } from './components/survey/Quiz';
 const TRACKING_ID = "G-1TMTRGQK4S"; 
 ReactGA.initialize(TRACKING_ID);
 
@@ -167,6 +167,7 @@ const App = () => {
         {path: "/lessons", component: Lessons, auth: false},        
         {path: "/lesson", component: Lesson, auth: false},
 		{path: "/public/" },
+        {path: "/quiz",component: Quiz, auth: false },
     ];
 
     const getAppMenu = () => {
