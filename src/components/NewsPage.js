@@ -39,6 +39,10 @@ export default class CoursesPage extends Component {
             Продолжительность курса - 1 месяц, одно занятие в неделю. </p><p> Дадим новичкам обзор технологий, которые сейчас используются.</p><p>
             <ui>В программе: <li>введение в HTML, CSS, JavaScript</li> <li>знакомство с современной средой разработки Visual Studio Code</li> 
             <li>рассказ об одном из основных современных фреймворков React</li></ui>Приходите. А если вы потом захотите учиться  дальше - добро пожаловать на курс <a className="p-mylink" href="/courses#c9">JavaSctipt и основы Web-разработки'</a> </p></div>
+            Вот запись первого занятия <a className="p-mylink" href="https://youtu.be/cSCdkGwdh9w"  target="_blank" rel="noreferrer">  часть 1 </a>  
+            <a className="p-mylink" href="https://youtu.be/PMt4xIMRd7Y"  target="_blank" rel="noreferrer">  часть 2 </a>. 
+            <p>Рассказываем о том, чем мы будем заниматься, собираем свою первую web-страницу</p>
+            <p><img src="assets/images/n13/sobaka.jpg"  className="p-news-img" alt="sobaka"/> </p>
             </Card>  
             <Card id="n12" title="Первый урок занимательной математики">  
                 <div className="p-m-0" style={{lineHeight: '1.5'}}>

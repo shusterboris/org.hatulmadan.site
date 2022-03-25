@@ -5,6 +5,7 @@ import '../../hatul.css';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import { axinst } from '../../axInst';
 import { apiUrl } from '../../axInst';
+import { useLocation } from 'react-router-dom'
 //
 //передаем опрос, выбираем вопросы по очереди
  
@@ -13,18 +14,21 @@ export const Quiz = (props) => {
 const [isLoading, setIsLoading] = useState(true)
 const [quiz, setQuiz] = useState(null);
 const [question, setQuestion] = useState(null);
-const [currentNo, setCurrentNo] = useState();
+const [currentNo, setCurrentNo] = useState(0);
 const [qId, setQId] = useState(null);
+
 
  useEffect(() => {
     getSurvey()
-},[qId]) 
-
+},[]) 
+const location = useLocation();
+const id=(location.state.id) ;
+//let quiz=null;
 const showError = (err) => {
   return (<div>{JSON.stringify(err, null, 2)}</div>)
 }
 const getSurvey = () => {
-   axinst.get(apiUrl+"survey/byId/"+props.id)
+   axinst.get(apiUrl+"survey/byId/"+id)
   .then((response) =>{            
       showQuiz(response.data)
   })
@@ -33,11 +37,22 @@ const getSurvey = () => {
   })
   .finally(setIsLoading(false))
 }
+const getQuestion = () => {
+  axinst.get(apiUrl+"survey/questionById/"+quiz.questionIds[currentNo])
+ .then((response) =>{            
+     showQuiz(response.data)
+ })
+ .catch((error) =>{
+     showError(error)
+ })
+ .finally(setIsLoading(false))
+}
 const showQuiz=(data)=>{
    setQuiz(data);
+
   return(
   <div>
-    {!isLoading&&quiz.name}
+    {quiz.name}
     </div>
 )
 }
@@ -49,10 +64,11 @@ const showquestion=(q)=>{
         <p>{q.name}</p>
         </div>
     )  } 
-setQId(props.id)  
+
+   
 return(
-      <div>
-         {!isLoading&&quiz.name} 
+        <div className="p-card">
+        Название: {quiz && quiz.name}
         </div>
 )
 }

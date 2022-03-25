@@ -14,7 +14,7 @@ export const Survey = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState();
     const [selQuiz,setSelQuiz]=useState(null);
-    const[qId,setQId]=useState(null);
+    //const[qId,setQId]=useState(null);
     useEffect(() => {
         getSurveyList()
     },[])
@@ -42,7 +42,8 @@ export const Survey = (props) => {
         setSelQuiz(name);
         quizesAll.forEach(element => {
         if (element.name===name){
-            setQId(element.id);
+            //setQId(element.id);
+            props.history.push({pathname: '/quiz', state: {id: element.id}})
         }
         });
 
@@ -61,7 +62,7 @@ export const Survey = (props) => {
           <div>
 
           <ListBox  value={selQuiz} options={quizes} onChange={(e) => callQuiz(e.value)} />
-          {qId&&<Quiz id={qId}/>}
+         
           </div>
         )  
     } 
@@ -76,7 +77,7 @@ export const Survey = (props) => {
                <p className="p-orange p-text-center">В скором времени все кто зарегистрировался, смогут принять участие в опросах и тестах.</p>
                <p className="p-orange p-text-center">Участники курсов получат много дополнительных материалов</p>
                 {isLoading ? <ProgressSpinner/> : lines(data)}
-                {qId&&<Quiz id={qId}/>}
+               
              {/*   <p>{data && data.map((str) => str.name) }</p>    
                <p>{data && data.map((str) => line(str.name, str.id))}</p> */}
                      
