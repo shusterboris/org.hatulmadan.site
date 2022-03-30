@@ -2,17 +2,18 @@ import React, {useEffect, useState, useRef} from "react"
 import { useLocation } from 'react-router-dom'
 import { InputText } from "primereact/inputtext"
 import { InputNumber } from 'primereact/inputnumber'
+import { InputMask } from 'primereact/inputmask'
 import { Dropdown } from 'primereact/dropdown'
 import { Calendar } from 'primereact/calendar'
 import { Button } from 'primereact/button'
 import { Card } from 'primereact/card'
 import { FileUpload } from 'primereact/fileupload'
 import { DataTable } from 'primereact/datatable';
-import { ProgressSpinner } from 'primereact/progressspinner'
+import { ProgressBar } from 'primereact/progressbar';
 import { Toast } from 'primereact/toast'
-import {axinst, timeout, processError} from '../../axInst'
+import { axinst, timeout, processError } from '../../axInst'
+import { fetchGroups } from "../../service/CommonDataSrv"
 import { ProxyLesson } from './ProxyLesson'
-import axios from "axios"
 import { Column } from "primereact/column"
 
 
@@ -21,10 +22,12 @@ export const Lesson = (props) => {
     const [id, setId] = useState(1)
     const [fldComment, setFldComment] = useState()
     const [fldGroup, setFldGroup] = useState()
-    const [fldDateTime, setFldDateTime] = useState()
+    const [fldDate, setFldDate] = useState(new Date())
+    const [fldTime, setFldTime] = useState()
     const [fldLsnOrder, setFldLsnOrder] = useState(0)
     const [fldMtrlUrl, setFldMtrlUrl] = useState()
     const [fldMtrlFile, setFldMtrlFile] = useState()
+    const fldMtrlStoredFile = useRef()
     const [fldMtrlComment, setFldMtrlComment] = useState()
     const [groups, setGroups] = useState()
     const [pleaseWait, setPleaseWait] = useState(false)
@@ -32,26 +35,32 @@ export const Lesson = (props) => {
     const [addMtrlMode, setAddMtrlMode] = useState(false)
     const toast = useRef()
     const lessonDataChanged = useRef(false)
+    const moment = require('moment');
+    let choosenFileName
 
     useEffect(()=>{
-        fetchGroups()
+        fetchGroups(setGroups, toast)
         fetchMaterials()
     },[location])
 
     useEffect(()=>{
         fetchMaterials()
-    },addMtrlMode)
+    },[addMtrlMode])
 
     const fetchMaterials = () => {
-        axios.get('assets/data/lessons.json')
+        if (!id){
+            setMaterials(null)
+        }
+        axinst.get('lesson/materials/getByLessonId/' + id)
         .then((response) => {
-            setMaterials(response.data[0].materials)
+            setMaterials(response.data)
         })
         .catch((err)=>
             console.log(err)
         )
     }
 
+    /*
     const fetchGroups = () => {
         axinst.get('dictionary/group/getAll')
         .then((response) => 
@@ -62,31 +71,42 @@ export const Lesson = (props) => {
             toast.current.show({severity:"error", summary:"Ошибка", detail: errMsg})
         })
     }
+    */
 
     const onGroupChoose = (value) => {
         setFldGroup(value)
     }
 
-    const uploadMtrlFile = (file) => {
-        const config = {headers: { 'Content-Type': 'image/png', timeout:  timeout}}
-        axinst.post('/files/materials/save', file, config)
-            .then(res => {
-                    if (!res.data.startsWith("Ошибка")){
-                    }else{
-                    }
-            })
-            .finally(setPleaseWait(false))            
-    }       
-
+    const isLessonValid = () => {
+        let result = true
+        if (!( fldDate && fldTime && fldGroup)){
+            toast.current.show({severity:'warn', summary:'Неполные данные', detail:"Все поля информации о занятии должны быть заполнены"})
+            return false
+        }else{
+            if (!moment(fldDate).isValid()){
+                toast.current.show({severity:'warn', summary:'Неправильные данные', detail:"Введенная дата - неправильная"})
+                result = false
+            }
+            if (!moment(fldTime,"HH:mm").isValid()){
+                toast.current.show({severity:'warn', summary:'Неправильные данные', detail:"Введенная дата - неправильная"})
+                result = false
+            }
+        }
+        return result
+    }
 
     const saveLesson = async () => {
-        const proxy = new ProxyLesson(id, fldGroup, fldDateTime, fldComment, materials, fldLsnOrder)
+        if (!isLessonValid()) 
+            { return }
+        //convert entered date & time values and includes current timezone
+        let lessonDateTime = moment(moment(fldDate).format("DD/MM/YYYY")+" "+fldTime,"DD/MM/YYYY HH:mm").utcOffset((new Date()).getTimezoneOffset(), false)
+        const proxy = new ProxyLesson(id, fldGroup, lessonDateTime.toISOString(), fldComment, materials, fldLsnOrder)
         axinst.put("/lesson/save", proxy)
         .then((response) => {
             setId(response.data)
             toast.current.show({severity:"success", summary:'Готово', detail: "Успешно сохранено"})
             lessonDataChanged.current = false
-            props.history.goBack()
+            //props.history.goBack()
         })
         .catch(err=>{
             const errMsg = processError(err)
@@ -105,10 +125,15 @@ export const Lesson = (props) => {
                     <label htmlFor="fldGroup"> Группа</label>
                 </div>
                 <div className="p-float-label">
-                    <Calendar id="fldDate" showIcon mask="99/99/9999  99:99" showTime showSeconds={false} style={{width:'40%'}}
-                        value={fldDateTime}  
-                        onChange={(e)=>{setFldDateTime(e.target.value); lessonDataChanged.current = true}} ></Calendar>
-                    <label htmlFor="fldDate">Дата и время занятия</label>
+                    <Calendar id="fldDate" showSeconds={false} style={{width:'40%'}} required
+                        value={fldDate}  dateFormat="dd/mm/yy"
+                        onChange={(e)=>{setFldDate(e.target.value); lessonDataChanged.current = true}} ></Calendar>
+                    <label htmlFor="fldDate">Дата занятия</label>
+                </div>
+                <div className="p-float-label p-my-3">
+                    <InputMask id="fldTime" mask="99:99" required
+                        value={fldTime} onChange={e=>setFldTime(e.target.value)}></InputMask>
+                    <label htmlFor="fldTime">Время занятия</label>
                 </div>
                 <div className="p-float-label p-my-3">
                         <InputText id="fldComment" value={fldComment} maxLength={255} style={{ width: '100%' }}
@@ -117,12 +142,12 @@ export const Lesson = (props) => {
                 </div>
                 <div className="p-float-label p-my-3">
                         <InputNumber id="flgLsnOrder"  value={fldLsnOrder} size={3}  
-                                    onChange = {(e)=>{setFldLsnOrder(e.target.value); lessonDataChanged.current = true}}/>
-                        <label htmlFor="fldComment">№ пп</label>
+                                    onChange = {(e)=>{setFldLsnOrder(e.value); lessonDataChanged.current = true}}/>
+                        <label htmlFor="fldLsnOrder">№ пп</label>
                 </div>
                 <div className="p-d-flex p-jc-around">
                     <Button label="Выйти" onClick={props.history.goBack}></Button>
-                    {(lessonDataChanged.current && fldGroup && fldDateTime) && 
+                    {(lessonDataChanged.current && fldGroup && fldDate && fldTime) && 
                         <Button label="Сохранить" onClick={saveLesson}></Button>}
                 </div>
             </div>
@@ -153,7 +178,7 @@ export const Lesson = (props) => {
     const mtrlTableHeaderTemplate = () => {
         return(<div className="p-d-flex ">
             {id && 
-            <Button icon="pi pi-plus" className="p-button-rounded p-button-info p-ml-5" 
+            <Button icon="pi pi-plus" className="p-button-rounded p-button-warning p-ml-5" 
                 onClick={()=>setAddMtrlMode(true)}></Button>
             }
             <span style={{margin:'1rem 0 0 1rem'}}>Материалы занятия</span> 
@@ -182,17 +207,50 @@ export const Lesson = (props) => {
         if (lessonDataChanged.current){
             await saveLesson()
         }
+        const mtrl = {"comment":fldMtrlComment, "lesson":id, "youtubeLink": fldMtrlUrl, "fileLink":fldMtrlFile, "srvFileLink":fldMtrlStoredFile.current}
+        axinst.post('lesson/materials/save/'+id, mtrl)
+        .then(response=>{
+            toast.current.show({severity:'success', summary:'Готово!', detail: "Новый материал добавлен в список!"})
+            setMaterials(response.data)
+        })
+        .catch(err=>{
+            const errMsg = processError(err)
+            toast.current.show({severity:'error', summary:'Ошибка записи!', detail: errMsg})
+        })
+        .finally(
+            setPleaseWait(false)
+        )
+    }
 
+    const uploadMtrlFile = (file) => {
+        const config = {headers: { timeout:  timeout * 3}}
+        axinst.post('file/save', {"fileName":choosenFileName, "blob": file.result}, config)
+            .then(res => {
+                    if (!res.data.startsWith("Ошибка")){
+                        fldMtrlStoredFile.current = res.data
+                        toast.current.show({severity:'success',summary:'Отлично!', detail:"Файл отправлен на сервер. Заполните остальные данные по материалу и сохраните их"})
+                    }else{
+                        toast.current.show({severity:'error',summary:'Ошибка', detail:res.data})
+                    }
+            })
+            .catch(err=>{
+                const errMsg = processError(err)
+                toast.current.show({severity:'error',summary:'Ошибка', detail:errMsg})
+            })
+            .finally(setPleaseWait(false))            
     }
 
     const uploadHandler = (files) => {
-        for (const file in files){
+            setPleaseWait(true)
+            const file = files.files.shift();
             const fileReader = new FileReader();
+            choosenFileName =  file.name
+            setFldMtrlFile(choosenFileName)
             fileReader.onload = (e) => {
-                uploadMtrlFile(e.target.result);
+                uploadMtrlFile(e.target);
             };
+            fileReader.onloadstart = () => {setPleaseWait(true)}
             fileReader.readAsDataURL(file);
-        }
     }
 
     const displayAddMaterialForm = () =>{
@@ -203,8 +261,6 @@ export const Lesson = (props) => {
                         <InputText id="fldMtrlFile" value={fldMtrlFile} placeholder="Файл" style={{width:'100px'}} />
                         <FileUpload mode="basic" name="document"  style={{width:'5rem', marginLeft:'1rem', marginTop:'0.5rem'}}
                             accept="image/*" 
-                            onBeforeUpload={()=>setPleaseWait(true)}
-                            onClick= {()=>setPleaseWait(true)}
                             customUpload={true} uploadHandler={uploadHandler}
                             auto chooseLabel=" ">
                         </FileUpload>
@@ -234,6 +290,7 @@ export const Lesson = (props) => {
     )}
 
     const displayMaterials = () => {
+        if (!id) return null;
         return <div>
             <div className="p-col-12">
                 {(!addMtrlMode) ? 
@@ -254,11 +311,14 @@ export const Lesson = (props) => {
     }
     /*  ***********************  end of materials block    ********************** */
 
-    return(<div className="p-card">
+    return(<div className="p-card" style={{width:'99%'}}>
         <Toast ref = {toast} position = "top-left"></Toast>
         <div className="p-grid">
             <div className="p-col-4"> {displayLesson()} </div>
             <div className="p-col-7"> {displayMaterials()} </div>
+            <div className="p-col-12">
+                {pleaseWait && <ProgressBar mode="indeterminate" style={{ height: '6px' }} />}
+            </div>
         </div>
     </div>)
 }
