@@ -22,6 +22,7 @@ import useToken from './useToken'
 import { Lessons } from './components/Lessons/Lessons';
 import { Lesson } from './components/Lessons/Lesson';
 import {Quiz } from './components/survey/Quiz';
+import { VideoViewer } from './components/Lessons/VideoViewer';
 const TRACKING_ID = "G-1TMTRGQK4S"; 
 ReactGA.initialize(TRACKING_ID);
 
@@ -166,6 +167,7 @@ const App = () => {
         {path: "/survey", component: Survey, auth: true},
         {path: "/lessons", component: Lessons, auth: false},        
         {path: "/lesson", component: Lesson, auth: false},
+        {path: "/videoviewer", component: VideoViewer, auth: false},
 		{path: "/public/" },
         {path: "/quiz",component: Quiz, auth: false },
     ];
@@ -174,12 +176,21 @@ const App = () => {
         let menu = [];
         menu =  [
             {label: 'Главная', icon: 'pi pi-th-large', to: '/main'},
-            {label: 'Новости', icon: 'pi pi-th-large', to: '/news'},
-            {label: 'Курсы', icon: 'pi pi-th-large', to: '/courses'},
-            {label: 'FAQ', icon: 'pi pi-th-large', to: '/faq'},
-            {label: 'Проекты', icon: 'pi pi-th-large', to: '/projects'},
-            {label: 'О нас', icon: 'pi pi-th-large', to: '/team'},
-        ];  
+            {label: 'Новости', icon: 'pi pi-volume-up', to: '/news'},
+            {label: 'Курсы', icon: 'pi pi-list', to: '/courses'},
+            {label: 'FAQ', icon: 'pi pi-question', to: '/faq'},
+            {label: 'Проекты', icon: 'pi pi-palette', to: '/projects'},
+            {label: 'О нас', icon: 'pi pi-user', to: '/team'},
+        ];
+        if (token){
+            const profileItem = {label: 'Кабинет', icon: 'pi pi-id-card',
+                items: [
+                    {label: 'Материалы занятий', icon: 'pi pi-file', to: '/lessons'},
+                    {label: 'Опросы', icon: 'pi pi-question-circle', to: '/quiz'},
+                ]
+            }
+            menu.push(profileItem)
+        }  
         return menu;  
     }
 

@@ -18,7 +18,7 @@ export const Login = (props) => {
 	const [showMessage, setShowMessage] = useState(false);
 	const [formData, setFormData] = useState({userName:'', password:'', newPassword1:'', newPassword2:''});
 	const [pleaseWait, setPleaseWait] = useState(false)
-	let btnRegTitle, btnChPaswTitle, btnRegTooltip, btnChPaswTooltip, newPswdTooltip, newPswd2Tooltip, btnRegIsVisible, btnChPaswIsVisible
+	let btnRegTitle, btnChPaswTitle, btnRegTooltip, btnChPaswTooltip, newPswdTooltip, newPswd2Tooltip, btnRegIsVisible
 	const watchFields = watch(["password", "userName"])
 	const inputUser = useRef(null);
 
@@ -36,8 +36,7 @@ export const Login = (props) => {
 		.then((response)=>{
 			setToken({"gwttoken":"Bearer " + response.data.jwttoken})
 			if (window.location.pathname === '/login'){
-				// window.location.assign(window.location.pathname)
-				window.location.assign("/survey")
+				window.location.assign("/lessons")
 			}else{
 				 window.location.assign("/")
 			}
@@ -91,7 +90,6 @@ export const Login = (props) => {
 			newPswdTooltip = 'Пароль'
 			newPswd2Tooltip = 'Повторите пароль'
 			btnRegIsVisible = true
-			btnChPaswIsVisible = false
 		}else if (mode === 'pasw'){
 			btnRegTitle = 'Отменить'
 			btnRegTooltip = ''
@@ -100,7 +98,6 @@ export const Login = (props) => {
 			newPswdTooltip = 'Новый пароль'
 			newPswd2Tooltip = 'Повторите новый пароль'
 			btnRegIsVisible = true
-			btnChPaswIsVisible = false
 		}else{
 			//login mode
 			btnRegTitle = 'Зарегистрироваться'
@@ -110,7 +107,6 @@ export const Login = (props) => {
 			newPswdTooltip = 'Повторите пароль'
 			newPswd2Tooltip = 'Повторите новый пароль'
 			btnRegIsVisible = true
-			btnChPaswIsVisible = false
 		}
 	}
 
@@ -141,7 +137,7 @@ export const Login = (props) => {
 										<InputText id={field.name} maxLength={25} {...field} autoFocus={true} 
 											ref={inputUser}
 											style={{ width: '100%' }}
-											keyfilter={/^[^<>!{}\\\/]+$/}
+											keyfilter={/^[^<>!{}\\/]+$/}
 											className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}/>
                         				)}>
 								</Controller>
@@ -159,7 +155,7 @@ export const Login = (props) => {
 									}}
 									render = {({ field, fieldState }) => (
 										<InputText id={field.name} maxLength={25} {...field} type="password"
-											keyfilter={/^[^<>{}\\\/]+$/}
+											keyfilter={/^[^<>{}\\/]+$/}
 											className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}
 											style={{ width: '100%' }}
 										/>)}>

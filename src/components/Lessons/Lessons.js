@@ -1,23 +1,24 @@
 import React, { useState, useRef, useEffect } from "react";
-import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
+import { DataView } from 'primereact/dataview';
 import { Toast } from 'primereact/toast'
 import { Card } from "primereact/card";
 import { ListBox } from 'primereact/listbox'
 import { AutoComplete } from 'primereact/autocomplete';
 import { Button } from 'primereact/button'
-import { axinst } from "../../axInst";
+import { apiUrl, axinst } from "../../axInst";
 import { fetchGroups } from "../../service/CommonDataSrv";
+import { InputText } from "primereact/inputtext";
 
 export const Lessons = (props) => {
     let choosenMaterial = null;
     const [lessons, setLessons] = useState(null)
     const datasource = useRef(null);
-    const [layout, setLayout] = useState('grid');
+    const [layout ] = useState('grid');
     const [loading, setLoading] = useState(true)
     const toasts = useRef()
     const [first, setFirst] = useState(0);
     const [totalRecords, setTotalRecords] = useState(0);
-    const [selectedGroup, setSelectedGroup] = useState()
+    const [selectedGroup, setSelectedGroup] = useState(sessionStorage.getItem("choosenGroup") ? JSON.parse(sessionStorage.getItem("choosenGroup")) : null)
     const [groups, setGroups] = useState()
     const [filteredGroups, setFilteredGroups] = useState()
     const rows = useRef(6)
@@ -41,11 +42,12 @@ export const Lessons = (props) => {
             setLoading(false);
             return
         }
-        axinst.get('lesson/getAll/'+selectedGroup.id)
+        axinst.get('lesson/getByGroupId/'+selectedGroup.id)
         .then((response) => {
             datasource.current = response.data
             setLessons(datasource.current.slice(0, rows.current))
             setTotalRecords(response.data.size)
+            sessionStorage.setItem("choosenGroup", JSON.stringify(selectedGroup))
             setLoading(false)
         })
         .catch((err)=>{
@@ -57,13 +59,43 @@ export const Lessons = (props) => {
         return<div></div>
     }
 
-    const downloadMaterial = (material, lesson) => {
-        toasts.current.show({severity:'info', summary:material.fileLink + " " + lesson.comment})        
+    const showVideo = (material) => {
+        props.history.push({pathname: '/videoviewer', state: {...material}})
+    }
+
+    const downloadFile = (material) => {
+        const url = apiUrl + "lesson/materials/getAttFile/" + material.srvFileLink
+        return axinst.get(url, {
+            responseType: 'arraybuffer',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(response=>{
+            const type = response.headers['content-type'];
+            const blob = new Blob([response.data], { type: type, encoding: 'UTF-8' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = material.fileLink;
+            link.click()
+          })
+          .catch(err=>{
+            const errMsg = (!err.response) ? "Сервер не отвечает или проблемы с Интернетом" : "Не удалось сформировать отчет";
+            this.messages.show({severity:'error', summary: errMsg});
+        });            
+    }
+
+    const getMaterial = (material) => {
+        if (!material.youtubeLink){
+            //если этот материал содержит вложенный файл, а не ссылку
+            downloadFile(material)
+        }else{
+            showVideo(material)
+        }
     } 
 
     const openLesson = (lesson) => {
-        props.history.push({pathname: '/lesson', state: {id: lesson.id}})
-        toasts.current.show({severity:'info', summary:lesson.comment})        
+        props.history.push({pathname: '/lesson', state: {...lesson}})      
     }
     
     const renderGridItem = (lesson) => {
@@ -82,7 +114,7 @@ export const Lessons = (props) => {
                     <div className="p-col-6"><span style={{fontSize:'1rem', color:'#614200', fontStyle:'oblique'}}>Описание</span></div>
                     <div className="p-col-6">
                         <ListBox value={choosenMaterial} options={lesson.materials} itemTemplate={materialItemTemplate}
-                            onChange = {(e) => downloadMaterial(e.value, lesson)} 
+                            onChange = {(e) => getMaterial(e.value, lesson)} 
                             listStyle={{maxHeight:'250px', minHeight:'250px'}}></ListBox>
                     </div>
                     <div className="p-col-6">{lesson.comment}</div>
@@ -111,18 +143,17 @@ export const Lessons = (props) => {
     const searchGroup = (event) =>{
         const filteredItems = []
         const input = event.query
-        if (!input){
-            setFilteredGroups(groups)
-        }else{
+        if (input){
             for(let i=0; i < groups.length; i++){
                 let item = groups[i]
                 if (item.name.toLowerCase().includes(input.toLowerCase())){
                     filteredItems.push(item)
                 }
             }
-            setFilteredGroups(filteredItems)
+        }else{
+            Array.prototype.push.apply(filteredItems,groups)
         }
-
+        setFilteredGroups(filteredItems)
     }
 
     const clearGroupSelection = () => {
@@ -132,15 +163,19 @@ export const Lessons = (props) => {
 
     const cardsViewHeader = () =>{
         return <div className="p-d-flex p-jc-between">
-            <Button className="p-button-rounded" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить запись о занятии" tooltipOptions={{position: 'left'}}
+            <Button className="p-button-rounded p-mr-3" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить запись о занятии" tooltipOptions={{position: 'left'}}
                     onClick={()=>props.history.push({pathname: '/lesson', state: {id:1}})} />
 
             <div className="p-inputgroup" >
-                <Button label="Материалы занятий для группы" disabled></Button>
-                <AutoComplete field="name" dropdown forceSelection placeholder="Выберите название группы" style={{width:'30%'}}
-                    value={selectedGroup} suggestions={filteredGroups} 
+                {(window.innerWidth >= 1024) && 
+                    <Button label="Материалы занятий для группы" disabled></Button>}
+                <AutoComplete field="name" dropdown placeholder="Выберите название группы" 
+                    value={selectedGroup} suggestions={filteredGroups} completeMethod={(e)=>searchGroup(e)}
                     onSelect={(e)=>setSelectedGroup(e.value)}/>
                 <Button className="p-button-danger" icon="pi pi-times" onClick={clearGroupSelection}></Button>
+                <span style={{width:'2rem'}}></span>
+                <InputText tooltip="Введите строку для поиска"/>
+                <Button  icon="pi pi-search"></Button>
             </div>
         </div>
     }

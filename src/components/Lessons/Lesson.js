@@ -19,12 +19,14 @@ import { Column } from "primereact/column"
 
 export const Lesson = (props) => {
     const location = useLocation();
-    const [id, setId] = useState(1)
-    const [fldComment, setFldComment] = useState()
-    const [fldGroup, setFldGroup] = useState()
-    const [fldDate, setFldDate] = useState(new Date())
-    const [fldTime, setFldTime] = useState()
-    const [fldLsnOrder, setFldLsnOrder] = useState(0)
+    const moment = require('moment');
+    const startDateTime = props.location.state.start;
+    const [id, setId] = useState(props.location.state.id)
+    const [fldComment, setFldComment] = useState(props.location.state.comment)
+    const [fldGroup, setFldGroup] = useState(props.location.state.group)
+    const [fldDate, setFldDate] = useState(startDateTime ? moment(startDateTime).toDate() : (new Date()))
+    const [fldTime, setFldTime] = useState(startDateTime ? moment(startDateTime).format("HH:mm") : null)
+    const [fldLsnOrder, setFldLsnOrder] = useState(props.location.state ? props.location.state.sortOrder : 0)
     const [fldMtrlUrl, setFldMtrlUrl] = useState()
     const [fldMtrlFile, setFldMtrlFile] = useState()
     const fldMtrlStoredFile = useRef()
@@ -35,12 +37,12 @@ export const Lesson = (props) => {
     const [addMtrlMode, setAddMtrlMode] = useState(false)
     const toast = useRef()
     const lessonDataChanged = useRef(false)
-    const moment = require('moment');
     let choosenFileName
 
     useEffect(()=>{
         fetchGroups(setGroups, toast)
         fetchMaterials()
+        console.log(props.location)
     },[location])
 
     useEffect(()=>{
@@ -59,19 +61,6 @@ export const Lesson = (props) => {
             console.log(err)
         )
     }
-
-    /*
-    const fetchGroups = () => {
-        axinst.get('dictionary/group/getAll')
-        .then((response) => 
-            setGroups(response.data)
-        )
-        .catch((err) => {
-            const errMsg = processError(err)
-            toast.current.show({severity:"error", summary:"Ошибка", detail: errMsg})
-        })
-    }
-    */
 
     const onGroupChoose = (value) => {
         setFldGroup(value)
@@ -106,7 +95,6 @@ export const Lesson = (props) => {
             setId(response.data)
             toast.current.show({severity:"success", summary:'Готово', detail: "Успешно сохранено"})
             lessonDataChanged.current = false
-            //props.history.goBack()
         })
         .catch(err=>{
             const errMsg = processError(err)

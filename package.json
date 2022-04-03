@@ -1,6 +1,6 @@
 {
     "name": "hatulamadan-home",
-    "version": "1.1.8",
+    "version": "1.2",
     "homepage": ".",
     "private": true,
     "dependencies": {
@@ -32,6 +32,7 @@
         "react-ga": "^3.3.0",
         "react-hook-form": "^7.27.1",
         "react-i18next": "^11.11.4",
+        "react-player": "^2.10.0",
         "react-router-dom": "^5.2.0",
         "react-scripts": "^5.0.0",
         "react-transition-group": "^4.4.1",
