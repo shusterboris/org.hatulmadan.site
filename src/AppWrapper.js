@@ -4,10 +4,12 @@ import App from './App';
 import {Error} from './pages/Error';
 import { NotFound } from './pages/NotFound';
 import { Access } from './pages/Access';
+import User from './wrapers/User';
 
 const AppWrapper = () => {
 
     let location = useLocation();
+    const user = User.load()
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -21,7 +23,7 @@ const AppWrapper = () => {
         case '/access':
             return <Route path="/access" component={Access} />
         default:
-            return <App/>;
+            return <App user = {user}/>;
     }
 }
 

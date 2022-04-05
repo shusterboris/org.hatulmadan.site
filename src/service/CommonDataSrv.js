@@ -11,5 +11,11 @@ export const fetchGroups = (setter, toast) => {
             toast.current.show({severity:"error", summary:"Ошибка", detail: errMsg})
         }
     })
-
 } 
+
+export const fetchGroupsOfUser = (user) => {
+    if (!user){
+        return []
+    }
+    
+}

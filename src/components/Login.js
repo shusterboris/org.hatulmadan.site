@@ -6,8 +6,9 @@ import { ProgressSpinner } from 'primereact/progressspinner';
 import useToken from '../useToken';
 import { useForm, Controller } from 'react-hook-form';
 import classNames from 'classnames';
-import {apiUrl, timeout, processError} from '../axInst';
+import {apiUrl, timeout, processError, axinst} from '../axInst';
 import axios from 'axios';
+import User from '../wrapers/User';
 
 export const Login = (props) => {
 	//login, reg, pasw
@@ -34,6 +35,8 @@ export const Login = (props) => {
 
 		axios.post(apiUrl+reqPath[mode], body, header, {timeout: timeout})
 		.then((response)=>{
+			const user = new User(response.data.user)
+			user.store()
 			setToken({"gwttoken":"Bearer " + response.data.jwttoken})
 			if (window.location.pathname === '/login'){
 				window.location.assign("/lessons")

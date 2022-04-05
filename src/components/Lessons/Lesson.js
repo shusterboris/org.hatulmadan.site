@@ -20,13 +20,14 @@ import { Column } from "primereact/column"
 export const Lesson = (props) => {
     const location = useLocation();
     const moment = require('moment');
-    const startDateTime = props.location.state.start;
-    const [id, setId] = useState(props.location.state.id)
-    const [fldComment, setFldComment] = useState(props.location.state.comment)
-    const [fldGroup, setFldGroup] = useState(props.location.state.group)
+    const state = props.location.state;
+    const startDateTime = state ? state.start : new Date();
+    const [id, setId] = useState(state ? state.id : null)
+    const [fldComment, setFldComment] = useState(state ? state.comment : '')
+    const [fldGroup, setFldGroup] = useState(state ? state.group : null)
     const [fldDate, setFldDate] = useState(startDateTime ? moment(startDateTime).toDate() : (new Date()))
     const [fldTime, setFldTime] = useState(startDateTime ? moment(startDateTime).format("HH:mm") : null)
-    const [fldLsnOrder, setFldLsnOrder] = useState(props.location.state ? props.location.state.sortOrder : 0)
+    const [fldLsnOrder, setFldLsnOrder] = useState(state ? props.location.state.sortOrder : 0)
     const [fldMtrlUrl, setFldMtrlUrl] = useState()
     const [fldMtrlFile, setFldMtrlFile] = useState()
     const fldMtrlStoredFile = useRef()
@@ -299,6 +300,10 @@ export const Lesson = (props) => {
     }
     /*  ***********************  end of materials block    ********************** */
 
+    if (!state){
+        props.history.push({path:"/error"})
+        return
+    }
     return(<div className="p-card" style={{width:'99%'}}>
         <Toast ref = {toast} position = "top-left"></Toast>
         <div className="p-grid">

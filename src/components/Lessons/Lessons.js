@@ -8,6 +8,7 @@ import { Button } from 'primereact/button'
 import { apiUrl, axinst } from "../../axInst";
 import { fetchGroups } from "../../service/CommonDataSrv";
 import { InputText } from "primereact/inputtext";
+import User from "../../wrapers/User";
 
 export const Lessons = (props) => {
     let choosenMaterial = null;
@@ -21,13 +22,18 @@ export const Lessons = (props) => {
     const [selectedGroup, setSelectedGroup] = useState(sessionStorage.getItem("choosenGroup") ? JSON.parse(sessionStorage.getItem("choosenGroup")) : null)
     const [groups, setGroups] = useState()
     const [filteredGroups, setFilteredGroups] = useState()
+    const [user] = useState(User.load())
     const rows = useRef(6)
     const isMounted = useRef(false)
     const moment = require('moment');
 
 
     useEffect (()=>{
-        fetchGroups(setGroups)
+        if (user.hasAuthorities('super')){
+            fetchGroups(setGroups)
+        }else{
+            setGroups(user.groups)
+        }
     },[])
 
     useEffect(() => {
@@ -102,8 +108,9 @@ export const Lessons = (props) => {
         const cardHeader = () =>{
             return(<div className="p-d-flex p-jc-between p-mr-5">
                 <span className="p-card-title p-m-2" style={{'fontSize': '1.25em'}}>{moment(lesson.start).format("DD/MM/YY HH:mm")}</span>
-                <i className="pi pi-cog p-m-2" style={{color:'var(--primary-color)'}} tooltip="Нажмите, чтобы изменить"
-                    onClick={()=>openLesson(lesson)}></i>
+                {user.hasAuthorities('super') && 
+                    <i className="pi pi-cog p-m-2" style={{color:'var(--primary-color)'}} tooltip="Нажмите, чтобы изменить"
+                    onClick={()=>openLesson(lesson)}></i>}
             </div> 
         )}
 
@@ -163,8 +170,9 @@ export const Lessons = (props) => {
 
     const cardsViewHeader = () =>{
         return <div className="p-d-flex p-jc-between">
-            <Button className="p-button-rounded p-mr-3" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить запись о занятии" tooltipOptions={{position: 'left'}}
-                    onClick={()=>props.history.push({pathname: '/lesson', state: {id:1}})} />
+            {user.hasAuthorities('super') && 
+                <Button className="p-button-rounded p-mr-3" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить запись о занятии" tooltipOptions={{position: 'left'}}
+                    onClick={()=>props.history.push({pathname: '/lesson', state: {id:1}})} />}
 
             <div className="p-inputgroup" >
                 {(window.innerWidth >= 1024) && 
