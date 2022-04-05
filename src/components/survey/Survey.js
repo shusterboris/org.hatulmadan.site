@@ -37,53 +37,44 @@ export const Survey = (props) => {
         .finally(setIsLoading(false))
     }
     let quizesAll=[];
-
+//открываем выбранный опрос
     const callQuiz=(name)=>{
         setSelQuiz(name);
         quizesAll.forEach(element => {
-        if (element.name===name){
-            //setQId(element.id);
-            props.history.push({pathname: '/quiz', state: {id: element.id}})
-        }
+            if (element.name===name){
+                props.history.push({pathname: '/quiz', state: {id: element.id}})
+            }
         });
-
     }
     const lines=(quizesFull) => {
         if (!quizesFull){
             return null
         }
         quizesAll=quizesFull;
-       let quizes=[];
+        let quizes=[];
         quizesFull.forEach(element => {
             quizes.push(element.name);
         });
-
         return( 
           <div>
-
-          <ListBox  value={selQuiz} options={quizes} onChange={(e) => callQuiz(e.value)} />
-         
+             <ListBox  value={selQuiz} options={quizes} onChange={(e) => callQuiz(e.value)} />        
           </div>
         )  
     } 
     return(<Panel>     
         <div className="p-d-flex p-flex-column p-flex-md-row">
            <div p-d-flex p-flex-row p-flex-md-column>
-                 <img src="assets/images/globalCat.jpg" alt="Кот на глобусе" className='p-page-img' />
+                <img src="assets/images/globalCat.jpg" alt="Кот на глобусе" className='p-page-img' />
            </div>
            <div className="p-mr-5 p-pt-6">
-           <h2 className="p-orange p-text-center" style={{margin: '0.5em 0 0.5rem 0', lineHeight: '1.5'}} >
+                <h2 className="p-orange p-text-center" style={{margin: '0.5em 0 0.5rem 0', lineHeight: '1.5'}} >
                Спасибо за регистрацию на нашем сайте!  </h2>
                <p className="p-orange p-text-center">В скором времени все кто зарегистрировался, смогут принять участие в опросах и тестах.</p>
                <p className="p-orange p-text-center">Участники курсов получат много дополнительных материалов</p>
                 {isLoading ? <ProgressSpinner/> : lines(data)}
-               
-             {/*   <p>{data && data.map((str) => str.name) }</p>    
-               <p>{data && data.map((str) => line(str.name, str.id))}</p> */}
-                     
-           </div>
             </div>
-            </Panel>
-            ) 
+        </div>
+        </Panel>
+    ) 
 
 }
