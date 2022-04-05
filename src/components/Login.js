@@ -6,8 +6,9 @@ import { ProgressSpinner } from 'primereact/progressspinner';
 import useToken from '../useToken';
 import { useForm, Controller } from 'react-hook-form';
 import classNames from 'classnames';
-import {apiUrl, timeout, processError} from '../axInst';
+import {apiUrl, timeout, processError, axinst} from '../axInst';
 import axios from 'axios';
+import User from '../wrapers/User';
 
 export const Login = (props) => {
 	//login, reg, pasw
@@ -18,7 +19,7 @@ export const Login = (props) => {
 	const [showMessage, setShowMessage] = useState(false);
 	const [formData, setFormData] = useState({userName:'', password:'', newPassword1:'', newPassword2:''});
 	const [pleaseWait, setPleaseWait] = useState(false)
-	let btnRegTitle, btnChPaswTitle, btnRegTooltip, btnChPaswTooltip, newPswdTooltip, newPswd2Tooltip, btnRegIsVisible, btnChPaswIsVisible
+	let btnRegTitle, btnChPaswTitle, btnRegTooltip, btnChPaswTooltip, newPswdTooltip, newPswd2Tooltip, btnRegIsVisible
 	const watchFields = watch(["password", "userName"])
 	const inputUser = useRef(null);
 
@@ -34,10 +35,11 @@ export const Login = (props) => {
 
 		axios.post(apiUrl+reqPath[mode], body, header, {timeout: timeout})
 		.then((response)=>{
+			const user = new User(response.data.user)
+			user.store()
 			setToken({"gwttoken":"Bearer " + response.data.jwttoken})
 			if (window.location.pathname === '/login'){
-				// window.location.assign(window.location.pathname)
-				window.location.assign("/survey")
+				window.location.assign("/lessons")
 			}else{
 				 window.location.assign("/")
 			}
@@ -91,7 +93,6 @@ export const Login = (props) => {
 			newPswdTooltip = 'Пароль'
 			newPswd2Tooltip = 'Повторите пароль'
 			btnRegIsVisible = true
-			btnChPaswIsVisible = false
 		}else if (mode === 'pasw'){
 			btnRegTitle = 'Отменить'
 			btnRegTooltip = ''
@@ -100,7 +101,6 @@ export const Login = (props) => {
 			newPswdTooltip = 'Новый пароль'
 			newPswd2Tooltip = 'Повторите новый пароль'
 			btnRegIsVisible = true
-			btnChPaswIsVisible = false
 		}else{
 			//login mode
 			btnRegTitle = 'Зарегистрироваться'
@@ -110,7 +110,6 @@ export const Login = (props) => {
 			newPswdTooltip = 'Повторите пароль'
 			newPswd2Tooltip = 'Повторите новый пароль'
 			btnRegIsVisible = true
-			btnChPaswIsVisible = false
 		}
 	}
 
@@ -121,9 +120,9 @@ export const Login = (props) => {
 			<div className="login-panel ui-fluid" style={{height: '500px'}}>
 				<Toast ref = {messages} position = {"top-left"} life='10000'/>
 				<div className="login-panel-header">
-					{pleaseWait ? 
+					{!pleaseWait ? 
 					<img src="/assets/images/foxic_strong.png" width={176} alt="logotype"/>	:
-					<div className="p-col-12"> <ProgressSpinner style={{width: '176px', height: '176px'}}/> </div>}
+					<div className="p-col-12"> <ProgressSpinner style={{width: '75px'}}/> </div>}
 				</div>
 				<div className="login-panel-content" style={{minWidth: '20em'}}>
 					<div className="p-grid">
@@ -141,7 +140,7 @@ export const Login = (props) => {
 										<InputText id={field.name} maxLength={25} {...field} autoFocus={true} 
 											ref={inputUser}
 											style={{ width: '100%' }}
-											keyfilter={/^[^<>!{}\\\/]+$/}
+											keyfilter={/^[^<>!{}\\/]+$/}
 											className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}/>
                         				)}>
 								</Controller>
@@ -159,7 +158,7 @@ export const Login = (props) => {
 									}}
 									render = {({ field, fieldState }) => (
 										<InputText id={field.name} maxLength={25} {...field} type="password"
-											keyfilter={/^[^<>{}\\\/]+$/}
+											keyfilter={/^[^<>{}\\/]+$/}
 											className={classNames({ 'p-invalid': fieldState.invalid },'inputfield')}
 											style={{ width: '100%' }}
 										/>)}>
