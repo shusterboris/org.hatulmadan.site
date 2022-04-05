@@ -172,8 +172,9 @@ const App = (props) => {
         {path: "/videoviewer", component: VideoViewer, auth: true},
         {path: "/groups", component: GroupsViewAndEdit, auth: true},
         {path: "/courseList", component: CourseList, auth: true},
-		{path: "/public/" },
         {path: "/quiz",component: Quiz, auth: false },
+        {path: "/survey",component: Survey, auth: false },
+        {path: "/public/" },
     ];
 
     const getAppMenu = () => {
@@ -189,7 +190,7 @@ const App = (props) => {
         if (token){
             const subItems = [
                 {label: 'Материалы занятий', icon: 'pi pi-file', to: '/lessons'},
-                {label: 'Опросы', icon: 'pi pi-question-circle', to: '/quiz'},
+                {label: 'Опросы', icon: 'pi pi-question-circle', to: '/survey'},
             ]
             if (props.user && props.user.hasAuthorities('super')){
                 subItems.push(
