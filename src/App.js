@@ -23,10 +23,12 @@ import { Lessons } from './components/Lessons/Lessons';
 import { Lesson } from './components/Lessons/Lesson';
 import {Quiz } from './components/survey/Quiz';
 import { VideoViewer } from './components/Lessons/VideoViewer';
+import { GroupsViewAndEdit } from './components/GroupsViewAndEdit';
+import { CourseList } from './components/CourseList';
 const TRACKING_ID = "G-1TMTRGQK4S"; 
 ReactGA.initialize(TRACKING_ID);
 
-const App = () => {
+const App = (props) => {
 
     const [horizontal] = useState(true);
     const [topbarSize] = useState('large');
@@ -166,8 +168,10 @@ const App = () => {
         {path: "/test", component: TestPage,exact: true},
         {path: "/survey", component: Survey, auth: true},
         {path: "/lessons", component: Lessons, auth: false},        
-        {path: "/lesson", component: Lesson, auth: false},
-        {path: "/videoviewer", component: VideoViewer, auth: false},
+        {path: "/lesson", component: Lesson, auth: true},
+        {path: "/videoviewer", component: VideoViewer, auth: true},
+        {path: "/groups", component: GroupsViewAndEdit, auth: true},
+        {path: "/courseList", component: CourseList, auth: true},
 		{path: "/public/" },
         {path: "/quiz",component: Quiz, auth: false },
     ];
@@ -183,12 +187,17 @@ const App = () => {
             {label: 'О нас', icon: 'pi pi-user', to: '/team'},
         ];
         if (token){
-            const profileItem = {label: 'Кабинет', icon: 'pi pi-id-card',
-                items: [
-                    {label: 'Материалы занятий', icon: 'pi pi-file', to: '/lessons'},
-                    {label: 'Опросы', icon: 'pi pi-question-circle', to: '/quiz'},
-                ]
+            const subItems = [
+                {label: 'Материалы занятий', icon: 'pi pi-file', to: '/lessons'},
+                {label: 'Опросы', icon: 'pi pi-question-circle', to: '/quiz'},
+            ]
+            if (props.user && props.user.hasAuthorities('super')){
+                subItems.push(
+                    {label: 'Курсы', icon: 'pi pi-list', to: '/courseList'},
+                    {label: 'Группы', icon: 'pi pi-users', to: '/groups'}
+                )
             }
+            const profileItem = {label: 'Кабинет', icon: 'pi pi-id-card', items: subItems}
             menu.push(profileItem)
         }  
         return menu;  
