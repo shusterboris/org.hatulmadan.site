@@ -9,12 +9,11 @@ import { axinst } from '../../axInst';
 import { apiUrl } from '../../axInst';
 import { ProgressSpinner } from 'primereact/progressspinner';
 export const Survey = (props) => {
-    // теперь из этого надо сделать выбор и открыть окно с вопросами
     
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState();
     const [selQuiz,setSelQuiz]=useState(null);
-    //const[qId,setQId]=useState(null);
+
     useEffect(() => {
         getSurveyList()
     },[])
@@ -37,7 +36,8 @@ export const Survey = (props) => {
         .finally(setIsLoading(false))
     }
     let quizesAll=[];
-//открываем выбранный опрос
+    
+    //открываем выбранный опрос
     const callQuiz=(name)=>{
         setSelQuiz(name);
         quizesAll.forEach(element => {
@@ -67,11 +67,8 @@ export const Survey = (props) => {
                 <img src="assets/images/globalCat.jpg" alt="Кот на глобусе" className='p-page-img' />
            </div>
            <div className="p-mr-5 p-pt-6">
-                <h2 className="p-orange p-text-center" style={{margin: '0.5em 0 0.5rem 0', lineHeight: '1.5'}} >
-               Спасибо за регистрацию на нашем сайте!  </h2>
-               <p className="p-orange p-text-center">В скором времени все кто зарегистрировался, смогут принять участие в опросах и тестах.</p>
-               <p className="p-orange p-text-center">Участники курсов получат много дополнительных материалов</p>
-                {isLoading ? <ProgressSpinner/> : lines(data)}
+               <p className="p-orange ">Выберите из списка опрос, в котором Вы хотите принять участие</p>
+               {isLoading ? <ProgressSpinner/> : lines(data)}
             </div>
         </div>
         </Panel>

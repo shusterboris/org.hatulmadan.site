@@ -27,12 +27,15 @@ export const Lessons = (props) => {
     const isMounted = useRef(false)
     const moment = require('moment');
 
-
     useEffect (()=>{
         if (user.hasAuthorities('super')){
             fetchGroups(setGroups)
         }else{
             setGroups(user.groups)
+            if (user.groups && user.groups.length === 1){
+                const usersGroup = user.groups[0];
+                setSelectedGroup(usersGroup)
+            }
         }
     },[])
 
@@ -168,17 +171,22 @@ export const Lessons = (props) => {
         setFilteredGroups(groups)
     }
 
+    const isCompact = () => {
+        return window.innerWidth >= 1024
+    }
+
     const cardsViewHeader = () =>{
-        return    <div className="p-d-flex p-jc-between">
-            
+        return    <div className="p-d-flex p-jc-between p-m-0 p-p-0">           
             {user.hasAuthorities('super') && 
                 <Button className="p-button-rounded p-mr-3" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить запись о занятии" tooltipOptions={{position: 'left'}}
                     onClick={()=>props.history.push({pathname: '/lesson', state: {id:1}})} />}
-           
             <div className="p-inputgroup" >
-                {(window.innerWidth >= 1024) && 
-                    <Button label="Материалы занятий для группы" disabled></Button>}
+                {isCompact() && <div>                    
+                    <h2 className="p-orange p-mr-2" > Добро пожаловать!  </h2> 
+                    <span className="p-col-fixed p-card-title" style={{width:'10rem'}}> Материалы</span>
+                </div>}
                 <AutoComplete field="name" dropdown placeholder="Выберите название группы" 
+                    disabled = {!user.hasAuthorities('super') && groups && groups.length === 1}
                     value={selectedGroup} suggestions={filteredGroups} completeMethod={(e)=>searchGroup(e)}
                     onSelect={(e)=>setSelectedGroup(e.value)}/>
                 <Button className="p-button-danger" icon="pi pi-times" onClick={clearGroupSelection}></Button>
@@ -201,16 +209,16 @@ export const Lessons = (props) => {
     }
 
     const header = cardsViewHeader()
-    return(<Card>
-        <Toast ref={toasts} position = {"top-left"} life='10000'/> 
-        <div className="dataview-demo">
-            <h2 className="p-orange" > Добро пожаловать в кабинет!  </h2> 
-             {/* <div className="p-col-8"><img src="assets/images/cabinet.jpg" alt="Кот" width="10px" /></div>  */}
-             <DataView value={lessons} layout={layout} header={header}
-                            itemTemplate={showItemTemplate} lazy paginator paginatorPosition={'both'} rows={rows.current}
+    return(<div className="p-m-0">
+            <div className="p-col-12">            
+                <Toast ref={toasts} position = {"top-left"} life='10000'/> 
+                <div className="dataview-demo">                    
+                    <DataView value={lessons} layout={layout} header = {header}
+                            itemTemplate={showItemTemplate} lazy paginator paginatorPosition={'top'} rows={rows.current}
                             totalRecords={totalRecords} first={first} onPage={onPage} loading={loading} 
                             emptyMessage="Нет данных"/>   
-        </div>
-    </Card>
+                </div>
+            </div>
+   </div>
   )
 }
