@@ -169,11 +169,12 @@ export const Lessons = (props) => {
     }
 
     const cardsViewHeader = () =>{
-        return <div className="p-d-flex p-jc-between">
+        return    <div className="p-d-flex p-jc-between">
+            
             {user.hasAuthorities('super') && 
                 <Button className="p-button-rounded p-mr-3" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить запись о занятии" tooltipOptions={{position: 'left'}}
                     onClick={()=>props.history.push({pathname: '/lesson', state: {id:1}})} />}
-
+           
             <div className="p-inputgroup" >
                 {(window.innerWidth >= 1024) && 
                     <Button label="Материалы занятий для группы" disabled></Button>}
@@ -186,6 +187,7 @@ export const Lessons = (props) => {
                 <Button  icon="pi pi-search"></Button>
             </div>
         </div>
+       
     }
 
     const onPage = (event) => {
@@ -199,16 +201,16 @@ export const Lessons = (props) => {
     }
 
     const header = cardsViewHeader()
-    return(
-    <div>
+    return(<Card>
+        <Toast ref={toasts} position = {"top-left"} life='10000'/> 
         <div className="dataview-demo">
-            <Toast ref={toasts} position = {"top-left"} life='10000'/>
-            <div className="card">
-                <DataView value={lessons} layout={layout} header={header}
-                        itemTemplate={showItemTemplate} lazy paginator paginatorPosition={'both'} rows={rows.current}
-                        totalRecords={totalRecords} first={first} onPage={onPage} loading={loading} 
-                        emptyMessage="Нет данных"/>
-            </div>
+            <h2 className="p-orange" > Добро пожаловать в кабинет!  </h2> 
+             {/* <div className="p-col-8"><img src="assets/images/cabinet.jpg" alt="Кот" width="10px" /></div>  */}
+             <DataView value={lessons} layout={layout} header={header}
+                            itemTemplate={showItemTemplate} lazy paginator paginatorPosition={'both'} rows={rows.current}
+                            totalRecords={totalRecords} first={first} onPage={onPage} loading={loading} 
+                            emptyMessage="Нет данных"/>   
         </div>
-    </div>)
+    </Card>
+  )
 }
