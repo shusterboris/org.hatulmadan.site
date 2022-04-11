@@ -182,7 +182,7 @@ export const Lessons = (props) => {
                     onClick={()=>props.history.push({pathname: '/lesson', state: {id:1}})} />}
             <div className="p-inputgroup" >
                 {isCompact() && <div>                    
-                    <h2 className="p-orange p-mr-2" > Добро пожаловать!  </h2> 
+                    {/* <h2 className="p-orange p-mr-2" > Добро пожаловать!  </h2> p-card-title  */}
                     <span className="p-col-fixed p-card-title" style={{width:'10rem'}}> Материалы</span>
                 </div>}
                 <AutoComplete field="name" dropdown placeholder="Выберите название группы" 
@@ -210,9 +210,10 @@ export const Lessons = (props) => {
 
     const header = cardsViewHeader()
     return(<div className="p-m-0">
+            
             <div className="p-col-12">            
                 <Toast ref={toasts} position = {"top-left"} life='10000'/> 
-                <div className="dataview-demo">                    
+                 <div className="dataview-demo">                                 
                     <DataView value={lessons} layout={layout} header = {header}
                             itemTemplate={showItemTemplate} lazy paginator paginatorPosition={'top'} rows={rows.current}
                             totalRecords={totalRecords} first={first} onPage={onPage} loading={loading} 

@@ -14,6 +14,11 @@
   color: white;
   font-size: 0.8em;
 }
+.p-button.p-button-text {
+  background-color: transparent;
+  color: white;
+  border-color: transparent;
+}
 .p-logo {
   color: rgb(252, 213, 25);
 }

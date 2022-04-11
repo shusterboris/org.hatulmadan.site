@@ -5,7 +5,7 @@ import { Ripple } from 'primereact/ripple';
 import './hatul.css';
 import useToken from './useToken';
 import { useHistory } from 'react-router-dom';
-
+import {Button} from 'primereact/button';
 const AppTopbar = (props) => {
 	let topbarMenuClassName = classNames('layout-profile-menu fadeInDown ', { 'layout-profile-menu-active': props.topbarUserMenuActive });
 	let menuButtonClassName = classNames('layout-menubutton ', { 'layout-menubutton-active': props.menuActive })
@@ -70,9 +70,9 @@ const AppTopbar = (props) => {
 					<i className="pi pi-globe" ></i> RU	
 				</div>
 				<div layout-topbar-grid-column layout-topbar-grid-column-fixed>
-					<button type="button" className="p-link profile-menu-button" onClick={props.onTopbarUserMenuButtonClick}>
-						<img src="assets/images/login-ava-user.png" alt="User menu" />
-					</button>
+					 <Button  icon="pi pi-user" className="p-button-rounded p-button-text"  onClick={props.onTopbarUserMenuButtonClick}>
+						 {/* <img src="assets/images/login-ava-user.png" alt="User menu" p-link profile-menu-button/>		 */}						 		
+					</Button>  
 					<ul className={topbarMenuClassName} onClick={props.onTopbarUserMenuClick}>
 						<li role="menuitem">
 							<button type="button" className="p-link p-ripple" onClick={(e)=>onItemClick(e,1)}>

@@ -166,7 +166,7 @@ const App = (props) => {
         {path: "/team" , component: TeamPage,exact: true},
         {path: "/faq", component: FAQPage,exact: true},
         {path: "/test", component: TestPage,exact: true},
-        {path: "/survey", component: Survey, auth: true},
+       
         {path: "/lessons", component: Lessons, auth: false},        
         {path: "/lesson", component: Lesson, auth: true},
         {path: "/videoviewer", component: VideoViewer, auth: true},
