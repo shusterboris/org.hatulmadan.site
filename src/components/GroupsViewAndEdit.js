@@ -7,7 +7,7 @@ import { Button } from 'primereact/button'
 import { Card } from "primereact/card";
 import { AutoComplete } from 'primereact/autocomplete'
 import React, { useEffect, useRef, useState } from "react"
-import { fetchCourses, fetchGroups, saveGroup } from "../service/CommonDataSrv";
+import { fetchCourses, fetchGroups, saveGroup, fetchUsersOfGroup, fetchActiveUsers } from "../service/CommonDataSrv";
 
 export const GroupsViewAndEdit = (props) =>{
     const [groups, setGroups] = useState()
@@ -19,12 +19,17 @@ export const GroupsViewAndEdit = (props) =>{
     const [courses, setCourses] = useState()
     const [selectedCourse, setSelectedCourse] = useState()
     const [filteredCourses, setFilteredCourses] = useState()
+    const [groupUsers, setGroupUsers] = useState()
+    const allMembers = useRef()
+    const [filteredMembers, setFilteresMembers] = useState()
+    const [newMember, setNewMember] = useState()
     const toasts = useRef()
     const isEdited = useRef(false)
 
     useEffect(()=>{
         fetchGroups(setGroups, toasts)
         fetchCourses(setCourses, toasts)
+        fetchActiveUsers(allMembers, toasts)
     },[])
 
     const clearGroupFields =(value) => {
@@ -33,6 +38,7 @@ export const GroupsViewAndEdit = (props) =>{
         setGroupSchedule('')
         setGroupSortOrder(1)
         setSelectedCourse(null)
+        setGroupUsers([])
         setSelectedGroup(value)
     }
 
@@ -44,6 +50,7 @@ export const GroupsViewAndEdit = (props) =>{
         const course = courses.find(cur => cur.id === value.course)
         setSelectedCourse(course)
         setSelectedGroup(value)
+        fetchUsersOfGroup(value, setGroupUsers, toasts)
     }
 
 
@@ -99,6 +106,32 @@ export const GroupsViewAndEdit = (props) =>{
         return true
     }
 
+    const searchUsers = (event) => {
+        const filteredItems = []
+        const input = event.query
+        if (input){
+            for(let i=0; i < allMembers.current.length; i++){
+                let item = allMembers.current[i]
+                if (item.username.toLowerCase().includes(input.toLowerCase())){
+                    filteredItems.push(item)
+                }
+            }
+        }else{
+            Array.prototype.push.apply(filteredItems,groups)
+        }
+        setFilteresMembers(filteredItems);
+    }
+    
+    const userListTableHeader = (
+        <div className="p-inputgroup p-pt-0">
+            <AutoComplete value={newMember} field="username" 
+                suggestions={filteredMembers} completeMethod={e=>searchUsers(e)}
+                onChange= {e=>setNewMember(e.value)}
+            />
+            <Button icon="pi pi-plus" />
+        </div>
+    )
+
     const cardHeader = () => {
         return <div className="p-d-flex p-d-column" style={{padding:'5px'}}>
             <Button className="p-button-rounded p-ml-5" icon="pi pi-arrow-left" tooltip="Вернуться на предыдущую страницу"
@@ -118,7 +151,7 @@ export const GroupsViewAndEdit = (props) =>{
                     <Column field="name" header="Название групп"/>
                 </DataTable>
             </div>
-            <div className="p-col-3">
+            <div className="p-col-3 p-pt-3">
                 <div className="p-float-label">
                     <InputText id="groupName" value={groupName} maxLength={255} style={{width:'100%'}}
                         onChange={e=>onChangeGroupName(e.target.value)}></InputText>
@@ -148,8 +181,15 @@ export const GroupsViewAndEdit = (props) =>{
                         onClick={()=>onClickSave()}/>}
             
             </div>
-            <div className="p-col-4">
-                
+            <div className="p-col-4 p-pt-0 p-pl-3">
+                {selectedGroup && 
+                <DataTable value={groupUsers}  header = {userListTableHeader}
+                    tooltip="Введите пользователя и нажмите +"
+                    dataKey = "id" responsiveLayout="scroll" 
+                    selectionMode="multi"
+                    emptyMessage="Нет данных">
+                        <Column columnKey="id" emptyMessage="Нет данных" field="username" header="Участники группы"/>
+                </DataTable>}
             </div>
         </div>
     </Card>)
