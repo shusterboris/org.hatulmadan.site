@@ -100,9 +100,9 @@ const  SingleLine=(str)  =>{
  
   return(
     <div>
-      <div className="p-inputgroup">
+      <div className="p-inputgroup ">
         <Checkbox inputId={str.id} value={str.text} checked={answers.indexOf(str.text) !== -1} onChange={handleChange}  />
-         <label htmlFor={str.id} className="p-checkbox-label">{str.text}</label>
+         <label htmlFor={str.id} className="p-checkbox-label p-px-3">{str.text}</label>
       </div>
     </div>
   )
@@ -129,14 +129,14 @@ return(
         <p>{question&&showQuestion()}</p>
       </div>
       <div className="p-ml-5 p-mb-5">
-      {hasAnswers()&&<p> <Button className="p-button-raised p-button-success p-button-text" label="Проверить" onClick={()=>setChecked(true)}></Button></p>}
+      {hasAnswers()&&<p> <Button className=" p-button-success p-button-rounded " label="Проверить" onClick={()=>setChecked(true)}></Button></p>}
         <h5 className="p-orange"> {checked&&"Правильный ответ "}</h5>
         {showRightAnswers()}
       </div>
       <div className="p-ml-5 p-mb-5 ">
-        <p><Button className="p-button-raised p-button-warning p-button-text p-mr-2" label="Назад" icon="pi pi-arrow-left"  onClick={()=>stepBack()}></Button>
-        <Button className="p-button-raised p-button-warning p-button-text" label="Вперед" icon="pi pi-arrow-right"  onClick={()=>stepNext()}></Button></p>
-        <Button className="p-button-raised p-button-warning p-button-text p-ml-3 " label="К опросам" icon="pi pi-arrow-up" onClick={()=>props.history.goBack()}></Button>
+       <Button className="p-button-rounded p-button-warning  p-mr-2"  icon="pi pi-arrow-left"  onClick={()=>stepBack()}></Button>
+        <Button className="p-button-rounded p-button-warning "  icon="pi pi-arrow-right"  onClick={()=>stepNext()}></Button>
+        <Button className="p-button-rounded p-button-warning  p-ml-3 " label="К опросам" icon="pi pi-arrow-up" onClick={()=>props.history.goBack()}></Button>
       </div>
   </div>
 )     

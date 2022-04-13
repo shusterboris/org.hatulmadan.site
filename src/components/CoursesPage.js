@@ -53,11 +53,11 @@ export default class CoursesPage extends Component {
                 </div>
                 <div className="p-col-12 p-lg-8 p-md-6 p-px-3">
                     <h3 className="p-text-center p-orange p-pt-3 ">Список курсов </h3>
-                    <div id="c00" className=" p-pr-6" ><h5 className="p-orange " ><p>Список курсов для взрослых построен таким образом, 
+                    <div id="c00" className=" p-pr-6" ><p className="p-orange " ><p>Список курсов для взрослых построен таким образом, 
                         чтобы можно было выбрать курс согласно своему уровню знаний, 
                                     а также брать дополнительные тренинги при наличии желания и возможностей. В составе каждого курса предусмотрена практика с реальными приложениями.</p> <p>Для тех, кто прослушал основные курсы, на тренинги предоставляется скидка. </p>
                                     <p>Список курсов и тренингов постоянно обновляется. Щелкните по рисунку правой кнопкой мыши, чтобы перейти к описанию курсов.</p>
-                            </h5>
+                            <b>Для получения учебных материалов зарегистрируйтесь на сайте</b></p>
                             <ContextMenu className="p-addlink" model={this.menu} ref={el => this.cm = el}></ContextMenu>                    
                             <p> <img src="assets/images/courses1.jpg"  className='p-page-img' onContextMenu={(e) => this.cm.show(e)} alt="схема курсов"/></p>
                     </div> 
