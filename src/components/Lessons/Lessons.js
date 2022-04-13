@@ -46,12 +46,18 @@ export const Lessons = (props) => {
     }, [loading]);
 
     useEffect(()=>{
-        if (!selectedGroup) {
+/*        if (!selectedGroup) {
             setLessons([])
             setLoading(false);
             return
+        }*/
+        let url
+        if (!user.hasAuthorities("super")){
+            url = 'lesson/getByGroupId'+(selectedGroup ? ("/"+selectedGroup.id) : "")
+        }else {
+            url = 'lesson/getAll'
         }
-        axinst.get('lesson/getByGroupId/'+selectedGroup.id)
+        axinst.get(url)
         .then((response) => {
             datasource.current = response.data
             setLessons(datasource.current.slice(0, rows.current))

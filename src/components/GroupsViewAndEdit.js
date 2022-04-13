@@ -8,6 +8,7 @@ import { Card } from "primereact/card";
 import { AutoComplete } from 'primereact/autocomplete'
 import React, { useEffect, useRef, useState } from "react"
 import { fetchCourses, fetchGroups, saveGroup, fetchUsersOfGroup, fetchActiveUsers } from "../service/CommonDataSrv";
+import { axinst, processError } from "../axInst";
 
 export const GroupsViewAndEdit = (props) =>{
     const [groups, setGroups] = useState()
@@ -122,15 +123,33 @@ export const GroupsViewAndEdit = (props) =>{
         setFilteresMembers(filteredItems);
     }
     
-    const userListTableHeader = (
-        <div className="p-inputgroup p-pt-0">
-            <AutoComplete value={newMember} field="username" 
-                suggestions={filteredMembers} completeMethod={e=>searchUsers(e)}
-                onChange= {e=>setNewMember(e.value)}
-            />
-            <Button icon="pi pi-plus" />
-        </div>
-    )
+    const addMemberToGroup = (newMember) => {
+        if (groupUsers.find(member => (member.username === newMember.username))){
+            toasts.current.show({severity: 'warn', summary: 'Не нужно!', detail:'Этот пользователь уже есть в группе'})
+        }
+        axinst.put("/dictionary/group/addUser/"+newMember.id + "/" + selectedGroup.id)
+        .then(response=>{
+            setGroupUsers(response.data);
+            setNewMember('')})
+        .catch(err => {
+            const errMsg = processError(err)
+            toasts.current.show({severity:"error", summary:"Ошибка", detail: errMsg})
+        })
+    }
+
+    const onDeleteMember = (value) => {
+        axinst.put('/dictionary/group/excludeUser/' + value.id + "/" + selectedGroup.id)
+        .then(response=>
+            setGroupUsers(response.data))
+        .catch(err => {
+            const errMsg = processError(err)
+            toasts.current.show({severity:"error", summary:"Ошибка", detail: errMsg})
+        })
+    }
+
+    const userListDeleteColumn = (rowData) => {
+        return <Button className="p-button-rounded p-button-danger p-button-outlined" icon="pi pi-times" onClick={()=>onDeleteMember(rowData)}/>
+    }
 
     const cardHeader = () => {
         return <div className="p-d-flex p-d-column" style={{padding:'5px'}}>
@@ -140,11 +159,22 @@ export const GroupsViewAndEdit = (props) =>{
         </div>
     }
 
-    return(<Card header={cardHeader}>
+    const userListTableHeader = (
+        <div className="p-inputgroup p-pt-0">
+            <AutoComplete value={newMember} field="username" 
+                suggestions={filteredMembers} completeMethod={e=>searchUsers(e)}
+                onChange= {e=>setNewMember(e.value)}
+            />
+            <Button icon="pi pi-plus" onClick={()=> addMemberToGroup(newMember)} />
+        </div>
+    )
+
+    return(<Card header={cardHeader} style={{ height: 'calc(100vh - 110px)' }}>
         <div className="p-grid">
             <Toast ref={toasts} position = {"top-left"} life='5000'></Toast>
             <div className="p-col-2">
                 <DataTable value={groups} selection={selectedGroup} selectionMode="single" 
+                    scrollable scrollHeight="flex"
                     onSelectionChange={e=>onGroupSelect(e.value)}
                     dataKey="id" responsiveLayout="scroll"
                     emptyMessage="Нет данных">
@@ -181,14 +211,15 @@ export const GroupsViewAndEdit = (props) =>{
                         onClick={()=>onClickSave()}/>}
             
             </div>
-            <div className="p-col-4 p-pt-0 p-pl-3">
+            <div className="p-col-4 p-pt-0 p-pl-3 p-m-3">
                 {selectedGroup && 
-                <DataTable value={groupUsers}  header = {userListTableHeader}
+                <DataTable value={groupUsers}  header = {userListTableHeader} 
+                    scrollable scrollHeight="flex" 
                     tooltip="Введите пользователя и нажмите +"
-                    dataKey = "id" responsiveLayout="scroll" 
-                    selectionMode="multi"
+                    dataKey = "id" 
                     emptyMessage="Нет данных">
-                        <Column columnKey="id" emptyMessage="Нет данных" field="username" header="Участники группы"/>
+                        <Column columnKey="id" emptyMessage="Нет данных" field="username" header="Участники группы" style={{width:'85%', padding:'3px', margin:'0px'}}/>
+                        <Column icon="pi pi-times" body={userListDeleteColumn} style={{padding:'3px', margin:'0px'}}/>
                 </DataTable>}
             </div>
         </div>
