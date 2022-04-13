@@ -69,7 +69,7 @@ export const Lesson = (props) => {
 
     const isLessonValid = () => {
         let result = true
-        if (!( fldDate && fldTime && fldGroup)){
+        if (!( fldDate && fldTime)){
             toast.current.show({severity:'warn', summary:'Неполные данные', detail:"Все поля информации о занятии должны быть заполнены"})
             return false
         }else{
@@ -136,7 +136,7 @@ export const Lesson = (props) => {
                 </div>
                 <div className="p-d-flex p-jc-around">
                     <Button label="Выйти" onClick={props.history.goBack}></Button>
-                    {(lessonDataChanged.current && fldGroup && fldDate && fldTime) && 
+                    {(lessonDataChanged.current && fldDate && fldTime) && 
                         <Button label="Сохранить" onClick={saveLesson}></Button>}
                 </div>
             </div>
