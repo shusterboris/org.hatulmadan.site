@@ -90,7 +90,7 @@ const handleChange=(e)=> {
 
 const stepNext=()=> {
   setChecked(false);
-  setCurrentNo(currentNo+1);
+  (currentNo<quiz.questionIds.length-1)&&setCurrentNo(currentNo+1);
 }
 const stepBack=()=> {
   setChecked(false);

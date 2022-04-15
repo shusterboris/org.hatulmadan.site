@@ -21,6 +21,8 @@ export const Survey = (props) => {
     const [user] = useState(User.load())
     const surveyChanged = useRef(false)
     const [showNew,setShowNew]=useState(false);
+    const toasts = useRef();
+    
     useEffect(() => {
         getSurveyList()
     },[])
