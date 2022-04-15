@@ -79,6 +79,10 @@ export const Lessons = (props) => {
     }
 
     const downloadFile = (material) => {
+        if (!material.srvFileLink){
+            toasts.current.show({severity:'error', summary:'Невозможно открыть!', detail:'Нет данных о файле'})
+            return
+        }
         const url = apiUrl + "lesson/materials/getAttFile/" + material.srvFileLink
         return axinst.get(url, {
             responseType: 'arraybuffer',

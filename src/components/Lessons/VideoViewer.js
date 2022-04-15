@@ -17,9 +17,10 @@ export const VideoViewer = (props) => {
         </div>
     }
 
+    const showVideo = (state && state.youtubeLink.startsWith("https://"))
     return( 
         <Card title = {showCardHeader}>
-            {(state && state.youtubeLink.startsWith("https://www.youtube.com"))? 
+            {showVideo ? 
                 <ReactPlayer url = {state.youtubeLink} playing={true} volume={0.5} controls /> : 
                 <div className="p-card-title"> Неправильная ссылка или проблемы с видео</div>}
         </Card> 

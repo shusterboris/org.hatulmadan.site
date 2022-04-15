@@ -15,6 +15,7 @@ import { axinst, timeout, processError } from '../../axInst'
 import { fetchGroups } from "../../service/CommonDataSrv"
 import { ProxyLesson } from './ProxyLesson'
 import { Column } from "primereact/column"
+import axios from "axios"
 
 
 export const Lesson = (props) => {
@@ -43,7 +44,6 @@ export const Lesson = (props) => {
     useEffect(()=>{
         fetchGroups(setGroups, toast)
         fetchMaterials()
-        console.log(props.location)
     },[location])
 
     useEffect(()=>{
@@ -212,8 +212,8 @@ export const Lesson = (props) => {
     }
 
     const uploadMtrlFile = (file) => {
-        const config = {headers: { timeout:  timeout * 3}}
-        axinst.post('file/save', {"fileName":choosenFileName, "blob": file.result}, config)
+        const longTimeout =  timeout * 5
+        axinst.post('file/save', {"fileName":choosenFileName, "blob": file.result}, {timeout: longTimeout})
             .then(res => {
                     if (!res.data.startsWith("Ошибка")){
                         fldMtrlStoredFile.current = res.data
@@ -249,7 +249,6 @@ export const Lesson = (props) => {
                     <div className="p-inputgroup">
                         <InputText id="fldMtrlFile" value={fldMtrlFile} placeholder="Файл" style={{width:'100px'}} />
                         <FileUpload mode="basic" name="document"  style={{width:'5rem', marginLeft:'1rem', marginTop:'0.5rem'}}
-                            accept="image/*" 
                             customUpload={true} uploadHandler={uploadHandler}
                             auto chooseLabel=" ">
                         </FileUpload>
@@ -265,7 +264,7 @@ export const Lesson = (props) => {
                 <div className="p-col-12">
                     <div className="p-float-label">
                         <InputText id="fldMtrlComment" value={fldMtrlComment} style={{width:'100%'}}
-                            onChange={setFldMtrlComment}></InputText>
+                            onChange={e=>setFldMtrlComment(e.target.value)}></InputText>
                         <label htmlFor="fldMtrlComment">Описание материалов (файла)</label>
                     </div>
                 </div>
