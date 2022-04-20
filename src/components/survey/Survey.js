@@ -12,6 +12,8 @@ import {Button} from 'primereact/button';
 import { InputText } from "primereact/inputtext";
 import User from "../../wrapers/User";
 import { Toast } from "primereact/toast";
+import {  saveSurvey} from "../../service/CommonDataSrv";
+
 export const Survey = (props) => {
     
     const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +55,7 @@ export const Survey = (props) => {
             }
         });
     }
+    
     const lines=(quizesFull) => {
       if (!quizesFull) return null;
         quizesAll=quizesFull;
@@ -62,39 +65,30 @@ export const Survey = (props) => {
         });
         return( 
         <div>    
-             <ListBox  value={selQuiz} options={quizes} onChange={(e) => callQuiz(e.value)} />        
+             {/* <ListBox  value={selQuiz} options={quizes} onChange={(e) => callQuiz(e.value)} itemTemplate={iTemplate} />         */}
+             <ListBox  value={selQuiz} options={quizes} onChange={(e) => callQuiz(e.value)}  />
         </div>
         )  
         
     } 
     const onClickSave=()=>{
         const survey = {'id': null, 'name': name, 'sortOrder': 1}
-       // saveCourse(survey, updateCourseList, toasts)     
-        surveyChanged = false;
+       saveSurvey(survey, getSurveyList, toasts)     
+      surveyChanged = false;
+       setShowNew(false)
     }
-        /* const saveCourse = (course, updateData, toasts) => {
-            axinst.put('dictionary/survey/save', course)
-            .then(() => {
-                updateData()
-                toasts.current.show({severity:'success', summary:'Успешно!', detail:'Информация сохранена'})
-            })
-            .catch((err) => {
-                if (toasts){
-                    const errMsg = processError(err)
-                    toasts.current.show({severity:"error", summary:"Ошибка", detail: errMsg})
-                }
-            })
-   
-        } */
+       
     return( <Panel>  
         <div className="p-d-flex p-flex-column p-flex-md-row">
-       
+        <Toast ref={toasts} position = {"top-left"} life='5000'></Toast>
            <div >
                 <img src="assets/images/cabinet.jpg" alt="Кот " className='p-news-img' />
            </div>
            <div className="p-mr-5 p-pt-6">
                <h5 className="p-orange ">Выберите из списка опрос или тест</h5>
                  {isLoading ? <ProgressSpinner/> : lines(data)} 
+                 </div>
+            <div className="p-mr-5 p-pt-6">
                  {user.hasAuthorities('super') && 
                 <Button className="p-button-rounded p-mr-3" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить тест" tooltipOptions={{position: 'left'}}
                     onClick={()=>{setShowNew(true)}} />}
@@ -102,10 +96,11 @@ export const Survey = (props) => {
                   {name&&<Button className="p-ml-5" icon="pi pi-check" label="Сохранить"
                         tooltip="Сохранить изменения"
                         onClick={()=>onClickSave()}/>}
-            </div>
+            </div>   
            
         </div>
         </Panel>
     ) 
-
+//для редактирования опросов сделать datatable
+//вопросы и ответы сделать отдельной табличкой
 }

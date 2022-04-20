@@ -47,7 +47,10 @@ export default class CoursesPage extends Component {
                    <p > <a className="p-mylink p-text-bold" href="#c8">{this.course4}</a></p>
                    <p > <a className="p-mylink p-text-bold" href="#c9">{this.course9}</a></p>
                    <h5> <a className="p-orange p-mylink" href="#c01">Курсы для детей:</a> </h5>
-                  
+                   <p > <a className="p-mylink p-text-bold" href="#c5">{this.course5}</a></p>
+                   <p > <a className="p-mylink p-text-bold" href="#c4">{this.course6}</a></p>
+                   <p > <a className="p-mylink p-text-bold" href="#c6">{this.course7}</a></p>
+                   <p > <a className="p-mylink p-text-bold" href="#c7">{this.course8}</a></p>
                    <p className="p-orange">Также есть  индивидуальные занятия для взрослых и детей разной степени подготовленности </p>
                    <Contacts/>
                 </div>
@@ -127,8 +130,7 @@ export default class CoursesPage extends Component {
                         
                         <p><a className="p-mylink" href="https://www.youtube.com/watch?v=a72NS5lUj_M" target="_blank" rel="noreferrer">Запись вводного ролика </a></p>
                         </div>
-                        https://www.youtube.com/watch?v=a72NS5lUj_M
-                        <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
+                       <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                   </Card> 
                
                   <Card id="c10" title={this.course10} subTitle="Программирование" >
@@ -237,6 +239,7 @@ export default class CoursesPage extends Component {
                          <p className="p-text-bold"> <a className="p-mylink" href="/news#n2">подробнее</a>
                            </p>
                            <p><a className="p-mylink" href="https://scratch.mit.edu/projects/410988460" target="_blank" rel="noreferrer">Пример проекта </a> </p>
+                           <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                         </Card> 
                         <img src="assets/images/hatul_gold.png" width= "10%" alt="логотип с котом"/>
                         <Card id="c4" title={this.course6}  subTitle="Для детей 12-15 лет" >
@@ -295,6 +298,7 @@ export default class CoursesPage extends Component {
                             <p>Дополнительно:
                              скорая помощь по школьным заданиям всех стран и континентов.</p>
                             <p>Занятия на русском языке </p></div>
+                            <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                         </Card> 
                         <img src="assets/images/hatul_pink.png" width= "10%" alt="логотип "/>
                   

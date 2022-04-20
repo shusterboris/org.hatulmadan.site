@@ -97,3 +97,18 @@ export const saveCourse = (course, updateData, toasts) => {
         }
     })
 }
+//  *******************  QUIZ SERVICE **********************************
+export const saveSurvey = (course, updateData, toasts) => {
+    axinst.post('survey/surveysave', course)
+    .then(() => {
+        updateData()
+        toasts.current.show({severity:'success', summary:'Успешно!', detail:'Информация сохранена'})
+    })
+    .catch((err) => {
+        if (toasts){
+            const errMsg = processError(err)
+            toasts.current.show({severity:"error", summary:"Ошибка", detail: errMsg})
+        }
+    })
+
+} 

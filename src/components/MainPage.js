@@ -16,7 +16,8 @@ export default class MainPage extends Component {
                   <Contacts/>
                  
                </div>
-               <div className="p-mr-5 p-pt-6">
+               {/* <div className="p-mr-5 p-pt-6 "> */}
+               <div className="p-mr-5 p-pt-6 p-md-6">
                   <h2 className="p-orange p-text-center" style={{margin: '0.5em 0 0.5rem 0', lineHeight: '1.5'}} >Вас приветствует школа "Хатуль мадан".</h2>
                   <h2 className="p-orange p-text-center" style={{margin: '0.5rem 0 0.5rem 0',lineHeight: '1.5'}}>Наша миссия — ввести взрослых и детей в мир высоких технологий.</h2> 
                   <h2 className="p-orange p-text-center" style={{margin: '0.5rem 0 0.5rem 0',lineHeight: '1.5'}}> Рассказываем просто о сложном. </h2>
