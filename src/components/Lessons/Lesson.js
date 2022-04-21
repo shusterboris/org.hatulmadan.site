@@ -15,7 +15,6 @@ import { axinst, timeout, processError } from '../../axInst'
 import { fetchGroups } from "../../service/CommonDataSrv"
 import { ProxyLesson } from './ProxyLesson'
 import { Column } from "primereact/column"
-import axios from "axios"
 
 
 export const Lesson = (props) => {
@@ -43,20 +42,21 @@ export const Lesson = (props) => {
 
     useEffect(()=>{
         fetchGroups(setGroups, toast)
-        fetchMaterials()
+        //fetchMaterials()
     },[location])
 
     useEffect(()=>{
         fetchMaterials()
-    },[addMtrlMode])
+    },[addMtrlMode,id])
 
     const fetchMaterials = () => {
         if (!id){
-            setMaterials(null)
+            setMaterials([])
         }
         axinst.get('lesson/materials/getByLessonId/' + id)
         .then((response) => {
-            setMaterials(response.data)
+            const result = response.data
+            setMaterials(result)
         })
         .catch((err)=>
             console.log(err)
@@ -148,7 +148,7 @@ export const Lesson = (props) => {
     const mtrlBodyTemplate = (rowData) => {
         if (rowData.youtubeLink){
             return <a href={rowData.youtubeLink} target="_blank" rel="noreferrer noopener">
-                {rowData.comment ? rowData : rowData.youtubeLink}
+                {rowData.comment ? rowData.comment : rowData.youtubeLink}
             </a>
         } else{
             return rowData.comment ? rowData.comment : rowData.fileLink
@@ -159,7 +159,7 @@ export const Lesson = (props) => {
         return(
             <Button type="button" icon="pi pi-times" className="p-button-rounded p-button-danger p-button-text"
                 tooltip="Удалить этот материал"
-                onClick={()=>this.onRemoveMtrlRow(rowData)}>
+                onClick={()=>onRemoveMtrlRow(rowData)}>
             </Button>
         )
     }
@@ -175,7 +175,17 @@ export const Lesson = (props) => {
     }
 
     const onRemoveMtrlRow = (rowData) => {
-
+        if (!(rowData && rowData.id)){
+            toast.current.show({severity: 'error', summary:'Невозможно удалить материал', detail:'Нет данных об удаляемом материале!'})
+        }
+        axinst.delete('/lesson/materials/delete/' + rowData.id)
+        .then((response)=>{
+            setMaterials(response.data)
+        })
+        .catch((err)=>{
+            const errMsg = processError(err)
+            toast.current.show({severity:"error", summary:"Ошибка", detail: errMsg})
+        })
     }
 
     const onMtrlRowClick = (rowData) =>{
@@ -201,6 +211,7 @@ export const Lesson = (props) => {
         .then(response=>{
             toast.current.show({severity:'success', summary:'Готово!', detail: "Новый материал добавлен в список!"})
             setMaterials(response.data)
+            setAddMtrlMode(false)
         })
         .catch(err=>{
             const errMsg = processError(err)
@@ -249,7 +260,7 @@ export const Lesson = (props) => {
                     <div className="p-inputgroup">
                         <InputText id="fldMtrlFile" value={fldMtrlFile} placeholder="Файл" style={{width:'100px'}} />
                         <FileUpload mode="basic" name="document"  style={{width:'5rem', marginLeft:'1rem', marginTop:'0.5rem'}}
-                            customUpload={true} uploadHandler={uploadHandler}
+                            customUpload={true} uploadHandler={uploadHandler} 
                             auto chooseLabel=" ">
                         </FileUpload>
                     </div>

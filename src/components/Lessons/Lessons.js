@@ -120,7 +120,9 @@ export const Lessons = (props) => {
     const renderGridItem = (lesson) => {
         const cardHeader = () =>{
             return(<div className="p-d-flex p-jc-between p-mr-5">
-                <span className="p-card-title p-m-2" style={{'fontSize': '1.25em'}}>{moment(lesson.start).format("DD/MM/YY HH:mm")}</span>
+                <span className="p-card-title p-m-2" style={{'fontSize': '1.25em'}}>
+                    {moment(lesson.start).format("DD/MM/YY HH:mm") + ", " + (lesson.group ? lesson.group.name : "Общедоступный")}
+                </span>
                 {user.hasAuthorities('super') && 
                     <i className="pi pi-cog p-m-2" style={{color:'var(--primary-color)'}} tooltip="Нажмите, чтобы изменить"
                     onClick={()=>openLesson(lesson)}></i>}
