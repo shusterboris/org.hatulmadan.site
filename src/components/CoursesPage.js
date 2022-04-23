@@ -3,8 +3,11 @@ import { Card } from 'primereact/card';
 import { Panel } from 'primereact/panel';
 import {ContextMenu} from 'primereact/contextmenu';
 import Contacts from './Contacts.js';
+import {Button} from 'primereact/button';
+
 export default class CoursesPage extends Component {
     state = {};
+  
     course1='Тестирование ПО';
     course2='Автоматизированное тестирование' ; 
     course3='Иврит для IT';
@@ -60,7 +63,9 @@ export default class CoursesPage extends Component {
                         чтобы можно было выбрать курс согласно своему уровню знаний, 
                                     а также брать дополнительные тренинги при наличии желания и возможностей. В составе каждого курса предусмотрена практика с реальными приложениями.</p> <p>Для тех, кто прослушал основные курсы, на тренинги предоставляется скидка. </p>
                                     <p>Список курсов и тренингов постоянно обновляется. Щелкните по рисунку правой кнопкой мыши, чтобы перейти к описанию курсов.</p>
-                            <b>Для получения учебных материалов зарегистрируйтесь на сайте</b></p>
+                            <b>Для получения дополнительных материалов </b> 
+                            <a className="p-mylink p-text-bold pi pi-user" href="/login"> зарегистрируйтесь</a>                          
+                         </p>
                             <ContextMenu className="p-addlink" model={this.menu} ref={el => this.cm = el}></ContextMenu>                    
                             <p> <img src="assets/images/courses1.jpg"  className='p-page-img' onContextMenu={(e) => this.cm.show(e)} alt="схема курсов"/></p>
                     </div> 
@@ -264,26 +269,27 @@ export default class CoursesPage extends Component {
                         <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                     </Card>
                     <img src="assets/images/hatul_purple.png" width= "10%" alt="логотип с котом"/>
-                        <Card id="c9" title={this.course9}  subTitle="Для взрослых и детей от 16 лет" >
+                    <Card id="c9" title={this.course9}  subTitle="Для взрослых и детей от 16 лет" >
                         <p className="p-m-0" style={{lineHeight: '1.5'}}>
-                      Изучение языка JavaSctipt и основ программирования.  Обучение на русском языке 
-                      <ui> <li>Программа курса: </li>
-                      <li>Введение в веб-разработку: клиент-сервер, cостав веб-страницы, HTML CSS JavaSript</li>
-<li>Среда разработки Visual Studio Code</li>
-<li>Изучение javaScript:</li>
-<ui>
-<li>Основы языка:  	переменные, арифметические и логические операции,условные операторы, циклы, структуры данных,функции, 
-    классы и объекты</li>
-    <li>Управление событиями</li>
-    <li>Обмен данными с сервером</li>
-</ui>
-<li>DOM-модель</li>
-<li>REACT </li>
-<li>Работа над личными проектами</li>
-<li>Git. Методологии разработки. Agile</li>
-                        </ui>
-                       
+                            Изучение языка JavaSctipt и основ программирования.  Обучение на русском языке 
+                            <ui> <li>Программа курса: </li>
+                            <li>Введение в веб-разработку: клиент-сервер, cостав веб-страницы, HTML CSS JavaSript</li>
+                            <li>Среда разработки Visual Studio Code</li>
+                            <li>Изучение javaScript:</li>
+                                <ui>
+                                        <li>Основы языка:  	переменные, арифметические и логические операции,условные операторы, циклы, структуры данных,функции, 
+                                            классы и объекты</li>
+                                        <li>Управление событиями</li>
+                                        <li>Обмен данными с сервером</li>
+                                </ui>
+                            <li>DOM-модель</li>
+                            <li>REACT </li>
+                            <li>Работа над личными проектами</li>
+                            <li>Git. Методологии разработки. Agile</li>
+                            </ui>
                         </p>
+                        <p><a className="p-mylink" href="https://youtu.be/MIeIxuKj76U" target="_blank" rel="noreferrer">Запись вводного курса часть1</a></p>
+                        <p><a className="p-mylink" href="https://youtu.be/2diQSU5s8jY" target="_blank" rel="noreferrer">Запись вводного курса часть2</a></p>
                         <a className="p-addlink " href="#c0">В начало<i className="pi pi-arrow-up" ></i></a>
                     </Card>
                         <img src="assets/images/hatul_green.png" width= "10%" alt="логотип с котом"/>
