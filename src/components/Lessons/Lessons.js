@@ -46,11 +46,6 @@ export const Lessons = (props) => {
     }, [loading]);
 
     useEffect(()=>{
-/*        if (!selectedGroup) {
-            setLessons([])
-            setLoading(false);
-            return
-        }*/
         let url
         if (!user.hasAuthorities("super")){
             url = 'lesson/getByGroupId'+(selectedGroup ? ("/"+selectedGroup.id) : "")
@@ -83,6 +78,7 @@ export const Lessons = (props) => {
             toasts.current.show({severity:'error', summary:'Невозможно открыть!', detail:'Нет данных о файле'})
             return
         }
+        let errMsg = "";
         const url = apiUrl + "lesson/materials/getAttFile/" + material.srvFileLink
         return axinst.get(url, {
             responseType: 'arraybuffer',
@@ -99,8 +95,19 @@ export const Lessons = (props) => {
             link.click()
           })
           .catch(err=>{
-            const errMsg = (!err.response) ? "Сервер не отвечает или проблемы с Интернетом" : "Не удалось сформировать отчет";
-            this.messages.show({severity:'error', summary: errMsg});
+            if (err.response){
+                let status = err.response.status
+                if (status === 404){
+                    errMsg = "Запрошенный файл отсутствует в хранилище!"
+                }else if (status === 204){
+                    errMsg = "Ошибка чтения запрошенного файла, возможно, он заблокирован или поврежден.!"
+                }else{
+                    errMsg = "Непредусмотренная ошибка при попытке получить файл!";
+                }
+            }else{
+                errMsg = "Сервер не отвечает или проблемы с Интернетом"
+            }
+            toasts.current.show({severity:'error', summary: "Невозможно", detail: errMsg});
         });            
     }
 
@@ -191,10 +198,9 @@ export const Lessons = (props) => {
         return    <div className="p-d-flex p-jc-between p-m-0 p-p-0">           
             {user.hasAuthorities('super') && 
                 <Button className="p-button-rounded p-mr-3" icon="pi pi-plus" tooltip="Нажмите, чтобы добавить запись о занятии" tooltipOptions={{position: 'left'}}
-                    onClick={()=>props.history.push({pathname: '/lesson', state: {id:1}})} />}
+                    onClick={()=>props.history.push({pathname: '/lesson', state: {id:null}})} />}
             <div className="p-inputgroup" >
                 {isCompact() && <div>                    
-                    {/* <h2 className="p-orange p-mr-2" > Добро пожаловать!  </h2> p-card-title  */}
                     <span className="p-col-fixed p-card-title" style={{width:'10rem'}}> Материалы</span>
                 </div>}
                 <AutoComplete field="name" dropdown placeholder="Выберите название группы" 
