@@ -220,7 +220,7 @@ export default class TeamPage extends Component {
                 </Card>
             </div>
         </div>
-        <small id="username-help">version 1.6</small>
+        <small id="username-help">version 1.7</small>
         </Panel>
        )     
     }

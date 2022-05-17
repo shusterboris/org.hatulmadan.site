@@ -47,7 +47,7 @@ export const Lessons = (props) => {
 
     useEffect(()=>{
         let url
-        if (!user.hasAuthorities("super")){
+        if (!user.hasAuthorities("super") || selectedGroup){
             url = 'lesson/getByGroupId'+(selectedGroup ? ("/"+selectedGroup.id) : "")
         }else {
             url = 'lesson/getAll'
@@ -56,7 +56,7 @@ export const Lessons = (props) => {
         .then((response) => {
             datasource.current = response.data
             setLessons(datasource.current.slice(0, rows.current))
-            setTotalRecords(response.data.size)
+            setTotalRecords(response.data.length)
             sessionStorage.setItem("choosenGroup", JSON.stringify(selectedGroup))
             setLoading(false)
         })
@@ -142,7 +142,8 @@ export const Lessons = (props) => {
                     <div className="p-col-6"><span style={{fontSize:'1rem', color:'#614200', fontStyle:'oblique'}}>Список материалов</span></div>
                     <div className="p-col-6"><span style={{fontSize:'1rem', color:'#614200', fontStyle:'oblique'}}>Описание</span></div>
                     <div className="p-col-6">
-                        <ListBox value={choosenMaterial} options={lesson.materials} itemTemplate={materialItemTemplate}
+                        <ListBox value={choosenMaterial} options={lesson.materials} 
+                            itemTemplate={materialItemTemplate}
                             onChange = {(e) => getMaterial(e.value, lesson)} 
                             listStyle={{maxHeight:'250px', minHeight:'250px'}}></ListBox>
                     </div>
@@ -219,7 +220,7 @@ export const Lessons = (props) => {
     const onPage = (event) => {
         const startIndex = event.first;
         const endIndex = Math.min(event.first + rows.current, totalRecords - 1);
-        const newLessons = startIndex === endIndex ? datasource.slice(startIndex) : datasource.slice(startIndex, endIndex);
+        const newLessons = startIndex === endIndex ? datasource.current.slice(startIndex) : datasource.current.slice(startIndex, endIndex);
 
         setFirst(startIndex);
         setLessons(newLessons);
@@ -233,7 +234,8 @@ export const Lessons = (props) => {
                 <Toast ref={toasts} position = {"top-left"} life='10000'/> 
                  <div className="dataview-demo">                                 
                     <DataView value={lessons} layout={layout} header = {header}
-                            itemTemplate={showItemTemplate} lazy paginator paginatorPosition={'top'} rows={rows.current}
+                            itemTemplate={showItemTemplate} lazy paginator paginatorPosition={'top'} 
+                            rows={rows.current}
                             totalRecords={totalRecords} first={first} onPage={onPage} loading={loading} 
                             emptyMessage="Нет данных"/>   
                 </div>
