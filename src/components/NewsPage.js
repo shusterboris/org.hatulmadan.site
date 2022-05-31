@@ -11,7 +11,9 @@ export default class CoursesPage extends Component {
         <h3  className=" p-pt-6 p-orange p-text-center">Новости, объявления, истории, отчеты о мероприятиях    </h3>
         <div className="p-d-flex p-flex-column p-flex-md-row ">
             <div className="p-pl-4">
+            
                 <p> <img src="assets/images/mechHatul.jpeg"  className="p-page-img" alt="картинка с котом"/> </p>
+                <p > <a className="p-mylink p-text-bold" href="#n14">Трудоустройство после курса QA</a></p>
                 <p > <a className="p-mylink p-text-bold" href="#n13">Приглашаем на бесплатный вводный курс по WEB-разработке</a></p>
                 <p > <a className="p-mylink p-text-bold" href="#n12">Первый урок занимательной математики</a></p>
                 <p > <a className="p-mylink p-text-bold" href="#n11">Первый урок курса технического английского</a></p>
@@ -30,6 +32,15 @@ export default class CoursesPage extends Component {
             </div>
             
             <div className="p-px-3 ">
+            <Card id="n14" title="Трудоустройство после курса QA">  
+            <div className="p-m-0" style={{lineHeight: '1.5'}}>
+            Поздравляем нашу студентку Инну, которая нашла работу!
+            <p><img src="assets/images/n14/inna1.jpg" style={{wigth: '400px'}} alt="whatsApp message"/>
+            </p>
+             
+            На технических собеседованиях у нее спрашивали именно то, что мы давали на занятиях.
+            </div>
+            </Card>
             <Card id="n13" title="Введение в WEB-разработку">  
             <div className="p-m-0" style={{lineHeight: '1.5'}}>
             Самое правильное приложение должно быть таким, как на этой картинке. 
