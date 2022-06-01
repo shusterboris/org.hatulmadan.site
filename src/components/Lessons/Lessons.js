@@ -5,10 +5,11 @@ import { Card } from "primereact/card";
 import { ListBox } from 'primereact/listbox'
 import { AutoComplete } from 'primereact/autocomplete';
 import { Button } from 'primereact/button'
-import { apiUrl, axinst } from "../../axInst";
+import { apiUrl, axinst} from "../../axInst";
 import { fetchGroups } from "../../service/CommonDataSrv";
 import { InputText } from "primereact/inputtext";
 import User from "../../wrapers/User";
+import { ProgressBar } from 'primereact/progressbar';
 
 export const Lessons = (props) => {
     let choosenMaterial = null;
@@ -26,6 +27,7 @@ export const Lessons = (props) => {
     const rows = useRef(6)
     const isMounted = useRef(false)
     const moment = require('moment');
+    const [pleaseWait, setPPleaseWait] = useState(false)
 
     useEffect (()=>{
         if (user.hasAuthorities('super')){
@@ -78,10 +80,12 @@ export const Lessons = (props) => {
             toasts.current.show({severity:'error', summary:'Невозможно открыть!', detail:'Нет данных о файле'})
             return
         }
+        setPPleaseWait(true)
         let errMsg = "";
         const url = apiUrl + "lesson/materials/getAttFile/" + material.srvFileLink
         return axinst.get(url, {
             responseType: 'arraybuffer',
+            timeout: 20000,
             headers: {
               'Content-Type': 'application/json'
             }
@@ -108,7 +112,8 @@ export const Lessons = (props) => {
                 errMsg = "Сервер не отвечает или проблемы с Интернетом"
             }
             toasts.current.show({severity:'error', summary: "Невозможно", detail: errMsg});
-        });            
+        })
+        .finally(()=>{setPPleaseWait(false)});            
     }
 
     const getMaterial = (material) => {
@@ -229,10 +234,10 @@ export const Lessons = (props) => {
 
     const header = cardsViewHeader()
     return(<div className="p-m-0">
-            
             <div className="p-col-12">            
                 <Toast ref={toasts} position = {"top-left"} life='10000'/> 
-                 <div className="dataview-demo">                                 
+                 <div className="dataview-demo">        
+                    {pleaseWait && <ProgressBar mode="indeterminate" ></ProgressBar>}                         
                     <DataView value={lessons} layout={layout} header = {header}
                             itemTemplate={showItemTemplate} lazy paginator paginatorPosition={'top'} 
                             rows={rows.current}

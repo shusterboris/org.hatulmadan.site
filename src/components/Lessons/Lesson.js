@@ -231,8 +231,7 @@ export const Lesson = (props) => {
     }
 
     const uploadMtrlFile = (file) => {
-        const longTimeout =  timeout * 15
-        axinst.post('file/save', {"fileName":choosenFileName, "blob": file.result}, {timeout: longTimeout})
+        axinst.post('file/save', {"fileName":choosenFileName, "blob": file.result}, {timeout: 30000})
             .then(res => {
                     if (!res.data.startsWith("Ошибка")){
                         fldMtrlStoredFile.current = res.data
