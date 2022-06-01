@@ -164,11 +164,18 @@ export const Lesson = (props) => {
         )
     }
 
+    const showMaterialMode = () => {
+        setFldMtrlComment("")
+        setFldMtrlFile("")
+        setFldMtrlUrl("")
+        setAddMtrlMode(true)
+    }
+
     const mtrlTableHeaderTemplate = () => {
         return(<div className="p-d-flex ">
             {id && 
             <Button icon="pi pi-plus" className="p-button-rounded p-button-warning p-ml-5" 
-                onClick={()=>setAddMtrlMode(true)}></Button>
+                onClick={showMaterialMode}></Button>
             }
             <span style={{margin:'1rem 0 0 1rem'}}>Материалы занятия</span> 
         </div>)
@@ -195,9 +202,9 @@ export const Lesson = (props) => {
     }
 
     const dismissAddMtrl= () => {
-        setFldMtrlComment(null)
-        setFldMtrlFile(null)
-        setFldMtrlUrl()
+        setFldMtrlComment("")
+        setFldMtrlFile("")
+        setFldMtrlUrl("")
         setAddMtrlMode(false)
     }
 
@@ -216,6 +223,7 @@ export const Lesson = (props) => {
         .catch(err=>{
             const errMsg = processError(err)
             toast.current.show({severity:'error', summary:'Ошибка записи!', detail: errMsg})
+            showMaterialMode()
         })
         .finally(
             setPleaseWait(false)
@@ -223,7 +231,7 @@ export const Lesson = (props) => {
     }
 
     const uploadMtrlFile = (file) => {
-        const longTimeout =  timeout * 5
+        const longTimeout =  timeout * 15
         axinst.post('file/save', {"fileName":choosenFileName, "blob": file.result}, {timeout: longTimeout})
             .then(res => {
                     if (!res.data.startsWith("Ошибка")){
@@ -231,11 +239,13 @@ export const Lesson = (props) => {
                         toast.current.show({severity:'success',summary:'Отлично!', detail:"Файл отправлен на сервер. Заполните остальные данные по материалу и сохраните их"})
                     }else{
                         toast.current.show({severity:'error',summary:'Ошибка', detail:res.data})
+                        showMaterialMode()
                     }
             })
             .catch(err=>{
                 const errMsg = processError(err)
                 toast.current.show({severity:'error',summary:'Ошибка', detail:errMsg})
+                showMaterialMode()
             })
             .finally(setPleaseWait(false))            
     }
